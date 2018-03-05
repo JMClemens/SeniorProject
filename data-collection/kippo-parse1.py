@@ -1,5 +1,6 @@
 import re
 import csv
+import pygeoip
 
 # Helper function for string timestamp to int seconds
 def get_sec(time_str):
@@ -17,6 +18,7 @@ def write_csv():
 	    writer.writerow(row)
 	out_file.close()
 
+gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 sessionList = []
 x = 0
 log = open(r"kippo.log", "r").read()
@@ -49,7 +51,12 @@ for session in conn_list:
 		endTime = 0
 		duration = 0
 
-	entry = {"ip":ip, "dur":duration, "log-at":la}
+	if ip != 'none':
+		country = gip.country_name_by_addr(ip)
+	else:
+		country = 'none'
+	
+	entry = {"ip":ip, "dur":duration, "log-at":la, "country":country}
 	sessionList.append(entry)
 
 	print "-------- Session End ---------"

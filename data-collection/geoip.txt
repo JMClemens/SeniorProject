@@ -1,0 +1,6 @@
+URL for pygeoip DB files:
+
+https://dev.maxmind.com/geoip/legacy/geolite/
+
+Install
+pip install pygeoip
