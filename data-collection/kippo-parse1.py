@@ -31,7 +31,6 @@ for session in conn_list:
 		m, s = divmod(duration, 60)
 		h, m = divmod(m, 60)
 		duration = "%02d:%02d:%02d" % (h, m, s)
-		#duration = str(h) + ":" + str(m) + ":" + str(s)
 	else:	
 		startTime = 0
 		endTime = 0
