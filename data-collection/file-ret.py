@@ -19,6 +19,7 @@ def createSSHClient(server, port, user, password):
 ssh = createSSHClient(server, port, user, password)
 scp = SCPClient(ssh.get_transport())
 
+
 # Gets the logs from glastopf
 scp.get('../jmc/glastopf/financialfirstgroup/log/glastopf.log')
 
