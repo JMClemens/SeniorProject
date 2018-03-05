@@ -1,0 +1,16 @@
+2018-03-02 10:30:17,293 (glastopf.glastopf) Initializing Glastopf 3.1.3-dev using "/home/jmc/glastopf/financialfirstgroup" as work directory.
+2018-03-02 10:30:17,382 (root) Using syslog logger on remote ('/dev/log', 514).
+2018-03-02 10:30:17,433 (glastopf.glastopf) Connecting to main database with: sqlite:///db/glastopf.db
+2018-03-02 10:30:17,559 (glastopf.glastopf) Glastopf started and privileges dropped.
+2018-03-02 10:50:13,919 (glastopf.glastopf) 76.100.27.231 requested GET / on financialfirstgroup.com:80
+2018-03-02 10:50:14,798 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-03-02 10:50:15,423 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-03-02 10:58:38,442 (glastopf.glastopf) 76.100.27.231 requested GET / on financialfirstgroup.com:80
+2018-03-02 10:58:38,596 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-03-02 10:58:38,837 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-03-02 10:58:51,291 (glastopf.glastopf) 76.100.27.231 requested POST /index on financialfirstgroup.com:80
+2018-03-02 10:58:51,471 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-03-02 10:58:51,701 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-03-02 10:59:21,103 (glastopf.glastopf) 76.100.27.231 requested POST /index on financialfirstgroup.com:80
+2018-03-02 10:59:21,258 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-03-02 10:59:21,490 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
