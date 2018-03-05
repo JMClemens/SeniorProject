@@ -4,3 +4,7 @@ https://dev.maxmind.com/geoip/legacy/geolite/
 
 Install
 pip install pygeoip
+
+Running Glastopf in background (won't crash):
+
+sudo glastopf-runner & disown
