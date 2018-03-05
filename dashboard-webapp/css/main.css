@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color:#8b8d91;
+}
+.lg-wrap {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right:20px;
+  padding: 10px;
+}
+.hp-wrap {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right:20px;
+  border: 2px solid blue;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+.section-title {
+  margin-top: -15px;
+  margin-left: 15px;
+  background: #8b8d91;
+  text-align: center;
+}
+.ft {
+  width: 120px;
+}
+.st {
+  width: 120px;
+}
+.tt {
+  width: 120px;
+}
