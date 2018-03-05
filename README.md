@@ -2,6 +2,7 @@
 
 # Authors
 Joshua Clemens
+&
 Cory Watson
 
 # Background
