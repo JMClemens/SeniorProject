@@ -7,6 +7,9 @@ port = "1026"
 user = "datagrabber"
 password = "HcHp18&cj"
 
+glastopfFilePath = '../jmc/glastopf/financialfirstgroup/log/glastopf.log'
+kippoFilePath = '../caw/kippo/kippo/log/kippo.log'
+
 def createSSHClient(server, port, user, password):
     client = SSHClient()
     client.load_system_host_keys()
@@ -21,8 +24,8 @@ scp = SCPClient(ssh.get_transport())
 
 
 # Gets the logs from glastopf
-scp.get('../jmc/glastopf/financialfirstgroup/log/glastopf.log')
+scp.get(glastopfFilePath)
 
 # Gets the logs from kippo
-scp.get('../caw/kippo/kippo/log/kippo.log')
+scp.get(kippoFilePath)
 

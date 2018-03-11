@@ -1,6 +1,7 @@
 import re
 import csv
 import pygeoip
+import getCenterCords as g
 
 # Helper function for string timestamp to int seconds
 def get_sec(time_str):
@@ -19,10 +20,8 @@ def write_csv():
 	out_file.close()
 
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
-gipc = pygeoip.GeoIP('GeoLiteCity.dat')
 
 sessionList = []
-x = 0
 log = open(r"kippo.log", "r").read()
 
 conn_list = re.split("(New connection:.*)",log)
@@ -54,21 +53,23 @@ for session in conn_list:
 		duration = 0
 
 	if ip != 'none':
-		country = gip.country_name_by_addr(ip)
-		records = gipc.record_by_addr(ip)
-		#country_name = records.get('country_name',None)
-		#country_code = records.get('country_code3',None)
-		city = records.get('city',None)
+		countryName = gip.country_name_by_addr(ip)
+		if countryName == "Korea, Republic of": countryName = "South Korea"
+		elif countryName =="Hong Kong": countryName = "China"
+		print(countryName)
 	else:
-		#country_name = 'none'
-		#country_code = 'none'
 		country = 'none'
-		city = 'none'
 
-	# country_name, country_code need to be encoded properly to write to file!
-	# thusly, they've been removed for now, re add these keys and their vars above
-	# before trying to print that data to file
-	entry = {"ip":ip, "dur":duration, "log-at":la, "country":country}
+	if countryName != 'none':
+		coords = g.get_boundingbox_country(country=countryName, output_as='center')
+	else:
+		coords = 'none'
+
+
+	entry = {"ip":ip, "dur":duration, "log-at":la, "country":countryName, "Coords":coords}
+	print "\nEntry:"
+	print entry
+	print "\n"
 	sessionList.append(entry)
 
 	print "-------- Session End ---------"
