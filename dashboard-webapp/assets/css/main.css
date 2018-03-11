@@ -1,0 +1,34 @@
+#worldmap {
+  width: 960px;
+  height: 500px;
+}
+#barchart {
+  width: 600px;
+  height: 300px;
+}
+svg {
+  width: 100%;
+  height: 100%;
+}
+.feature {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1px;
+  stroke-linejoin: round;
+}
+.mesh {
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+}
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
