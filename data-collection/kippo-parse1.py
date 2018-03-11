@@ -10,7 +10,7 @@ def get_sec(time_str):
 
 # Writes our log info to a csv file
 def write_csv():
-	out_file = open("test.csv","wb")
+	out_file = open("kippo.csv","wb")
 	fieldnames = sorted(list(set(k for d in sessionList for k in d)))
 	writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
 

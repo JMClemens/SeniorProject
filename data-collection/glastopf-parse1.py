@@ -2,9 +2,20 @@ import pygeoip
 import getCenterCords as g
 
 fileName = "glastopf.log"
+outFile = "glastopf.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 activityList = []
+
+def write_csv(fileName):
+	out_file = open(fileName,"wb")
+	fieldnames = sorted(list(set(k for d in activityList for k in d)))
+	writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
+
+	writer.writeheader()
+	for row in activityList:
+	    writer.writerow(row)
+	out_file.close()
 
 def parseLog(fileName):
 	with open(fileName, "r") as file:
@@ -29,3 +40,4 @@ def parseLog(fileName):
 
 
 parseLog(fileName)
+write_csv(outFile)
