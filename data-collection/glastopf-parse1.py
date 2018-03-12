@@ -1,5 +1,6 @@
 import pygeoip
 import getCenterCords as g
+import csv
 
 fileName = "glastopf.log"
 outFile = "glastopf.csv"
@@ -30,10 +31,11 @@ def parseLog(fileName):
 			httpRequestMethod = contents[5]
 			requestedResource = contents[6]
 			countryName =  gip.country_name_by_addr(ipAddr)
-			coords = g.get_boundingbox_country(country=countryName, output_as='center')
+			#coords = g.get_boundingbox_country(country=countryName, output_as='center')
 			if requestedResource == "/": requestedResource = "index.html"
 
-			entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "Coords":coords, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
+			#add coords back to dict when possible
+			entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
 			print entry
 			activityList.append(entry)
 

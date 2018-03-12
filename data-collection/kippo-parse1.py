@@ -28,7 +28,7 @@ conn_list = re.split("(New connection:.*)",log)
 
 for session in conn_list:
 	
-	print "-------- Session Start ---------"
+	#print "-------- Session Start ---------"
 	ip =  re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', session)
 	if ip:
 		ip = ip.pop(0)
@@ -36,8 +36,8 @@ for session in conn_list:
 		ip = 'none'
 	
 	la = re.findall("login attempt.*", session)
-	for line in la:
-		print "IP addr: " + ip  + "  \nLogin Attempts: " + line
+	#for line in la:
+	#	print "IP addr: " + ip  + "  \nLogin Attempts: " + line
 	
 	times = re.findall(r'[0-60]{2}\:[0-9][0-9]\:[0-9][0-9]\:*', session)
 	if len(times) > 1:
@@ -56,23 +56,21 @@ for session in conn_list:
 		countryName = gip.country_name_by_addr(ip)
 		if countryName == "Korea, Republic of": countryName = "South Korea"
 		elif countryName =="Hong Kong": countryName = "China"
-		print(countryName)
+	#	print(countryName)
 	else:
 		country = 'none'
 
 	if countryName != 'none':
-		coords = g.get_boundingbox_country(country=countryName, output_as='center')
+		#coords = g.get_boundingbox_country(country=countryName, output_as='center')
+		coords = 'none'
 	else:
 		coords = 'none'
 
-
-	entry = {"ip":ip, "dur":duration, "log-at":la, "country":countryName, "Coords":coords}
-	print "\nEntry:"
-	print entry
-	print "\n"
+	# Readd coords once that part is fixed
+	entry = {"ip":ip, "dur":duration, "log-at":la, "country":countryName}
 	sessionList.append(entry)
 
-	print "-------- Session End ---------"
+	#print "-------- Session End ---------"
 
 
 # Writes our session list info to a CSV file
