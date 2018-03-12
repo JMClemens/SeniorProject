@@ -31,3 +31,9 @@ svg {
   stroke: #000;
   shape-rendering: crispEdges;
 }
+.avi-zoom-bg {
+  background-color: grey;
+}
+.big-avi  {
+  width: 90% !important;
+}
