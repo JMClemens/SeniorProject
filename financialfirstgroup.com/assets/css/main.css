@@ -2,13 +2,16 @@
   width: 960px;
   height: 500px;
 }
-#barchart {
-  width: 600px;
+#g-country-frequency {
+  width: 400px;
   height: 300px;
 }
 svg {
   width: 100%;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .feature {
   fill: none;
@@ -22,10 +25,6 @@ svg {
   stroke-width: 2px;
   stroke-linejoin: round;
 }
-.axis {
-  font: 10px sans-serif;
-}
-
 .axis path,
 .axis line {
   fill: none;
