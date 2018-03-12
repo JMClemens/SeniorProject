@@ -1,5 +1,10 @@
 import requests
 
+"""
+This code was found at the following page:
+https://gis.stackexchange.com/questions/212796/get-lat-lon-extent-of-country-from-name-using-python/212804
+Posted by user Mattjin
+"""
 def get_boundingbox_country(country, output_as='boundingbox'):
     """
     get the bounding box of a country in EPSG4326 given a country name
