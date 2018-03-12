@@ -48,12 +48,20 @@ d3.csv("../assets/data/gcf.csv", function(error, data) {
     // specify domains of x and y scales
     xScale.domain(data.map(function(d) { return d.Country }) );
     yScale.domain([0,d3.max(data, function(d) { return d.Frequency; } )] );
+    var yDomain = yScale.domain(); 
+    yAxis.ticks( Math.min(10, (yDomain[1] - yDomain[0]) ) );
     
     // draw bars
     svg.selectAll('rect')
       .data(data)
       .enter()
       .append('rect')
+      // next four lines are for cool loaded animation
+      // start at zero, and make each rect go to their full height over 2s
+      .attr("height", 0)
+      .attr("y",height)
+      .transition().duration(2000)
+      .delay(function(d,i) { return i * 150;})
       .attr ({
         "x": function(d) { return xScale(d.Country); },
         "y": function(d) { return yScale(d.Frequency); },
@@ -63,12 +71,32 @@ d3.csv("../assets/data/gcf.csv", function(error, data) {
       // Can use this notation below to fill a different color for each graph
       .style("fill", function(d,i) { return 'rgb(20, 20, ' + ((i * 30) + 100) + ')'});
       
+      // label the bars
+      svg.selectAll('text')
+        .data(data)
+        .enter()
+        .append('text')
+        .text(function(d) { return d.Frequency; })
+        .attr('x', function(d) { return xScale(d.Country) + xScale.rangeBand()/2;})
+        .attr('y', function(d) { return yScale(d.Frequency) + 12;})
+        .style("fill", "white")
+        .style("text-anchor", "middle");
+      
+      // draw x axis
       svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll('text')
+        .attr("transform", "rotate(-60)")
+        .attr("dx","-.8em")
+        .attr("dy",".25em")
+        .style("text-anchor","end")
+        .style("font-size","12px");
       
+      // draw y axis
       svg.append("g")
         .attr("class","y axis")
-        .call(yAxis);
+        .call(yAxis)
+        .style("font-size","12px");
 });
