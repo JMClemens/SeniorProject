@@ -3,9 +3,9 @@ import getCenterCords as g
 import csv
 from collections import Counter
 
-fileName = "glastopf.log"
-outFile = "glogs/glastopf.csv"
-gCfreqFile = "glogs/gcf.csv"
+fileName = "glastopf/logs/glastopf.log"
+outFile = "glastopf/csv/glastopf.csv"
+gCfreqFile = "glastopf/csv/gcf.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 activityList = []
@@ -30,23 +30,26 @@ def write_dict_to_csv(fileName,fieldNames, myDict):
 def parseLog(fileName):
 	with open(fileName, "r") as file:
 		for line in file:
-			contents = line.split()
+			if "Initializing Glastopf" or "Connecting to main database" or "Glastopf started" in line:
+				pass
+			else:	
+				contents = line.split()
 
-			date = contents[0]
-			secondGroup = contents[1].split(",")
-			timeStamp = secondGroup[0]
-			httpStatusCode = secondGroup[1]
-			ipAddr = contents[3]
-			httpRequestMethod = contents[5]
-			requestedResource = contents[6]
-			countryName =  gip.country_name_by_addr(ipAddr)
-			#coords = g.get_boundingbox_country(country=countryName, output_as='center')
-			if requestedResource == "/": requestedResource = "index.html"
+				date = contents[0]
+				secondGroup = contents[1].split(",")
+				timeStamp = secondGroup[0]
+				httpStatusCode = secondGroup[1]
+				ipAddr = contents[3]
+				httpRequestMethod = contents[5]
+				requestedResource = contents[6]
+				countryName =  gip.country_name_by_addr(ipAddr)
+				#coords = g.get_boundingbox_country(country=countryName, output_as='center')
+				if requestedResource == "/": requestedResource = "index.html"
 
-			#add coords back to dict when possible
-			entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
-			#print entry
-			activityList.append(entry)
+				#add coords back to dict when possible
+				entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
+				#print entry
+				activityList.append(entry)
 
 def countryFrequency():
 	countryList = []
