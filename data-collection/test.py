@@ -1,6 +1,7 @@
 import pycountry
 import getCenterCords as g
 import time
+import csv
 
 countryList = []
 
@@ -19,8 +20,8 @@ for item in pycountry.countries:
 	elif(item.name == "Korea, Republic of"): codeCheck = "Korea"
 	else: codeCheck = item.name
 	coords = g.get_boundingbox_country(country=codeCheck, output_as='center')
-	time.sleep(1)
-
+	time.sleep(2)
+	print codeCheck
 	item = {"Country":codeCheck,"Coords":coords}
 
 	countryList.append(item)
