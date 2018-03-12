@@ -2,10 +2,13 @@ import pygeoip
 import getCenterCords as g
 import csv
 from collections import Counter
+import os
 
 fileName = "glastopf/logs/glastopf.log"
 outFile = "glastopf/csv/glastopf.csv"
+allLog = "glastopf/csv/all.csv"
 gCfreqFile = "glastopf/csv/gcf.csv"
+logPath = "glastopf/logs/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 activityList = []
@@ -26,6 +29,11 @@ def write_dict_to_csv(fileName,fieldNames, myDict):
 		for key, value in myDict.items():
 			writer.writerow([key, value])
 
+def getAllLogs():
+	os.chdir('glastopf/logs')
+	logs = os.listdir('.')
+	os.chdir('../../')
+	return logs
 
 def parseLog(fileName):
 	with open(fileName, "r") as file:
@@ -51,6 +59,15 @@ def parseLog(fileName):
 				#print entry
 				activityList.append(entry)
 
+def parseAllLogs():
+	logs = getAllLogs()
+	for file in logs:
+		fileName = logPath + file
+		fileName.strip('\'')
+		parseLog(fileName)
+	write_list_of_dicts_to_csv(allLog, activityList)
+
+
 def countryFrequency():
 	countryList = []
 	for item in activityList:
@@ -65,4 +82,5 @@ def countryFrequency():
 
 parseLog(fileName)
 write_list_of_dicts_to_csv(outFile,activityList)
+#parseAllLogs()
 countryFrequency()
