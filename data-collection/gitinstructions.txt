@@ -1,9 +1,0 @@
-To add a file:
-
-git add <filename here>
-
-Then:
-
-git commit -m "Enter custom commit message here (ex: updated kippo-parse1.py for blah blah blah"
-
-git push origin master
