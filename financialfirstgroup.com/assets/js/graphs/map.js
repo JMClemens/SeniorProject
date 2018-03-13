@@ -27,8 +27,9 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       d.Frequency = +d.Frequency;
       d.Coords = d.Coords.replace(/[\[\]"]+/g, '');
       d.Coords = d.Coords.split(',');
-      d.Coords = d.Coords.map(Number);
+      d.Coords = d.Coords.map(x => parseFloat(x));
       d.Country = d.Country;
+      gCoords.push(d.Coords);
       console.log("Type of:", d.Coords[0], typeof(d.Coords[0]))
       console.log("d.frequency: ",d.Frequency, ". Type: ", typeof(d.Frequency))
       console.log("d.Coords: ",d.Coords, ". Type: ", typeof(d.Coords))
@@ -62,9 +63,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         .datum(topojson.mesh(topo, topo.objects.countries, function(a, b) { return a !== b; }))
         .attr("class", "mesh")
         .attr("d", path);
-
-      var min = Math.min.apply(Math, data.Frequency);
-      var max = Math.max.apply(Math, data.Frequency);
+      aa = [38.9597594, 34.9249653];
+      
       
       // add circles to svg
       svg.selectAll("circle")
@@ -92,7 +92,15 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         div.transition()		
           .duration(500)		
           .style("opacity", 0);	
-        });	
-      
+        });	        
+      /*
+        svg.selectAll("circle")
+        .data([aa]).enter()
+        .append("circle")
+        .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+        .attr("cy", function (d) { return projection(d)[1]; })
+        .attr("r", "8px")
+        .attr("fill", "red");
+      */
   });
 });
