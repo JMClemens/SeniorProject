@@ -1,10 +1,10 @@
 // Define the height/width of our svg and its margins
 var margin = { top: 20, right: 10, bottom: 100, left: 40},
-    width = 400 - margin.right - margin.left,
-    height = 300 - margin.top - margin.bottom;
+    width = 500 - margin.right - margin.left,
+    height = 350 - margin.top - margin.bottom;
 
 // Define svg    
-var svg = d3.select("#g-country-frequency")
+var svg = d3.select("#k-country-frequency")
     .append("svg")
       .attr ({
         "width": width + margin.right + margin.left,
