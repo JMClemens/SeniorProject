@@ -60,6 +60,6 @@ scp = SCPClient(ssh.get_transport())
 getAllGlastopfLogs()
 
 # Gets the logs from kippo
-scp.get(kippoFilePath)
+#scp.get(kippoFilePath)
 
 scp.close()

@@ -4,24 +4,30 @@ import csv
 from collections import Counter
 import os
 
-fileName = "glastopf/logs/glastopf.log"
-outFile = "glastopf/csv/glastopf.csv"
-allLog = "glastopf/csv/all.csv"
-gCfreqFile = "glastopf/csv/gcf.csv"
+fileName = "glastopf.log"
+outFile = "glastopf.csv"
+allLog = "all.csv"
+gCfreqFile = "gcf.csv"
 logPath = "glastopf/logs/"
+csvPath = "glastopf/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
+ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf"]
 
 activityList = []
 
 def write_list_of_dicts_to_csv(fileName, list_of_dicts):
+	os.chdir('glastopf/csv')
+	print activityList
 	with open(fileName,"wb") as out_file:
 		fieldnames = sorted(list(set(k for d in list_of_dicts for k in d)))
 		writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
 		writer.writeheader()
 		for row in list_of_dicts:
 		    writer.writerow(row)
+		os.chdir('../../')
 
 def write_dict_to_csv(fileName,fieldNames, myDict):
+	os.chdir('glastopf/csv')
 	with open(fileName,"wb") as out_file:
 		fieldnames = fieldNames
 		writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
@@ -36,13 +42,15 @@ def getAllLogs():
 	return logs
 
 def parseLog(fileName):
+	print "Filename: " + fileName
 	with open(fileName, "r") as file:
 		for line in file:
-			if "Initializing Glastopf" or "Connecting to main database" or "Glastopf started" in line:
+			if any(x in line for x in ignoreLine):
 				pass
+				print "Pass"
 			else:	
 				contents = line.split()
-
+				print "Contents" + str(contents)
 				date = contents[0]
 				secondGroup = contents[1].split(",")
 				timeStamp = secondGroup[0]
@@ -62,9 +70,8 @@ def parseLog(fileName):
 def parseAllLogs():
 	logs = getAllLogs()
 	for file in logs:
-		fileName = logPath + file
-		fileName.strip('\'')
-		parseLog(fileName)
+		myFile = logPath + file
+		parseLog(myFile)
 	write_list_of_dicts_to_csv(allLog, activityList)
 
 
@@ -80,7 +87,7 @@ def countryFrequency():
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(gCfreqFile,newCountryList)	
 
-parseLog(fileName)
+#parseLog(fileName)
 write_list_of_dicts_to_csv(outFile,activityList)
-#parseAllLogs()
+parseAllLogs()
 countryFrequency()
