@@ -1,10 +1,10 @@
-Country,Frequency
-Turkey,1
-Canada,3
-Netherlands,1
-Italy,1
-United States,69
-Sweden,1
-China,5
-Russian Federation,2
-Japan,1
+Coords,Country,Frequency
+"[38.9597594, 34.9249653]",Turkey,1
+"[61.0666922, -107.9917071]",Canada,3
+"[52.5001698, 5.7480821]",Netherlands,1
+"[42.6384261, 12.674297]",Italy,1
+"[39.7837304, -100.4458825]",United States,69
+"[59.6749712, 14.5208584]",Sweden,1
+"[35.000074, 104.999927]",China,5
+"[64.6863136, 97.7453061]",Russian Federation,2
+"[36.5748441, 139.2394179]",Japan,1
