@@ -42,7 +42,6 @@ def getAllLogs():
 	return logs
 
 def parseLog(fileName):
-	print "Filename: " + fileName
 	with open(fileName, "r") as file:
 		for line in file:
 			if any(x in line for x in ignoreLine):
