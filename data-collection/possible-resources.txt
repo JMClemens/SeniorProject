@@ -1,0 +1,5 @@
+See for dynamic rendering of charts (updating data over time):
+	https://bl.ocks.org/mbhall88/22f91dc6c9509b709defde9dc29c63f2
+
+See for reusable charts idea:
+	https://bost.ocks.org/mike/chart/

@@ -59,10 +59,8 @@ def parseLog(fileName):
 				httpRequestMethod = contents[5]
 				requestedResource = contents[6]
 				countryName =  gip.country_name_by_addr(ipAddr)
-				#coords = g.get_boundingbox_country(country=countryName, output_as='center')
 				if requestedResource == "/": requestedResource = "index.html"
 
-				#add coords back to dict when possible
 				entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
 				#print entry
 				activityList.append(entry)
@@ -83,7 +81,8 @@ def countryFrequency():
 	countryFrequency = dict(countryFrequency)
 	newCountryList = []
 	for key, value in countryFrequency.items():
-		entry = {"Country":key,"Frequency":value}
+		coords = g.get_boundingbox_country(country=key, output_as='center')
+		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(gCfreqFile,newCountryList)	
 
