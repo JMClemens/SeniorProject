@@ -6,8 +6,12 @@ var projection = d3.geo.mercator();
 
 // create path variable
 var path = d3.geo.path()
-    .projection(projection);
+    .projection(projection); 
 
+    // Define the div for the tooltip
+var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
 
 d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo) {
   if(error1) console.log("Error: topo json not loaded.");
@@ -21,7 +25,13 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
     data.forEach(function(d) {      
       // + symbol convert from string representation of a number to an actual number
       d.Frequency = +d.Frequency;
+      d.Coords = d.Coords.replace(/[\[\]"]+/g, '');
+      d.Coords = d.Coords.split(',');
+      d.Coords = d.Coords.map(Number);
       d.Country = d.Country;
+      console.log("Type of:", d.Coords[0], typeof(d.Coords[0]))
+      console.log("d.frequency: ",d.Frequency, ". Type: ", typeof(d.Frequency))
+      console.log("d.Coords: ",d.Coords, ". Type: ", typeof(d.Coords))
     });
     
     // set projection parameters
@@ -39,12 +49,6 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       .attr("height","100%")
       .attr("fill","#A2E8E8");
 
-    // points
-    aa = [-122.490402, 37.786453];
-    bb = [-122.389809, 37.72728];
-
-    console.log(projection(aa),projection(bb));
-
     // add countries from topojson
     svg.selectAll("path")
         .data(countries).enter()
@@ -59,13 +63,36 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         .attr("class", "mesh")
         .attr("d", path);
 
+      var min = Math.min.apply(Math, data.Frequency);
+      var max = Math.max.apply(Math, data.Frequency);
+      
       // add circles to svg
       svg.selectAll("circle")
-      .data([aa,bb]).enter()
+      .data(data).enter()
       .append("circle")
-      .attr("cx", function (d) { return projection(d)[0]; })
-      .attr("cy", function (d) { return projection(d)[1]; })
-      .attr("r", "8px")
-      .attr("fill", "red");
+      .attr("r", function(d) {
+          return d.Frequency === 1 ? d.Frequency* 10 : d.Frequency / 2
+      })
+      .attr("transform", function(d) {
+							return "translate(" + projection([
+							  (d.Coords[0]),
+							  (d.Coords[1])
+							]) + ")";
+						  })
+      .attr("fill", "red")
+      .on("mouseover", function(d) {		
+        div.transition()		
+            .duration(200)		
+            .style("opacity", .9);		
+        div	.html(d.Country)	
+            .style("left", (d3.event.pageX) + "px")		
+            .style("top", (d3.event.pageY - 28) + "px");	
+      })					
+      .on("mouseout", function(d) {		
+        div.transition()		
+          .duration(500)		
+          .style("opacity", 0);	
+        });	
+      
   });
 });
