@@ -2,6 +2,7 @@ import pygeoip
 import getCenterCords as g
 import csv
 from collections import Counter
+from collections import OrderedDict
 import os
 import re
 import datetime
@@ -12,13 +13,13 @@ allLog = "all.csv"
 gCfreqFile = "gcf.csv"
 gRfreqFile = "grf.csv"
 gResourceFile = "gresrcf.csv"
+gDailyHitsFile =  "gdailyhits.csv"
 logPath = "glastopf/logs/"
 csvPath = "glastopf/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf"]
 
 activityList = []
-dateList = []
 
 def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 	os.chdir('glastopf/csv')
@@ -61,8 +62,6 @@ def getLogDate(fileName):
 	return date
 
 def parseLog(fileName):
-	dateList.append(getLogDate(fileName))
-
 	with open(fileName, "r") as file:
 		for line in file:
 			if any(x in line for x in ignoreLine):
@@ -132,13 +131,22 @@ def resourceFrequency():
 		newResourceList.append(entry)
 	write_list_of_dicts_to_csv(gResourceFile,newResourceList)	
 
-def sortDates(dlist):
-	stringDateList = [date.strftime('%Y-%m-%d') for date in dlist]
-	newList = sorted(stringDateList, key=lambda d: map(int, d.split('-')))
-	return newList
+def dailyActivityTotals():
+	dailyHitsTotal = []
+	for item in activityList:
+		dailyHitsTotal.append(item["Date"])
+	hits = sorted(dailyHitsTotal, key=lambda d: map(int, d.split('-')))
+	hitCounter = Counter(hits)
+	hitCounter = dict(hitCounter)
+	newHitCounter = OrderedDict(sorted(hitCounter.items(), key=lambda t: t[0]))
+	newHitList = []
+	for key, value in newHitCounter.items():
+		entry = {"Date":key,"NumHits":value}
+		newHitList.append(entry)
+	write_list_of_dicts_to_csv(gDailyHitsFile,newHitList)	
 
-def dailyActivityTotals(dateList):
-	dates = sortDates(dateList)
+
+
 
 
 #parseLog(fileName)
@@ -147,4 +155,4 @@ parseAllLogs()
 #countryFrequency()
 requestFrequency()
 resourceFrequency()
-dailyActivityTotals(dateList)
+dailyActivityTotals()
