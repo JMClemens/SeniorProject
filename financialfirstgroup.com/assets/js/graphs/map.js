@@ -33,7 +33,6 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       d.Coords = d.Coords.split(',');
       d.Coords = d.Coords.map(x => parseFloat(x));
       d.Country = d.Country;
-      console.log("Country:", d.Country, ". Projection: ", projection(d.Coords)[0], projection(d.Coords)[1]);
     });
     
     /*

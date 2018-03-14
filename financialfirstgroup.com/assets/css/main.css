@@ -44,9 +44,15 @@ div.tooltip {
   stroke-width: 2px;
   stroke-linejoin: round;
 }
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
 .axis path,
 .axis line {
   fill: none;
   stroke: #000;
+  stroke-width: 1;
   shape-rendering: crispEdges;
 }
