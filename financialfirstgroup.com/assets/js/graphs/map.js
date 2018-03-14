@@ -12,7 +12,7 @@ var path = d3.geo.path()
 var div = d3.select("body").append("div")	
     .attr("class", "tooltip")				
     .style("opacity", 0);
-
+    
 d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo) {
   if(error1) console.log("Error: topo json not loaded.");
   d3.csv("../assets/data/gcf.csv", function(error2, data) {
@@ -24,6 +24,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       .scale(width / 2 / Math.PI)
       .translate([(width / 2)-30, (height / 2)+50]);
     
+    
+    // manipulate our data into a usable format
     data.forEach(function(d) {      
       // + symbol convert from string representation of a number to an actual number
       d.Frequency = +d.Frequency;
@@ -33,7 +35,15 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       d.Country = d.Country;
       console.log("Country:", d.Country, ". Projection: ", projection(d.Coords)[0], projection(d.Coords)[1]);
     });
+    
+    var gTotalAttacks = d3.sum(data, function(d) {
+       return d.Frequency;
+    });
 
+    var glastopfTotalAttackText = d3.select("#glastopf-total-attacks").append("h3")
+    .attr("class","title");
+    .html(gTotalAttacks + "<small>total</small>")
+    
     // create svg variable
     var svg = d3.select("#worldmap").append("svg")
             .attr("width", width)
@@ -80,11 +90,12 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
           return "translate(" + projection([d.Coords[1],d.Coords[0]]) + ")";
         })
       .attr("fill", "red")
+      .style("opacity",0.95)
       .on("mouseover", function(d) {		
         div.transition()		
             .duration(200)		
-            .style("opacity", .9);		
-        div	.html(d.Country)	
+            .style("opacity", .85);		
+        div	.html(d.Country + "<br />Hits: " + d.Frequency)	
             .style("left", (d3.event.pageX) + "px")		
             .style("top", (d3.event.pageY - 28) + "px");	
       })					
