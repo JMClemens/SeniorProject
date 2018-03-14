@@ -10,6 +10,7 @@ fileName = "glastopf.log"
 outFile = "glastopf.csv"
 allLog = "all.csv"
 gCfreqFile = "gcf.csv"
+gRfreqFile = "grf.csv"
 logPath = "glastopf/logs/"
 csvPath = "glastopf/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
@@ -102,6 +103,18 @@ def countryFrequency():
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(gCfreqFile,newCountryList)	
 
+def requestFrequency():
+	requestList = []
+	for item in activityList:
+		requestList.append(item["RequestMethod"])
+	requestFrequency = Counter(requestList)
+	requestFrequency = dict(requestFrequency)
+	newRequestList = []
+	for key, value in requestFrequency.items():
+		entry = {"Request":key,"Frequency":value}
+		newRequestList.append(entry)
+	write_list_of_dicts_to_csv(gRfreqFile,newRequestList)	
+
 def sortDates(dlist):
 	stringDateList = [date.strftime('%Y-%m-%d') for date in dlist]
 	newList = sorted(stringDateList, key=lambda d: map(int, d.split('-')))
@@ -114,5 +127,6 @@ def dailyActivityTotals(dateList):
 #parseLog(fileName)
 write_list_of_dicts_to_csv(outFile,activityList)
 parseAllLogs()
-countryFrequency()
+#countryFrequency()
+requestFrequency()
 dailyActivityTotals(dateList)
