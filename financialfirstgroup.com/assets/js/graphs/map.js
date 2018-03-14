@@ -18,9 +18,11 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
   d3.csv("../assets/data/gcf.csv", function(error2, data) {
     if(error2) console.log("Error: Coord/frequency data not loaded.");
       
-    countries = topojson.feature(topo, topo.objects.countries).features
-
-    var gCoords = []
+    countries = topojson.feature(topo, topo.objects.countries).features;
+    
+    projection
+      .scale(width / 2 / Math.PI)
+      .translate([(width / 2)-30, (height / 2)+50]);
     
     data.forEach(function(d) {      
       // + symbol convert from string representation of a number to an actual number
@@ -30,15 +32,8 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       d.Coords = d.Coords.map(x => parseFloat(x));
       d.Country = d.Country;
       gCoords.push(d.Coords);
-      console.log("Type of:", d.Coords[0], typeof(d.Coords[0]))
-      console.log("d.frequency: ",d.Frequency, ". Type: ", typeof(d.Frequency))
-      console.log("d.Coords: ",d.Coords, ". Type: ", typeof(d.Coords))
+      console.log("Country:", d.Country, ". Projection: ", projection(d.Coords)[0], projection(d.Coords)[1]);
     });
-    
-    // set projection parameters
-    projection
-      .scale(width / 2 / Math.PI)
-      .translate([(width / 2)-30, (height / 2)+50])
 
     // create svg variable
     var svg = d3.select("#worldmap").append("svg")
@@ -58,13 +53,11 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         .style("fill", "#71945A")
         .attr("d", path);
 
-      // put boarder around countries 
+      // put border around countries 
       svg.append("path")
         .datum(topojson.mesh(topo, topo.objects.countries, function(a, b) { return a !== b; }))
         .attr("class", "mesh")
         .attr("d", path);
-      aa = [38.9597594, 34.9249653];
-      
       
       // add circles to svg
       svg.selectAll("circle")
@@ -73,12 +66,9 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       .attr("r", function(d) {
           return d.Frequency === 1 ? d.Frequency* 10 : d.Frequency / 2
       })
-      .attr("transform", function(d) {
-							return "translate(" + projection([
-							  (d.Coords[0]),
-							  (d.Coords[1])
-							]) + ")";
-						  })
+      .attr("transform", function(d) { 
+          return "translate(" + projection([d.Coords[1],d.Coords[0]]) + ")";
+        })
       .attr("fill", "red")
       .on("mouseover", function(d) {		
         div.transition()		
@@ -92,15 +82,6 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         div.transition()		
           .duration(500)		
           .style("opacity", 0);	
-        });	        
-      /*
-        svg.selectAll("circle")
-        .data([aa]).enter()
-        .append("circle")
-        .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
-        .attr("cy", function (d) { return projection(d)[1]; })
-        .attr("r", "8px")
-        .attr("fill", "red");
-      */
+       });	        
   });
 });
