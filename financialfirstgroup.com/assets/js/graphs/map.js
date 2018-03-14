@@ -36,13 +36,19 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       console.log("Country:", d.Country, ". Projection: ", projection(d.Coords)[0], projection(d.Coords)[1]);
     });
     
+    /*
+    TODO:
+    These two lines update the # total attacks at the top of the overview page
+    They need to be loaded elsewhere later
+    */
+    
     var gTotalAttacks = d3.sum(data, function(d) {
        return d.Frequency;
     });
-
+    
     var glastopfTotalAttackText = d3.select("#glastopf-total-attacks").append("h3")
-    .attr("class","title");
-    .html(gTotalAttacks + "<small>total</small>")
+    .attr("class","title")
+    .html(gTotalAttacks + " <small>total</small>");
     
     // create svg variable
     var svg = d3.select("#worldmap").append("svg")
