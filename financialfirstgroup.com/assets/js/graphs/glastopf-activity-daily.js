@@ -42,7 +42,16 @@ d3.csv("../assets/data/gdailyhits.csv", function(error, data) {
     svg.append("path")
         .attr("class", "line")
         .attr("d", valueline(data));
-
+        
+  // add circles to svg
+  svg.selectAll("circle")
+  .data(data).enter()
+  .append("circle")
+  .attr("r", 2)
+  .attr('cx', function(d) { return x(d.DateStamp) ;})
+  .attr('cy', function(d) { return y(d.NumHits) ;})
+  .attr("fill", "black");
+  
     // Add the X Axis
     svg.append("g")
         .attr("class", "x axis")
