@@ -31,7 +31,6 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
       d.Coords = d.Coords.split(',');
       d.Coords = d.Coords.map(x => parseFloat(x));
       d.Country = d.Country;
-      gCoords.push(d.Coords);
       console.log("Country:", d.Country, ". Projection: ", projection(d.Coords)[0], projection(d.Coords)[1]);
     });
 
@@ -39,7 +38,13 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
     var svg = d3.select("#worldmap").append("svg")
             .attr("width", width)
             .attr("height", height);
-    
+            /* 
+            Zoom Behavior not working as intended
+            .call(d3.behavior.zoom().on("zoom", function () {
+              svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+            }))
+            .append("g");
+            */
     svg.append("rect")
       .attr("width", "100%")
       .attr("height","100%")
@@ -51,7 +56,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         .append("path")
         .attr("class", "feature")
         .style("fill", "#71945A")
-        .attr("d", path);
+        .attr("d",path);
 
       // put border around countries 
       svg.append("path")
@@ -59,13 +64,18 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
         .attr("class", "mesh")
         .attr("d", path);
       
+      
+      freqMax = d3.max(data, function(d) { return d.Frequency; });
+      
+      var radius = d3.scale.sqrt()
+        .domain([0,freqMax])
+        .range([0,30]);
+      
       // add circles to svg
       svg.selectAll("circle")
       .data(data).enter()
       .append("circle")
-      .attr("r", function(d) {
-          return d.Frequency === 1 ? d.Frequency* 10 : d.Frequency / 2
-      })
+      .attr("r", function(d) { return radius(d.Frequency); })
       .attr("transform", function(d) { 
           return "translate(" + projection([d.Coords[1],d.Coords[0]]) + ")";
         })
