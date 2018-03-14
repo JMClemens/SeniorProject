@@ -7,6 +7,7 @@ import os
 
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 sessionList = []
+dkCfreqFile = "kdur.csv"
 outFile = "kippo.csv"
 kCfreqFile = "kcf.csv"
 logFile = "kippo.log"
@@ -95,7 +96,22 @@ def countryFrequency():
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(kCfreqFile,newCountryList)
 
+def durationFrequency():
+	durationList = []
+	for item in sessionList:
+		durationList.append(item["Duration"])
+	durationFrequency = Counter(durationList)
+	durationFrequency = dict(durationFrequency)
+	newDurationList = []
+	for key, value in durationFrequency.items():
+		#coords = g.get_boundingbox_country(country=key, output_as='center')
+		#add coords when solution is found
+		entry = {"Duration":key}
+		newDurationList.append(entry)
+	write_list_of_dicts_to_csv(dkCfreqFile,newDurationList)
+
 # Writes our session list info to a CSV file
 parseLog(logPath+logFile)
 write_list_of_dicts_to_csv(outFile, sessionList)
 countryFrequency()
+durationFrequency()
