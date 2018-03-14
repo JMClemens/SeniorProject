@@ -141,7 +141,7 @@ def dailyActivityTotals():
 	newHitCounter = OrderedDict(sorted(hitCounter.items(), key=lambda t: t[0]))
 	newHitList = []
 	for key, value in newHitCounter.items():
-		entry = {"Date":key,"NumHits":value}
+		entry = {"DateStamp":key,"NumHits":value}
 		newHitList.append(entry)
 	write_list_of_dicts_to_csv(gDailyHitsFile,newHitList)	
 
