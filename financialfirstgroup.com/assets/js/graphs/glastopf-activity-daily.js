@@ -1,5 +1,5 @@
 // Define the height/width of our svg and its margins
-var margin = { top: 20, right: 10, bottom: 100, left: 40},
+var margin = { top: 20, right: 10, bottom: 10, left: 40},
     width = 400 - margin.right - margin.left,
     height = 300 - margin.top - margin.bottom;
 
@@ -46,7 +46,10 @@ d3.csv("../assets/data/gdailyhits.csv", function(error, data) {
     // Add the X Axis
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
+        
+        // TO DO:
+        // Height wasnt working properly below. Using 270 for now. Make accessor to height to get proper value later
+        .attr("transform", "translate(0," + 270 + ")")
         .call(xAxis);
 
     // Add the Y Axis
