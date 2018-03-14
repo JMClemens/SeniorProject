@@ -13,6 +13,9 @@ password = "HcHp18&cj"
 glastopfStartPath = '../jmc/glastopf/financialfirstgroup/log/glastopf.log'
 glastopfLogs = []
 
+kippoStartPath = '../caw/kippo/kippo/log/'
+kippoLogFile = 'kippo.log'
+kippoLogs = []
 
 startDate = "2018-03-09"
 start = datetime.datetime.strptime(startDate, '%Y-%m-%d')
@@ -21,7 +24,6 @@ end  = datetime.datetime(*(today.timetuple()[:3]))
 step = datetime.timedelta(days=1)
 while start < end:
 	newPath = glastopfStartPath + '.' + start.strftime('%Y-%m-%d')
-	print(newPath)
 	start += step
 
 kippoFilePath = '../caw/kippo/kippo/log/kippo.log'
@@ -33,7 +35,7 @@ def createSSHClient(server, port, user, password):
     client.connect(server, port, user, password)
     return client
 
-def generateAllLogPaths():
+def generateAllGLogPaths():
 	glastopfLogs.append(glastopfStartPath)
 	startDate = "2018-03-09"
 	start = datetime.datetime.strptime(startDate, '%Y-%m-%d')
@@ -45,10 +47,32 @@ def generateAllLogPaths():
 		glastopfLogs.append(newPath)
 		start += step
 
+def generateAllKLogPaths():
+	logPath = kippoStartPath+kippoLogFile
+	kippoLogs.append(logPath)
+
+
+	# TODO:
+	# need a better way to figure out how many logs there are
+	# also need to date these logs once they're processed
+	
+	for i in range(1,10):
+		newPath = logPath + '.' + str(i)
+		print newPath
+		kippoLogs.append(newPath)
+
+
 def getAllGlastopfLogs():
-	generateAllLogPaths()
+	generateAllGLogPaths()
 	for log in glastopfLogs:
 		os.chdir('glastopf/logs')
+		scp.get(log)
+		os.chdir('../../')
+
+def getAllKippoLogs():
+	generateAllKLogPaths()
+	for log in kippoLogs:
+		os.chdir('kippo/logs')
 		scp.get(log)
 		os.chdir('../../')
 
@@ -60,6 +84,6 @@ scp = SCPClient(ssh.get_transport())
 getAllGlastopfLogs()
 
 # Gets the logs from kippo
-#scp.get(kippoFilePath)
+getAllKippoLogs()
 
 scp.close()
