@@ -3,7 +3,7 @@ import os
 import subprocess
 
 glastopfLogPath = '../jmc/glastopf/financialfirstgroup/log/'
-glastopfLogDestinationPath = "glogs/"
+glastopfLogDestinationPath = "gl/logs/"
 glastopfLogs = []
 
 def getAllGlastopfLogs():
