@@ -65,13 +65,14 @@ def getLogDate(fileName):
 def parseLog(fileName):
 	with open(fileName, "r") as file:
 		for line in file:
-			print line
 			if any(x in line for x in ignoreLine):
 				pass
 			else:	
 				contents = line.split()
 				date = contents[0]
 				secondGroup = contents[1].split(",")
+				print "Line"
+				print line
 				print "Second group"
 				print secondGroup
 				timeStamp = secondGroup[0]
