@@ -44,7 +44,6 @@ def getAllLogs():
 	os.chdir('gl/logs')
 	logs = os.listdir('.')
 	os.chdir('../../')
-	print logs
 	return logs
 
 def getLogDate(fileName):
