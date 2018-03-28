@@ -45,7 +45,7 @@ def generateAllKLogPaths():
 
 
 def getAllGlastopfLogs():
-	logs = [f for f in os.listdir(glastopfLogPath) if os.path.isfile(os.path.join(mypath, f))]
+	logs = [f for f in os.listdir(glastopfLogPath) if os.path.isfile(os.path.join(glastopfLogPath, f))]
 	print logs
 
 def getAllKippoLogs():
