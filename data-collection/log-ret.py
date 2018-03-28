@@ -1,7 +1,7 @@
 import datetime
 import os
 
-glastopfStartPath = '../jmc/glastopf/financialfirstgroup/log/'
+glastopfLogPath = '../jmc/glastopf/financialfirstgroup/log/'
 glastopfLogs = []
 
 kippoStartPath = '../caw/kippo/kippo/log/'
@@ -54,8 +54,7 @@ def generateAllKLogPaths():
 
 
 def getAllGlastopfLogs():
-	os.chdir(glastopfStartPath)
-	logs = [f for f in os.listdir() if os.isfile(os.join(mypath, f))]
+	logs = [f for f in os.listdir(glastopfLogPath) if os.isfile(os.join(mypath, f))]
 	print logs
 
 def getAllKippoLogs():
