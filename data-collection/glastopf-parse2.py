@@ -72,6 +72,8 @@ def parseLog(fileName):
 				contents = line.split()
 				date = contents[0]
 				secondGroup = contents[1].split(",")
+				print "Second group"
+				print secondGroup
 				timeStamp = secondGroup[0]
 				httpStatusCode = secondGroup[1]
 				ipAddr = contents[3]
