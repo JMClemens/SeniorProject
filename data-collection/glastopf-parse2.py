@@ -43,7 +43,7 @@ def write_dict_to_csv(fileName,fieldNames, myDict):
 def getAllLogs():
 	os.chdir('gl/logs')
 	logs = os.listdir('.')
-	os.chdir('../')
+	os.chdir('../../')
 	print logs
 	return logs
 
