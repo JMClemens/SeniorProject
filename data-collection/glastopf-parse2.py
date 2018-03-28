@@ -65,6 +65,7 @@ def getLogDate(fileName):
 def parseLog(fileName):
 	with open(fileName, "r") as file:
 		for line in file:
+			print line
 			if any(x in line for x in ignoreLine):
 				pass
 			else:	
