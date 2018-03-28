@@ -1,5 +1,6 @@
 import datetime
 import os
+import subprocess
 
 glastopfLogPath = '../jmc/glastopf/financialfirstgroup/log/'
 glastopfLogs = []
