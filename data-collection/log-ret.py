@@ -17,6 +17,6 @@ def getAllGlastopfLogs():
 
 	# Rename current day's log to be timestamped
 	os.chdir(glastopfLogDestinationPath)
-	subprocess.Popen(["scp", glastopfLogPath+"glastopf.log", glastopfLogDestinationPath+"glastopf.log."+datetime.date.today()]).wait()
+	subprocess.Popen(["scp", glastopfLogPath+"glastopf.log", glastopfLogDestinationPath+"glastopf.log."+str(datetime.date.today())]).wait()
 
 getAllGlastopfLogs()
