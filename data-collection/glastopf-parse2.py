@@ -17,7 +17,7 @@ gDailyHitsFile =  "gdailyhits.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
-ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf"]
+ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","3210#"]
 
 activityList = []
 
