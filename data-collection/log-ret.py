@@ -8,15 +8,6 @@ kippoStartPath = '../caw/kippo/kippo/log/'
 kippoLogFile = 'kippo.log'
 kippoLogs = []
 
-startDate = "2018-03-09"
-start = datetime.datetime.strptime(startDate, '%Y-%m-%d')
-today = datetime.date.today()
-end  = datetime.datetime(*(today.timetuple()[:3]))
-step = datetime.timedelta(days=1)
-while start < end:
-	newPath = glastopfStartPath + '.' + start.strftime('%Y-%m-%d')
-	start += step
-
 kippoFilePath = '../caw/kippo/kippo/log/kippo.log'
 
 def createSSHClient(server, port, user, password):
