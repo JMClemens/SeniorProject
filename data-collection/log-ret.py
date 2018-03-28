@@ -18,6 +18,7 @@ def getAllGlastopfLogs():
 	# Rename current day's log to be timestamped
 	os.chdir(glastopfLogDestinationPath)
 	subprocess.Popen(["scp", "glastopf.log", "glastopf.log."+str(datetime.date.today())]).wait()
+	subprocess.Popen(["rm","glastopf.log"])
 	os.chdir("../")
 
 getAllGlastopfLogs()
