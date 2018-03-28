@@ -41,7 +41,7 @@ def write_dict_to_csv(fileName,fieldNames, myDict):
 			writer.writerow([key, value])
 
 def getAllLogs():
-	os.chdir('glogs')
+	os.chdir('gl/logs')
 	logs = os.listdir('.')
 	os.chdir('../')
 	return logs
