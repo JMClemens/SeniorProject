@@ -7,7 +7,7 @@ import os
 
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 sessionList = []
-logkCfreqFile = "klog.csv"
+#logkCfreqFile = "klog.csv"
 dkCfreqFile = "kdur.csv"
 outFile = "kippo.csv"
 kCfreqFile = "kcf.csv"
@@ -111,23 +111,23 @@ def durationFrequency():
 		newDurationList.append(entry)
 	write_list_of_dicts_to_csv(dkCfreqFile,newDurationList)
 
-def logatFrequency():
-	logatList = []
-	for item in sessionList:
-		logatList.append(item["Login"])
-	logatFrequency = Counter(logatList)
-	logatFrequency = dict(logatFrequency)
-	newLogatyList = []
-	for key, value in logatFrequency.items():
+#def logatFrequency():
+	#logatList = []
+	#for item in sessionList:
+		#logatList.append(item["Log"])
+	#logatFrequency = Counter(logatList)
+	#logatFrequency = dict(logatFrequency)
+	#newLogatyList = []
+	#for key, value in logatFrequency.items():
 		#coords = g.get_boundingbox_country(country=key, output_as='center')
 		#add coords when solution is found
-		entry = {"Logins":key, "Frequency": value}
-		newLogatList.append(entry)
-	write_list_of_dicts_to_csv(logkCfreqFile,newlogatList)
+		#entry = {"Logins":key, "Frequency": value}
+		#newLogatList.append(entry)
+	#write_list_of_dicts_to_csv(logkCfreqFile,newlogatList)
 
 # Writes our session list info to a CSV file
 parseLog(logPath+logFile)
 write_list_of_dicts_to_csv(outFile, sessionList)
 countryFrequency()
 durationFrequency()
-logatFrequency()
+#logatFrequency()

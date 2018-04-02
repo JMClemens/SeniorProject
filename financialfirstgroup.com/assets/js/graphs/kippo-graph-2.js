@@ -4,7 +4,7 @@ var margin = { top: 20, right: 10, bottom: 100, left: 40},
     height = 350 - margin.top - margin.bottom;
 
 // Define svg    
-var svg = d3.select("#k-country-frequency")
+var svg = d3.select("#Duration")
     .append("svg")
       .attr ({
         "width": width + margin.right + margin.left,
