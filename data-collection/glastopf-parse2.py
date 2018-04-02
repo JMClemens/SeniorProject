@@ -17,7 +17,7 @@ gDailyHitsFile =  "gdailyhits.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
-ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","3210#"]
+ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","File successfully parsed with sandbox","Failed to fetch injected file","Traceback (most recent call last)","File \"","URLError","injected_file","jmcfinancialfirstgroup"]
 
 activityList = []
 
@@ -64,28 +64,34 @@ def getLogDate(fileName):
 def parseLog(fileName):
 	with open(fileName, "r") as file:
 		for line in file:
+			# ignore lines that don't add any graphical values
 			if any(x in line for x in ignoreLine):
 				pass
-			else:	
-				contents = line.split()
-				date = contents[0]
-				secondGroup = contents[1].split(",")
-				print "Line"
-				print line
-				print "Second group"
-				print secondGroup
-				timeStamp = secondGroup[0]
-				httpStatusCode = secondGroup[1]
-				ipAddr = contents[3]
-				httpRequestMethod = contents[5]
-				requestedResource = contents[6]
-				countryName =  gip.country_name_by_addr(ipAddr)
-				if requestedResource == "/": requestedResource = "index.html"
+			else:
+				try:
+					line.decode('UTF-8', 'strict')
+					contents = line.split()
+					date = contents[0]
+					secondGroup = contents[1].split(",")
+					print "Line"
+					print line
+					print "Second group"
+					print secondGroup
+					timeStamp = secondGroup[0]
+					httpStatusCode = secondGroup[1]
+					ipAddr = contents[3]
+					httpRequestMethod = contents[5]
+					requestedResource = contents[6]
+					countryName =  gip.country_name_by_addr(ipAddr)
+					if requestedResource == "/": requestedResource = "index.html"
 
-				entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
-				#print entry
-				activityList.append(entry)
-
+					entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
+					print entry
+					activityList.append(entry)
+				
+				except UnicodeDecodeError:
+					print "Cant decode " + line
+					
 def parseAllLogs():
 	logs = getAllLogs()
 	for file in logs:
