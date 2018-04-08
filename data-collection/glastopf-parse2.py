@@ -17,7 +17,7 @@ gDailyHitsFile =  "gdailyhits.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
-ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","File successfully parsed with sandbox","Failed to fetch injected file","Traceback (most recent call last)","File \"","URLError","injected_file","jmcfinancialfirstgroup"]
+ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","File successfully parsed with sandbox","Failed to fetch injected file","Traceback (most recent call last)","File \"","URLError","injected_file","3210#\"! "]
 
 activityList = []
 
@@ -68,29 +68,31 @@ def parseLog(fileName):
 			if any(x in line for x in ignoreLine):
 				pass
 			else:
-				try:
-					line.decode('UTF-8', 'strict')
-					contents = line.split()
-					date = contents[0]
-					secondGroup = contents[1].split(",")
-					print "Line"
-					print line
-					print "Second group"
-					print secondGroup
-					timeStamp = secondGroup[0]
-					httpStatusCode = secondGroup[1]
-					ipAddr = contents[3]
-					httpRequestMethod = contents[5]
-					requestedResource = contents[6]
-					countryName =  gip.country_name_by_addr(ipAddr)
-					if requestedResource == "/": requestedResource = "index.html"
-
-					entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
-					print entry
-					activityList.append(entry)
+				if isinstance(line, unicode):
+					print "Unicode"
+				elif isinstance(line, ascii):
+					print "Ascii"
+				else:
+					print "Normal String"
 				
-				except UnicodeDecodeError:
-					print "Cant decode " + line
+				contents = line.split()
+				date = contents[0]
+				secondGroup = contents[1].split(",")
+				print "Line"
+				print line
+				print "Second group"
+				print secondGroup
+				timeStamp = secondGroup[0]
+				httpStatusCode = secondGroup[1]
+				ipAddr = contents[3]
+				httpRequestMethod = contents[5]
+				requestedResource = contents[6]
+				countryName =  gip.country_name_by_addr(ipAddr)
+				if requestedResource == "/": requestedResource = "index.html"
+
+				entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
+				print entry
+				activityList.append(entry)
 					
 def parseAllLogs():
 	logs = getAllLogs()
