@@ -63,18 +63,16 @@ def getLogDate(fileName):
 
 def parseLog(fileName):
 	with open(fileName, "r") as file:
-		for line in file:
+		lines = file.readlines()
+		last = lines[-1]
+		for line in lines:
 			# ignore lines that don't add any graphical values
 			if any(x in line for x in ignoreLine):
 				pass
-			else:
-				if isinstance(line, unicode):
-					print "Unicode"
-				elif isinstance(line, ascii):
-					print "Ascii"
-				else:
-					print "Normal String"
-				
+			elif line is last:
+				print "Pass"
+				pass
+			else:	
 				contents = line.split()
 				date = contents[0]
 				secondGroup = contents[1].split(",")
@@ -102,6 +100,10 @@ def parseAllLogs():
 	write_list_of_dicts_to_csv(allLog, activityList)
 
 
+
+def is_ascii(s):
+	return all(ord(c) < 128 for c in s)
+	
 def countryFrequency():
 	countryList = []
 	for item in activityList:
@@ -164,7 +166,7 @@ def dailyActivityTotals():
 #parseLog(fileName)
 write_list_of_dicts_to_csv(outFile,activityList)
 parseAllLogs()
-#countryFrequency()
+countryFrequency()
 requestFrequency()
 resourceFrequency()
 dailyActivityTotals()
