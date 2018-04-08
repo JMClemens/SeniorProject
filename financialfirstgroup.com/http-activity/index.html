@@ -20,8 +20,10 @@
     
     <!-- D3.js CDN-->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <!-- Topojson CDN for world map -->
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    
+		<!-- D3 pie chart plugin -->
+		<script src="../assets/js/d3pie.min.js"></script>
+		
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -118,8 +120,8 @@
 											<div class="col-md-5">
                         <div class="card">
                           <div class="card-header card-chart" data-background-color="orange">
-                            <div id="g-request-pie"></div>
-                            <script src="../assets/js/graphs/glastopf-requests.js"></script>
+                            <div id="pieChart"></div>
+														<!--<script src="../assets/js/graphs/glastopf-requests.js"></script>-->
                           </div>
                           <div class="card-content">
                             <h4 class="title">Request Method Breakdown</h4>
