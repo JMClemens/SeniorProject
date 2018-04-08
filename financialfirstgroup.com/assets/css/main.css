@@ -18,6 +18,9 @@
   width: 500px;
   height: 350px;
 }
+#g-daily-activity {
+	padding: 10px;
+}
 svg {
   width: 100%;
   height: 100%;

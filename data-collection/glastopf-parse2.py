@@ -125,7 +125,7 @@ def requestFrequency():
 	requestFrequency = dict(requestFrequency)
 	newRequestList = []
 	for key, value in requestFrequency.items():
-		entry = {"Request":key,"Frequency":value}
+		entry = {"Frequency":value,"Request":key,}
 		newRequestList.append(entry)
 	write_list_of_dicts_to_csv(gRfreqFile,newRequestList)	
 
