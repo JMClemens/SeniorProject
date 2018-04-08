@@ -1,0 +1,7 @@
+Frequency,Request
+3,HEAD
+4,TRACE
+2252,GET
+1,PUT
+16,POST
+2,OPTIONS

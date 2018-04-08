@@ -64,3 +64,6 @@ path {
   stroke-width: 1;
   shape-rendering: crispEdges;
 }
+.arc path {
+  stroke: #fff;
+}
