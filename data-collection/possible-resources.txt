@@ -3,3 +3,7 @@ See for dynamic rendering of charts (updating data over time):
 
 See for reusable charts idea:
 	https://bost.ocks.org/mike/chart/
+	
+See for responsive charts & great composition overall:
+	https://blog.webkid.io/responsive-chart-usability-d3/
+	
