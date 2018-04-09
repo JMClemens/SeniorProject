@@ -14,6 +14,7 @@ gCfreqFile = "gcf.csv"
 gRfreqFile = "grf.csv"
 gResourceFile = "gresrcf.csv"
 gDailyHitsFile =  "gdailyhits.csv"
+gTopURIFile = "gURI.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
@@ -143,7 +144,20 @@ def resourceFrequency():
 	for key, value in resourceFrequency.items():
 		entry = {"Resource":key,"Frequency":value}
 		newResourceList.append(entry)
-	write_list_of_dicts_to_csv(gResourceFile,newResourceList)	
+	sortedResourceList = sorted(newResourceList,key=lambda x:x['Frequency'], reverse=True)
+	topURI = []
+	counter = 0
+	for item in sortedResourceList:
+		if counter > 9:
+			break
+		elif 'index.html' in item.values() or '/favicon.ico' in item.values() or '/style.css' in item.values():
+			pass
+		else:
+			topURI.append(item)
+			counter = counter + 1
+	print topURI
+	write_list_of_dicts_to_csv(gTopURIFile, topURI)
+	write_list_of_dicts_to_csv(gResourceFile,sortedResourceList)	
 
 def dailyActivityTotals():
 	dailyHitsTotal = []
