@@ -8,6 +8,11 @@ d3.csv("../assets/data/grf.csv", function (error,data) {
 				.attr('class','text-primary');
 		var tbody = table.append('tbody');
 
+		// sort our data values to appear descending
+		data.sort(function(a,b) {
+       return b.Frequency - a.Frequency
+    });
+		
 		// append the header row
 		thead.append('tr')
 		  .selectAll('th')
