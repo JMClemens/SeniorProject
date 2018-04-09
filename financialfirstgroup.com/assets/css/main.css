@@ -11,8 +11,8 @@
   height: 500px;
 }
 #g-country-frequency {
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 420px;
 }
 #k-country-frequency {
   width: 500px;
@@ -20,6 +20,10 @@
 }
 #g-daily-activity {
 	padding: 10px;
+}
+#g-URI {
+	width: 500px;
+	height: 450px;
 }
 svg {
   width: 100%;

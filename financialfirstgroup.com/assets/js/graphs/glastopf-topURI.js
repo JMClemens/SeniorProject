@@ -1,10 +1,10 @@
 // Define the height/width of our svg and its margins
-var margin = { top: 20, right: 10, bottom: 120, left: 40},
+var margin = { top: 20, right: 10, bottom: 170, left: 40},
     width = 500 - margin.right - margin.left,
-    height = 400 - margin.top - margin.bottom;
+    height = 450 - margin.top - margin.bottom;
 
 // Define svg    
-var countryChart = d3.select("#g-country-frequency")
+var svg = d3.select("#g-URI")
     .append("svg")
       .attr ({
         "width": width + margin.right + margin.left,
@@ -31,29 +31,23 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 // Import Glastopf country frequency CSV file    
-d3.csv("../assets/data/gcf.csv", function(error, data) {
+d3.csv("../assets/data/gURI.csv", function(error, data) {
     
     if(error) console.log("Error: data not loaded");
     
     data.forEach(function(d) {      
       // + symbol convert from string representation of a number to an actual number
       d.Frequency = +d.Frequency;
-      d.Country = d.Country;
-    });
-    
-    // sort the frequency values
-    data.sort(function(a,b) {
-       return b.Frequency - a.Frequency
     });
     
     // specify domains of x and y scales
-    xScale.domain(data.map(function(d) { return d.Country }) );
+    xScale.domain(data.map(function(d) { return d.Resource }) );
     yScale.domain([0,d3.max(data, function(d) { return d.Frequency; } )] );
     var yDomain = yScale.domain(); 
     yAxis.ticks( Math.min(10, (yDomain[1] - yDomain[0]) ) );
     
     // draw bars
-    countryChart.selectAll('rect')
+    svg.selectAll('rect')
       .data(data)
       .enter()
       .append('rect')
@@ -64,7 +58,7 @@ d3.csv("../assets/data/gcf.csv", function(error, data) {
       .transition().duration(2000)
       .delay(function(d,i) { return i * 150;})
       .attr ({
-        "x": function(d) { return xScale(d.Country); },
+        "x": function(d) { return xScale(d.Resource); },
         "y": function(d) { return yScale(d.Frequency); },
         "width": xScale.rangeBand(),
         "height": function(d) {return height - yScale(d.Frequency);}
@@ -73,18 +67,18 @@ d3.csv("../assets/data/gcf.csv", function(error, data) {
       .style("fill", function(d,i) { return 'rgb(20, 20, ' + ((i * 30) + 100) + ')'});
       
       // label the bars
-      countryChart.selectAll('text')
+      svg.selectAll('text')
         .data(data)
         .enter()
         .append('text')
         .text(function(d) { return d.Frequency; })
-        .attr('x', function(d) { return xScale(d.Country) + xScale.rangeBand()/2;})
+        .attr('x', function(d) { return xScale(d.Resource) + xScale.rangeBand()/2;})
         .attr('y', function(d) { return yScale(d.Frequency) + 12;})
         .style("fill", "white")
         .style("text-anchor", "middle");
       
       // draw x axis
-      countryChart.append("g")
+      svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
@@ -96,7 +90,7 @@ d3.csv("../assets/data/gcf.csv", function(error, data) {
         .style("font-size","12px");
       
       // draw y axis
-      countryChart.append("g")
+      svg.append("g")
         .attr("class","y axis")
         .call(yAxis)
         .style("font-size","12px");
