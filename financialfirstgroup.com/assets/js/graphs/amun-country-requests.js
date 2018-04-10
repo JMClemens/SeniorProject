@@ -1,5 +1,5 @@
 // Define the height/width of our svg and its margins
-var margin = { top: 20, right: 10, bottom: 120, left: 40},
+var margin = { top: 20, right: 10, bottom: 40, left: 40},
     width = 500 - margin.right - margin.left,
     height = 400 - margin.top - margin.bottom;
 
