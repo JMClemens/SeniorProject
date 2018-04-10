@@ -1,9 +1,9 @@
-var parseTime = d3.time.format.utc("%H:%M:%S").parse,
-    midnight = parseTime("00:00:00");
+var parseTime = d3.time.format.utc("%H:%M").parse,
+    midnight = parseTime("00:00");
 
-var margin = {top: 30, right: 30, bottom: 30, left: 30},
+var margin = {top: 30, right: 30, bottom: 30, left: 40},
     width = 500 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    height = 450 - margin.top - margin.bottom;
 
 var x = d3.time.scale.utc()
     .domain([midnight, d3.time.day.utc.offset(midnight, 1)])
@@ -12,7 +12,7 @@ var x = d3.time.scale.utc()
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var svg = d3.select("#timeOfDay").append("svg")
+var timeOfDay = d3.select("#timeOfDay").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -23,15 +23,15 @@ d3.csv("../assets/data/gTimeOfDay.csv", type, function(error, data) {
 
   y.domain([0, d3.max(data, function(d) { return d.rate; })]);
 
-  svg.append("g")
+  timeOfDay.append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0,400)")
       .call(d3.svg.axis()
           .scale(x)
           .orient("bottom")
           .tickFormat(d3.time.format.utc("%I %p")));
 
-  svg.append("g")
+  timeOfDay.append("g")
       .attr("class", "dots")
     .selectAll("path")
       .data(data)
@@ -40,7 +40,7 @@ d3.csv("../assets/data/gTimeOfDay.csv", type, function(error, data) {
       .attr("d", d3.svg.symbol()
           .size(40));
 
-  var tick = svg.append("g")
+  var tick = timeOfDay.append("g")
       .attr("class", "axis axis--y")
       .call(d3.svg.axis()
           .scale(y)
@@ -57,8 +57,8 @@ d3.csv("../assets/data/gTimeOfDay.csv", type, function(error, data) {
 });
 
 function type(d) {
-  d.rate = +d.count // / 327 * 60; // January 8 to November 30
-  d.time = parseTime(d.time);
+  d.rate = +d.Count; // January 8 to November 30
+  d.time = parseTime(d.Timestamp);
   d.time.setUTCHours((d.time.getUTCHours() + 24 - 7) % 24);
   return d;
 }

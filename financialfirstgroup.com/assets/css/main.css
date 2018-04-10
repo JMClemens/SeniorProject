@@ -25,12 +25,19 @@
 	width: 500px;
 	height: 450px;
 }
+#timeOfDay {
+	width: 500px;
+	height: 450px;
+}
 svg {
   width: 100%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+.card-header{
+	overflow: hidden;
 }
 div.tooltip {	
     position: absolute;			
@@ -73,4 +80,19 @@ path {
 }
 .arc path {
   stroke: #fff;
+}
+.dots path {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.axis--y line {
+  stroke-opacity: 0.2;
+}
+
+.axis--y path {
+  stroke: none;
+}
+.axis text {
+  font: 10px sans-serif;
 }

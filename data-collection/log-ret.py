@@ -40,14 +40,5 @@ def getAllAmunLogs():
 	for log in logs:
 		print log
 	
-	# Copy each file over
-	for log in logs:
-		print "CWD:"
-		print os.getcwd();
-		print "Log:"
-		print log
-		print "Path: " + amunLogPath + log
-		print "Dest Path: " + amunLogDestinationPath
-		subprocess.Popen(["scp", amunLogPath+log, amunLogDestinationPath]).wait()
-	
-getAllGlastopfLogs()
+#getAllGlastopfLogs()
+getAllAmunLogs()

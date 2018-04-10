@@ -6,6 +6,7 @@ from collections import OrderedDict
 import os
 import re
 import datetime
+import time
 
 fileName = "glastopf.log"
 outFile = "glastopf.csv"
@@ -149,7 +150,12 @@ def timeOfDay():
 	timeList = []
 	for item in activityList:
 		timeList.append(item["Timestamp"])
-	timeFrequency = Counter(timeList)
+	removeSecs = []
+	for item in timeList:	
+		tempTimes = item.split(':')
+		newTime = tempTimes[0] + ":" + tempTimes[1]
+		removeSecs.append(newTime)
+	timeFrequency = Counter(removeSecs)
 	timeFrequency = dict(timeFrequency)
 	newTimeList = []
 	for key, value in timeFrequency.items():
