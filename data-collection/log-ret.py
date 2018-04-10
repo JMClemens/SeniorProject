@@ -1,6 +1,7 @@
 import datetime
 import os
 import subprocess
+import sys
 
 glastopfLogPath = '../jmc/glastopf/financialfirstgroup/log/'
 glastopfLogDestinationPath = "../jmc/gl/logs"
@@ -8,6 +9,8 @@ glastopfLogs = []
 
 amunLogPath = '../jmc/amun/logs/'
 amunLogDestinationPath = "../jmc/am/logs/"
+acceptedLogs = ['shellcode','request','vulnerabilities']
+
 
 def getAllGlastopfLogs():
 
@@ -36,9 +39,26 @@ def getAllAmunLogs():
 	
 	# Get all files in the amun log directory
 	logs = [f for f in os.listdir(amunLogPath) if os.path.isfile(os.path.join(amunLogPath, f))]
+	keptLogs = []
 	
 	for log in logs:
-		print log
+		if any(x in log for x in acceptedLogs):
+			keptLogs.append(log)
+		else:
+			pass
 	
-#getAllGlastopfLogs()
-getAllAmunLogs()
+	for log in keptLogs:
+		subprocess.Popen(["scp", amunLogPath+log, amunLogDestinationPath]).wait()
+
+def selectLogs(x):
+	if x == "g":
+		getAllGlastopfLogs()
+		print "Glastopf logs retrieved"
+	elif x == "a":
+		getAllAmunLogs()
+		print "Amun logs retrieved"
+	else:
+		pass
+
+if __name__ == '__main__':
+	selectLogs(*sys.argv[1:])
