@@ -103,12 +103,23 @@
                                 </div>
 																<h4>&nbsp;&nbsp;Motivation</h4>
                                 <p class="home-card-content">
-																	&nbsp;&nbsp;&nbsp;&nbsp;As the senior project for our undergraduate studies at Hood College, we had been tasked to come up with a project related to our field of expertise and a reason for its execution. With the aid of our supervisor, we decided on doing a project about people who were doing malicious things on the internet. Furthermore, we wanted to visualize this activity. After creating this dashboard to collect and analyze data, we will write a comprehensive research paper outlining our discoveries.<br />
+																	&nbsp;&nbsp;&nbsp;&nbsp;As the senior project for our undergraduate studies, at Hood College, we had been tasked to come up with a project related to our field of expertise and a reason for its execution. With the aid of our supervisor, we decided on doing a project about people who were doing malicious things on the internet. Furthermore, we wanted to visualize this activity. After creating this dashboard to collect and analyze data, we will write a comprehensive research paper outlining our discoveries.<br />
                                 </p>
 																<p class="home-card-content">
-																	&nbsp;&nbsp;&nbsp;&nbsp;To accomplish this, in talks with our Supervisor, Advisor, and Reader, we decided that using honeypots who be a great approach to doing this. The open source nature of some honeypots would give us great latitude for creating the project we were envisioning.  As we spend most of time connected to the internet we wanted to find out what those people who have malicious intentions out there do exactly once they’ve gotten access to a comprised system.
+																	&nbsp;&nbsp;&nbsp;&nbsp;To accomplish this, in talks with our: Supervisor, Advisor, and Reader, we decided that using honeypots would be a great approach. The open source nature of some honeypots would give us great latitude for creating the project we were envisioning.  As we spent most of time connected to the internet we wanted to find out what those people who have malicious intentions out there do exactly once they’ve gotten access to a comprised system.<br />
 																</p>
-																<h4>&nbsp;&nbsp;Motivation</h4>
+																<h4>&nbsp;&nbsp;Process</h4>
+                                                                <p class="home-card-content">
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;Moreover, this was able to be done by using three different honeypots, whose vaulnerabilites lie on different protocols. Firstly, the kippo honeypot is an ssh honeypot that designated to listen in on port 22, the ssh port, for those attempting to establish a conncetion with it. It mimics a debian command line operating system that logs every executed line the attacker does, wheather its valid or not. Next, we have glastopf, which is an html honeypot that listens for traffic on port 80, the http port, with its python based logging system. Finally, there is amun. It too is a honeypot that emulates a windows sever operating on several different ports.<br />
+                                                                </p>
+
+                                                                <p class="home-card-content">
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;All three honeypots were deployed and tested locally in Virtual Machines to expadite the configuration process once they were uploaded to the server. Furthermore, after being laucnhed all we had to do was sit back and wiat for the attacks to start to accumulate wheather they be from an actual user or some scripts being ran. However, after accumulating all of this data the next question is what to do with all of it and how to make sense of it. We were able to do so by utalizing regular expressions that are able to turn the large amounts of raw data into strings that can be manipulated and later made into comma seperated values to make it easier to graph.
+                                                                </p>
+
+                                                                <h4>&nbsp;&nbsp;Execution</h4>
+                                                                <p class="home-card-content">
+                                                                    
                               </div>
                         </div>
                         <div class="col-md-4">
