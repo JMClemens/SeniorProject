@@ -1,7 +1,7 @@
 // Define the height/width of our svg and its margins
-var margin = { top: 20, right: 10, bottom: 40, left: 40},
+var margin = { top: 30, right: 10, bottom: 40, left: 40},
     width = 500 - margin.right - margin.left,
-    height = 400 - margin.top - margin.bottom;
+    height = 325 - margin.top - margin.bottom;
 
 // Define svg    
 var countryChart = d3.select("#a-country-frequency")

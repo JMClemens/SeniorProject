@@ -22,12 +22,12 @@ var pie = d3.layout.pie()
 	.value(function(d) { return d.count; })
 	.sort(null);
 	
-d3.csv("../assets/data/grf.csv", function(error, data) {
+d3.csv("../assets/data/apc.csv", function(error, data) {
 
   data.forEach(function(d) {
     dataset.push({
-			label: d.Request,
-			count: +d.Frequency
+			label: d.Port,
+			count: +d.Count
 		})
   });
 	

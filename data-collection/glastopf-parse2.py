@@ -21,7 +21,7 @@ gTimeOfDayFile = "gTimeOfDay.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
-ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","File successfully parsed with sandbox","Failed to fetch injected file","Traceback (most recent call last)","File \"","URLError","injected_file","3210#\"! "]
+ignoreLine = ["Initializing Glastopf","Connecting to main database", "Glastopf started", "Bootstrapping dork database","Generating initial dork pages","Stopping Glastopf","File successfully parsed with sandbox","Failed to fetch injected file","Traceback (most recent call last)"]
 
 activityList = []
 

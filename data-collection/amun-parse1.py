@@ -12,6 +12,7 @@ logPath = "am/logs/"
 csvPath = "am/csv/"
 aCountryFrequencyFile = "acf.csv"
 aDailyHitsFile = "adailyhits.csv"
+aPortCounts = "apc.csv"
 aPortFrequency = "aports.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
@@ -73,7 +74,7 @@ def parseLog(fileName):
 				ipAddr = contents[4]
 				ipAddr = ''.join(c for c in ipAddr if c not in '()')
 				countryName = gip.country_name_by_addr(ipAddr)
-				entry = {'Date':date, "Timestamp":timeStamp, "StatusCode":statusCode, "IP":ipAddr, "Country":countryName}
+				entry = {'Date':date, "Timestamp":timeStamp, "StatusCode":statusCode, "IP":ipAddr, "Country":countryName, "Port":"443"}
 				shellCodeActivity.append(entry)
 		elif "request" in fileName:
 			print "Request handler parsing..."
@@ -86,7 +87,21 @@ def parseLog(fileName):
 						port = ''.join(c for c in result if c.isdigit())
 				else:
 						port = ""
-				entry = {"Port":port}
+				ip = re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', line)
+				if ip:
+					ipAddr = ip.pop(0)
+					ipAddr = ''.join(c for c in ipAddr if c not in '()')
+				else:
+					ipAddr = 'none'
+					
+				contents = line.split()
+				dateStamp = contents[0]
+				secondGroup = contents[1].split(",")
+				timeStamp = secondGroup[0]
+				statusCode = secondGroup[1]
+				countryName = gip.country_name_by_addr(ipAddr)
+				entry = {"Port":port,"IP":ipAddr,"Date":dateStamp,"Timestamp":timeStamp,"Status Code":statusCode,"Country":countryName}
+				print entry
 				requestHandlerActivity.append(entry)
 		elif "vulnerabilities" in fileName:
 			# commands for parsing vulnerabilities logs
@@ -103,12 +118,16 @@ def parseAllLogs():
 		parseLog(myFile)
 	write_list_of_dicts_to_csv(allLog, activityList)
 	
-def countryFrequency(myList):
-	countryList = []
-	for item in myList:
-		countryList.append(item["Country"])
-	countryFrequency = Counter(countryList)
-	countryFrequency = dict(countryFrequency)
+def countryFrequency():
+	shellCountryList = []
+	requestCountryList = []
+	for item in shellCodeActivity:
+		shellCountryList.append(item["Country"])
+	for item in requestHandlerActivity:
+		requestCountryList.append(item["Country"])
+	requestCountryFrequency = Counter(requestCountryList)
+	countryFrequency = Counter(shellCountryList)
+	countryFrequency = dict(countryFrequency+requestCountryFrequency)
 	newCountryList = []
 	for key, value in countryFrequency.items():
 		coords = g.get_boundingbox_country(country=key, output_as='center')
@@ -134,25 +153,49 @@ def timeOfDay():
 	sortedTimeList = sorted(newTimeList,key=lambda x:x['Timestamp'])
 	write_list_of_dicts_to_csv(gTimeOfDayFile,sortedTimeList)
 
-def dailyActivityTotals(myList):
-	dailyHitsTotal = []
-	for item in myList:
-		dailyHitsTotal.append(item["Date"])
-	hits = sorted(dailyHitsTotal, key=lambda d: map(int, d.split('-')))
+def dailyActivityTotals():
+	shellDailyTotal = []
+	handlerDailyTotal = []
+	for item in shellCodeActivity:
+		shellDailyTotal.append(item["Date"])
+	for item in requestHandlerActivity:
+		handlerDailyTotal.append(item["Date"])
+	handlerHits = sorted(handlerDailyTotal, key=lambda d: map(int, d.split('-')))
+	hits = sorted(shellDailyTotal, key=lambda d: map(int, d.split('-')))
+	handlerHitCounter = Counter(handlerHits)
 	hitCounter = Counter(hits)
-	hitCounter = dict(hitCounter)
+	hitCounter = dict(hitCounter+handlerHitCounter)
 	newHitCounter = OrderedDict(sorted(hitCounter.items(), key=lambda t: t[0]))
 	newHitList = []
 	for key, value in newHitCounter.items():
 		entry = {"DateStamp":key,"NumHits":value}
 		newHitList.append(entry)
 	write_list_of_dicts_to_csv(aDailyHitsFile,newHitList)	
-
-#parseLog(logPath+"shellcode_manager.log")
-#parseLog(logPath+"shellcode_manager.log.2018-03-28")
-#countryFrequency(shellCodeActivity)
-#dailyActivityTotals(shellCodeActivity)
+	
+def portTotals():
+	spTotals = []
+	rpTotals = []
+	for item in shellCodeActivity:
+		spTotals.append(item["Port"])
+	for item in requestHandlerActivity:
+		rpTotals.append(item["Port"])
+	spCounter = Counter(spTotals)
+	rpCounter = Counter(rpTotals)
+	portCounter = dict(spCounter + rpCounter)
+	newPortList = []
+	for key, value in portCounter.items():
+		entry = {"Port":key,"Count":value}
+		newPortList.append(entry)
+	write_list_of_dicts_to_csv(aPortCounts,newPortList)	
+	
+	
+parseLog(logPath+"shellcode_manager.log")
+parseLog(logPath+"shellcode_manager.log.2018-03-28")
 parseLog(logPath+"amun_request_handler.log")
+parseLog(logPath+"amun_request_handler.log.2018-03-28")
+countryFrequency()
+dailyActivityTotals()
+portTotals()
 
 
 
