@@ -1,0 +1,1 @@
+2018-03-28 15:26:45,335 INFO [vuln_ftpd] Attacker: 196.52.43.103 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1

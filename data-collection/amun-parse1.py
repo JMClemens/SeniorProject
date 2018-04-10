@@ -136,6 +136,8 @@ def dailyActivityTotals():
 	write_list_of_dicts_to_csv(gDailyHitsFile,newHitList)	
 
 parseLog(logPath+"shellcode_manager.log")
+parseLog(logPath+"shellcode_manager.log.2018-03-28")
+countryFrequency(shellCodeActivity)
 
 
 

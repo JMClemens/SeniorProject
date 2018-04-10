@@ -1,0 +1,4 @@
+2018-04-09 16:18:58,169 INFO [amun_request_handler] PortScan Detected on Port: 445 (185.169.182.172)
+2018-04-09 16:35:14,250 INFO [amun_request_handler] PortScan Detected on Port: 445 (187.136.241.65)
+2018-04-09 16:37:07,726 INFO [amun_request_handler] PortScan Detected on Port: 445 (187.136.241.65)
+2018-04-09 17:05:22,881 INFO [amun_request_handler] PortScan Detected on Port: 3389 (193.201.224.222)
