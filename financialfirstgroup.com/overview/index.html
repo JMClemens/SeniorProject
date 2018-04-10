@@ -181,8 +181,10 @@
                                       <script src="../assets/js/graphs/glastopf-activity-daily.js"></script>
                                   </div>
                                   <div class="card-content">
-                                      <h4 class="title">Glastopf Daily Activity</h4>
-                                      <p class="category"></p>
+                                      <h4 class="title">HTTP Daily Activity</h4>
+                                      <p class="category">
+																			Activity trends shown over the time that our HTTP honeypot has been running.
+																			</p>
                                   </div>
                                   <div class="card-footer">
                                       <div class="stats">
@@ -194,12 +196,14 @@
                       <div class="col-md-4">
                               <div class="card">
                                   <div class="card-header card-chart" data-background-color="red">
-                                      <div id="barchart">Hello</div>
+                                      <div id="w-daily-activity"></div>
+                                      <script src="../assets/js/graphs/amun-activity-daily.js"></script>
                                   </div>
                                   <div class="card-content">
-                                      <h4 class="title">Example Bar Graph</h4>
+                                      <h4 class="title">Windows Daily Activity</h4>
                                       <p class="category">
-                                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> </span></p>
+																				Activity trends shown over the time that our Windows honeypot has been running.
+																			</p>
                                   </div>
                                   <div class="card-footer">
                                       <div class="stats">
@@ -209,6 +213,19 @@
                               </div>
                           </div>
                       </div>
+										<div class="row">
+											<div class="col-md-4"></div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header" data-background-color="purple">
+														<h2 class="title">World Map</h2>
+													</div>
+													<div class="card-content">
+														<p>The map shown below plots where the traffic from our different honeypots is originating from. <br /> Red circle = HTTP Honeypot Activity <br /> Purple circle = Windows Honeypot Activity</p>
+													</div>
+												</div>
+											</div>
+										</div>
                     <div class="row">
                       <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2">&nbsp;</div>
                       <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8" id="worldmap"></div>

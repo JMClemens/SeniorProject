@@ -11,6 +11,7 @@ import time
 logPath = "am/logs/"
 csvPath = "am/csv/"
 aCountryFrequencyFile = "acf.csv"
+aDailyHitsFile = "adailyhits.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 shellCodeActivity = []
@@ -121,9 +122,9 @@ def timeOfDay():
 	sortedTimeList = sorted(newTimeList,key=lambda x:x['Timestamp'])
 	write_list_of_dicts_to_csv(gTimeOfDayFile,sortedTimeList)
 
-def dailyActivityTotals():
+def dailyActivityTotals(myList):
 	dailyHitsTotal = []
-	for item in activityList:
+	for item in myList:
 		dailyHitsTotal.append(item["Date"])
 	hits = sorted(dailyHitsTotal, key=lambda d: map(int, d.split('-')))
 	hitCounter = Counter(hits)
@@ -133,11 +134,12 @@ def dailyActivityTotals():
 	for key, value in newHitCounter.items():
 		entry = {"DateStamp":key,"NumHits":value}
 		newHitList.append(entry)
-	write_list_of_dicts_to_csv(gDailyHitsFile,newHitList)	
+	write_list_of_dicts_to_csv(aDailyHitsFile,newHitList)	
 
 parseLog(logPath+"shellcode_manager.log")
 parseLog(logPath+"shellcode_manager.log.2018-03-28")
-countryFrequency(shellCodeActivity)
+#countryFrequency(shellCodeActivity)
+dailyActivityTotals(shellCodeActivity)
 
 
 
