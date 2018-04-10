@@ -1,3 +1,16 @@
+'''
+Log retrieval script for gathering logs from:
+Glastopf Honeypot
+Amun Honeypot
+
+Run using:
+sudo python log-ret.py [-option]
+Values for [-option]
+-g : Collect all glastopf logs
+-a : Collect all amun logs
+
+Authored by Joshua Clemens for CS475 at Hood College
+'''
 import datetime
 import os
 import subprocess
@@ -19,12 +32,6 @@ def getAllGlastopfLogs():
 	
 	# Copy each file over
 	for log in logs:
-		print "CWD:"
-		print os.getcwd();
-		print "Log:"
-		print log
-		print "Path: " + glastopfLogPath + log
-		print "Dest Path: " + glastopfLogDestinationPath
 		subprocess.Popen(["scp", glastopfLogPath+log, glastopfLogDestinationPath]).wait()
 	
 	'''
@@ -51,14 +58,17 @@ def getAllAmunLogs():
 		subprocess.Popen(["scp", amunLogPath+log, amunLogDestinationPath]).wait()
 
 def selectLogs(x):
-	if x == "g":
+	if x == "-g":
 		getAllGlastopfLogs()
 		print "Glastopf logs retrieved"
-	elif x == "a":
+	elif x == "-a":
 		getAllAmunLogs()
 		print "Amun logs retrieved"
 	else:
 		pass
 
+# Main function - Calls the selectLogs function with the command line argument
+# Use -g to collect all glastopf logs
+# Use -a to collect all amun logs
 if __name__ == '__main__':
 	selectLogs(*sys.argv[1:])
