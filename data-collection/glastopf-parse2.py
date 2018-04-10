@@ -15,6 +15,8 @@ gRfreqFile = "grf.csv"
 gResourceFile = "gresrcf.csv"
 gDailyHitsFile =  "gdailyhits.csv"
 gTopURIFile = "gURI.csv"
+gStatusCodesFile = "gStatus.csv"
+gTimeOfDayFile = "gTimeOfDay.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
@@ -130,6 +132,32 @@ def requestFrequency():
 		newRequestList.append(entry)
 	write_list_of_dicts_to_csv(gRfreqFile,newRequestList)	
 
+def statusCodeFrequency():
+	codeList = []
+	for item in activityList:
+		codeList.append(item["StatusCode"])
+	codeFrequency = Counter(codeList)
+	codeFrequency = dict(codeFrequency)
+	newCodeList = []
+	for key, value in codeFrequency.items():
+		entry = {"StatusCode":key,"Count":value}
+		newCodeList.append(entry)
+	write_list_of_dicts_to_csv(gStatusCodesFile,newCodeList)
+	
+	
+def timeOfDay():
+	timeList = []
+	for item in activityList:
+		timeList.append(item["Timestamp"])
+	timeFrequency = Counter(timeList)
+	timeFrequency = dict(timeFrequency)
+	newTimeList = []
+	for key, value in timeFrequency.items():
+		entry = {"Timestamp":key,"Count":value}
+		newTimeList.append(entry)
+	sortedTimeList = sorted(newTimeList,key=lambda x:x['Timestamp'])
+	write_list_of_dicts_to_csv(gTimeOfDayFile,sortedTimeList)
+	
 # TODO:
 # make this function only include GET requests
 # make similar functions for other types of requests
@@ -178,9 +206,11 @@ def dailyActivityTotals():
 
 
 #parseLog(fileName)
-write_list_of_dicts_to_csv(outFile,activityList)
+#write_list_of_dicts_to_csv(outFile,activityList)
 parseAllLogs()
-countryFrequency()
-requestFrequency()
-resourceFrequency()
-dailyActivityTotals()
+#countryFrequency()
+#requestFrequency()
+#resourceFrequency()
+#dailyActivityTotals()
+#statusCodeFrequency()
+timeOfDay()
