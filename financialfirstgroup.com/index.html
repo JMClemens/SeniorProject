@@ -109,17 +109,13 @@
 																	&nbsp;&nbsp;&nbsp;&nbsp;To accomplish this, in talks with our: Supervisor, Advisor, and Reader, we decided that using honeypots would be a great approach. The open source nature of some honeypots would give us great latitude for creating the project we were envisioning.  As we spent most of time connected to the internet we wanted to find out what those people who have malicious intentions out there do exactly once they’ve gotten access to a comprised system.<br />
 																</p>
 																<h4>&nbsp;&nbsp;Process</h4>
-                                                                <p class="home-card-content">
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;Moreover, this was able to be done by using three different honeypots, whose vaulnerabilites lie on different protocols. Firstly, the kippo honeypot is an ssh honeypot that designated to listen in on port 22, the ssh port, for those attempting to establish a conncetion with it. It mimics a debian command line operating system that logs every executed line the attacker does, wheather its valid or not. Next, we have glastopf, which is an html honeypot that listens for traffic on port 80, the http port, with its python based logging system. Finally, there is amun. It too is a honeypot that emulates a windows sever operating on several different ports.<br />
-                                                                </p>
+																<p class="home-card-content">
+																		&nbsp;&nbsp;&nbsp;&nbsp;We proceded by using three different honeypots, each with their own specific vulnerabilities. The kippo honeypot is an ssh honeypot that listens to traffic on port 22, the standard ssh port, for those attempting to establish a conncetion. It mimics a debian command line operating system that logs every executed line the attacker does, whether it is valid or not. Glastopf, which is an HTTP honeypot, listens for traffic on port 80, the standard HTTP port, and logs activity with its python based logging system. The third honeypot we used is Amun. It emulates a Windows operating system by emulating specific vulnerabilities.<br />
+																</p>
 
-                                                                <p class="home-card-content">
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;All three honeypots were deployed and tested locally in Virtual Machines to expadite the configuration process once they were uploaded to the server. Furthermore, after being laucnhed all we had to do was sit back and wiat for the attacks to start to accumulate wheather they be from an actual user or some scripts being ran. However, after accumulating all of this data the next question is what to do with all of it and how to make sense of it. We were able to do so by utalizing regular expressions that are able to turn the large amounts of raw data into strings that can be manipulated and later made into comma seperated values to make it easier to graph.
-                                                                </p>
-
-                                                                <h4>&nbsp;&nbsp;Execution</h4>
-                                                                <p class="home-card-content">
-                                                                    
+																<p class="home-card-content">
+																		&nbsp;&nbsp;&nbsp;&nbsp;All three honeypots were deployed and tested locally in Virtual Machines to expedite the configuration process on our server. After accumulating data from the logs of our three deployed honeypots, we began to work on making sense of the information. We were able to do so by utilizing Python to create processing scripts to parse our log information and return different pieces of information as CSV files. These CSV files are then transfered to the "data" directory of this website where they are read using JavaScript to update the information in our graphs.
+																</p>
                               </div>
                         </div>
                         <div class="col-md-4">

@@ -214,7 +214,7 @@ def dailyActivityTotals():
 #parseLog(fileName)
 #write_list_of_dicts_to_csv(outFile,activityList)
 parseAllLogs()
-countryFrequency()
+#countryFrequency()
 requestFrequency()
 resourceFrequency()
 dailyActivityTotals()
