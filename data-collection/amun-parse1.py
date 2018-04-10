@@ -12,6 +12,7 @@ logPath = "am/logs/"
 csvPath = "am/csv/"
 aCountryFrequencyFile = "acf.csv"
 aDailyHitsFile = "adailyhits.csv"
+aPortFrequency = "aports.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 shellCodeActivity = []
@@ -64,6 +65,7 @@ def parseLog(fileName):
 			print "Shellcode manager parsing..."
 			for line in file:
 				contents = line.split()
+				print contents
 				date = contents[0]
 				secondGroup = contents[1].split(",")
 				timeStamp = secondGroup[0]
@@ -74,8 +76,18 @@ def parseLog(fileName):
 				entry = {'Date':date, "Timestamp":timeStamp, "StatusCode":statusCode, "IP":ipAddr, "Country":countryName}
 				shellCodeActivity.append(entry)
 		elif "request" in fileName:
-			# commands for parsing request handler logs
 			print "Request handler parsing..."
+			pattern = '(?P<port>[0-9]*).*'
+			for line in file:
+				print line
+				match = re.search(r"Port:\s[0-9]+", line)
+				if match:
+						result = match.group(0)
+						port = ''.join(c for c in result if c.isdigit())
+				else:
+						port = ""
+				entry = {"Port":port}
+				requestHandlerActivity.append(entry)
 		elif "vulnerabilities" in fileName:
 			# commands for parsing vulnerabilities logs
 			print "Vulnerabilities log parsing..."
@@ -136,10 +148,11 @@ def dailyActivityTotals(myList):
 		newHitList.append(entry)
 	write_list_of_dicts_to_csv(aDailyHitsFile,newHitList)	
 
-parseLog(logPath+"shellcode_manager.log")
-parseLog(logPath+"shellcode_manager.log.2018-03-28")
+#parseLog(logPath+"shellcode_manager.log")
+#parseLog(logPath+"shellcode_manager.log.2018-03-28")
 #countryFrequency(shellCodeActivity)
-dailyActivityTotals(shellCodeActivity)
+#dailyActivityTotals(shellCodeActivity)
+parseLog(logPath+"amun_request_handler.log")
 
 
 
