@@ -1,4 +1,23 @@
-2018-03-13 13:54:45,967 (glastopf.glastopf) Initializing Glastopf 3.1.3-dev using "/home/jmc/glastopf/financialfirstgroup" as work directory.
-2018-03-13 13:54:46,694 (glastopf.glastopf) Connecting to main database with: sqlite:///db/glastopf.db
-2018-03-13 13:54:46,811 (glastopf.glastopf) Glastopf started and privileges dropped.
-2018-03-13 13:55:21,738 (glastopf.glastopf) 76.100.27.231 requested GET / on financialfirstgroup.com:80
+2018-04-11 00:44:21,251 (glastopf.glastopf) 122.54.26.91 requested POST /wls-wsat/CoordinatorPortType on financialfirstgroup.com:80
+2018-04-11 00:55:33,976 (glastopf.glastopf) 209.126.136.4 requested GET / on financialfirstgroup.com:80
+2018-04-11 01:18:06,376 (glastopf.glastopf) 35.185.88.21 requested GET /muieblackcat on financialfirstgroup.com:80
+2018-04-11 01:18:06,538 (glastopf.glastopf) 35.185.88.21 requested GET //phpMyAdmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 01:18:06,664 (glastopf.glastopf) 35.185.88.21 requested GET //phpmyadmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 01:18:06,796 (glastopf.glastopf) 35.185.88.21 requested GET //pma/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 01:18:06,910 (glastopf.glastopf) 35.185.88.21 requested GET //myadmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 01:18:07,021 (glastopf.glastopf) 35.185.88.21 requested GET //MyAdmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 02:12:28,105 (glastopf.glastopf) 80.211.173.62 requested GET /muieblackcat on financialfirstgroup.com:80
+2018-04-11 02:12:28,414 (glastopf.glastopf) 80.211.173.62 requested GET //phpMyAdmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 02:12:29,190 (glastopf.glastopf) 80.211.173.62 requested GET //phpmyadmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 02:12:29,496 (glastopf.glastopf) 80.211.173.62 requested GET //pma/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 02:12:29,796 (glastopf.glastopf) 80.211.173.62 requested GET //myadmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 02:12:30,122 (glastopf.glastopf) 80.211.173.62 requested GET //MyAdmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 02:12:30,452 (glastopf.glastopf) 80.211.173.62 requested GET //PHPMYADMIN/scripts/setup.php on financialfirstgroup.com:80
+2018-04-11 10:36:37,553 (glastopf.glastopf) 120.78.167.218 requested POST /wls-wsat/CoordinatorPortType on financialfirstgroup.com:80
+2018-04-11 12:02:40,762 (glastopf.glastopf) 128.199.165.200 requested HEAD /templates/new/client/logo.png on financialfirstgroup.com:80
+2018-04-11 12:16:09,478 (glastopf.glastopf) 141.212.122.32 requested GET / on financialfirstgroup.com:80
+2018-04-11 13:31:05,270 (glastopf.glastopf) 180.97.106.39 requested HEAD http://180.163.113.82/check_proxy on financialfirstgroup.com:80
+2018-04-11 15:04:14,218 (glastopf.glastopf) 47.203.88.161 requested GET http://httpheader.net/ on financialfirstgroup.com:80
+2018-04-11 15:11:01,358 (glastopf.glastopf) 66.249.83.77 requested GET / on financialfirstgroup.com:80
+2018-04-11 15:11:01,603 (glastopf.glastopf) 66.249.83.78 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-04-11 15:54:52,877 (glastopf.glastopf) 60.191.38.78 requested GET / on financialfirstgroup.com:80
