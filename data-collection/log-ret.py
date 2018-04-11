@@ -24,6 +24,8 @@ amunLogPath = '../jmc/amun/logs/'
 amunLogDestinationPath = "../jmc/am/logs/"
 acceptedLogs = ['shellcode','request','vulnerabilities']
 
+kippoLogPath = '../caw/kippo/kippo/log/'
+kippoLogDestinationPath = "../jmc/kp/logs/"
 
 def getAllGlastopfLogs():
 
@@ -57,6 +59,35 @@ def getAllAmunLogs():
 	for log in keptLogs:
 		subprocess.Popen(["scp", amunLogPath+log, amunLogDestinationPath]).wait()
 
+		
+def getAllKippoLogs():
+	
+	# Get all files in the Kippo log directory
+	logs = [f for f in os.listdir(kippoLogPath) if os.path.isfile(os.path.join(kippoLogPath, f))]
+	
+	# Copy files to local directory for backup & dating
+	for log in logs:
+		subprocess.Popen(["scp", kippoLogPath+log, kippoLogDestinationPath]).wait()
+	
+
+	
+	# Date logs
+	for log in logs:
+		dateList = []
+		with open(kippoLogDestinationPath+log, "r") as file:
+			for line in file:
+				contents = line.split()
+				date = contents[0]
+				if date not in dateList:
+					dateList.append(date)
+				else:
+		print "Info from log: "
+		print log
+		print dateList
+				
+def writeLineToFile(fileName, line):
+	
+		
 def selectLogs(x):
 	if x == "-g":
 		getAllGlastopfLogs()
@@ -64,6 +95,9 @@ def selectLogs(x):
 	elif x == "-a":
 		getAllAmunLogs()
 		print "Amun logs retrieved"
+	elif x == "-k":
+		getAllKippoLogs()
+		print "Kippo logs retrieved"
 	else:
 		pass
 
