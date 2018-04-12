@@ -11,11 +11,13 @@ var margin = {top: 20, right: 30, bottom: 30, left: 30},
     height = 500 - margin.top - margin.bottom;
 
 // Define x and y scales
+/*
 var max = d3.max(values);
 var min = d3.min(values);
 var x = d3.scale.linear()
       .domain([min, max])
       .range([0, width]);
+      */
 
 // Generate a histogram using twenty uniformly-spaced bins.
 var data = d3.layout.histogram()
