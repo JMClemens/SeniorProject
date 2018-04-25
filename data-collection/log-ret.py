@@ -15,6 +15,7 @@ import datetime
 import os
 import subprocess
 import sys
+import re
 
 glastopfLogPath = '../jmc/glastopf/financialfirstgroup/log/'
 glastopfLogDestinationPath = "../jmc/gl/logs"
@@ -23,6 +24,8 @@ glastopfLogs = []
 amunLogPath = '../jmc/amun/logs/'
 amunLogDestinationPath = "../jmc/am/logs/"
 acceptedLogs = ['shellcode','request','vulnerabilities']
+amunIgnoredLines = ['Traceback','Failure']
+amunLogDates = []
 
 kippoLogPath = '../caw/kippo/kippo/log/'
 kippoLogDestinationPath = "../jmc/kp/logs/"
@@ -44,6 +47,9 @@ def getAllGlastopfLogs():
 	os.chdir("../../")
 	'''
 
+def getCurrentGlastopfLog():
+	pass
+	
 def getAllAmunLogs():
 	
 	# Get all files in the amun log directory
@@ -69,29 +75,35 @@ def getAllKippoLogs():
 	for log in logs:
 		subprocess.Popen(["scp", kippoLogPath+log, kippoLogDestinationPath]).wait()
 	
-
-	
-	# Date logs
+	# Get logs dates
 	for log in logs:
 		dateList = []
+		datePattern = re.compile(r'\d{4}-\d{2}-\d{2}')
+		print log
 		with open(kippoLogDestinationPath+log, "r") as file:
 			for line in file:
-				contents = line.split()
-				date = contents[0]
-				if date not in dateList:
-					dateList.append(date)
+				if datePattern.match(line):
+					match = re.search(r'\d{4}-\d{2}-\d{2}',line)
+					date = datetime.datetime.strptime(match.group(), '%Y-%m-%d').strftime("%Y-%m-%d")
+					if date not in dateList:
+						dateList.append(date)
+					else:
+						pass
 				else:
-		print "Info from log: "
-		print log
-		print dateList
-				
-def writeLineToFile(fileName, line):
+					pass
+		amunLogDates.append(dateList)
+		
+	print amunLogDates
 	
+def writeLineToFile(fileName, line):
+	pass
 		
 def selectLogs(x):
 	if x == "-g":
 		getAllGlastopfLogs()
 		print "Glastopf logs retrieved"
+	elif x == "-gc":
+		getCurrentGlastopfLog()
 	elif x == "-a":
 		getAllAmunLogs()
 		print "Amun logs retrieved"
