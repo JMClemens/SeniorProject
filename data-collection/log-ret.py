@@ -30,6 +30,7 @@ kippoLogDestinationPath = "../jmc/kp/logs/"
 
 def getAllGlastopfLogs():
 
+	print "Getting Glastopf Logs"
 	# Get all files in the glastopf log directory 
 	logs = [f for f in os.listdir(glastopfLogPath) if os.path.isfile(os.path.join(glastopfLogPath, f))]
 	
@@ -46,7 +47,17 @@ def getAllGlastopfLogs():
 	
 
 def getCurrentGlastopfLog():
-	pass
+	
+	# Get today's log
+	log = glastopfLogPath + "glastopf.log"
+	print log
+	subprocess.Popen(["scp", log, glastopfLogDestinationPath]).wait()
+	
+	# Rename current day's log to be timestamped
+	os.chdir(glastopfLogDestinationPath)
+	subprocess.Popen(["scp", "glastopf.log", "glastopf.log."+str(datetime.date.today())]).wait()
+	subprocess.Popen(["rm","glastopf.log"]).wait()
+	os.chdir("../../")
 	
 def getAllAmunLogs():
 	
@@ -65,8 +76,6 @@ def getAllAmunLogs():
 
 		
 def getAllKippoLogs():
-	
-	
 	print "Getting Kippo Logs"
 	# Get all files in the Kippo log directory
 	logs = [f for f in os.listdir(kippoLogPath) if os.path.isfile(os.path.join(kippoLogPath, f))]
@@ -84,25 +93,23 @@ def getAllKippoLogs():
 				if datePattern.match(line):
 					match = re.search(r'\d{4}-\d{2}-\d{2}',line)
 					date = datetime.datetime.strptime(match.group(), '%Y-%m-%d').strftime("%Y-%m-%d")
-					outFile = "dkl/kippo.log." + date
+					outFile = "kp/logs/kippo.log." + date
 					with open(outFile, "a+") as file:
 						file.write(line)
-	
-def writeLineToFile(fileName, line):
-	pass
 		
 def selectLogs(x):
 	if x == "-g":
 		getAllGlastopfLogs()
-		print "Glastopf logs retrieved"
+		print "Glastopf Logs Retrieved"
 	elif x == "-gc":
 		getCurrentGlastopfLog()
+		print "Current Glastopf Log Retrieved"
 	elif x == "-a":
 		getAllAmunLogs()
-		print "Amun logs retrieved"
+		print "Amun Logs Retrieved"
 	elif x == "-k":
 		getAllKippoLogs()
-		print "Kippo logs retrieved"
+		print "Kippo Logs Retrieved"
 	else:
 		pass
 
