@@ -3,10 +3,12 @@ import getCenterCords as g
 import csv
 from collections import Counter
 from collections import OrderedDict
+from collections import namedtuple
 import os
 import re
 import datetime
 import time
+import sys
 
 fileName = "glastopf.log"
 outFile = "glastopf.csv"
@@ -74,26 +76,21 @@ def parseLog(fileName):
 			if any(x in line for x in ignoreLine):
 				pass
 			elif line is last:
-				print "Pass"
 				pass
 			else:	
 				contents = line.split()
 				date = contents[0]
 				secondGroup = contents[1].split(",")
-				print "Line"
-				print line
-				print "Second group"
-				print secondGroup
 				timeStamp = secondGroup[0]
 				httpStatusCode = secondGroup[1]
 				ipAddr = contents[3]
 				httpRequestMethod = contents[5]
 				requestedResource = contents[6]
 				countryName =  gip.country_name_by_addr(ipAddr)
+				if countryName == '':
+					countryName = "Unknown"
 				if requestedResource == "/": requestedResource = "index.html"
-
 				entry = {"Date":date, "Timestamp":timeStamp, "IP":ipAddr, "Country":countryName, "StatusCode":httpStatusCode,"RequestMethod":httpRequestMethod,"Resource":requestedResource}
-				print entry
 				activityList.append(entry)
 					
 def parseAllLogs():
@@ -102,24 +99,56 @@ def parseAllLogs():
 		myFile = logPath + file
 		parseLog(myFile)
 	write_list_of_dicts_to_csv(allLog, activityList)
-
-
-
-def is_ascii(s):
-	return all(ord(c) < 128 for c in s)
+	
+def parseTodaysLog():
+	global activityList
+	log = logPath + "glastopf.log." + str(datetime.date.today())
+	parseLog(log)
+	fullActivityList = []
+	with open('gl/csv/all.csv', 'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+				fullActivityList.append(row)
+	combList = fullActivityList + [x for x in activityList if x not in fullActivityList]
+	activityList = combList
 	
 def countryFrequency():
+
+	# Build our list of countries to check
 	countryList = []
 	for item in activityList:
 		countryList.append(item["Country"])
 	countryFrequency = Counter(countryList)
 	countryFrequency = dict(countryFrequency)
+	
+	# Load coordinate list
+	coordList = []
+	with open('google-coordinates.csv', 'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+			coordList.append(row)
+	
+	# Build CSV file with coordinate and frequency info
 	newCountryList = []
 	for key, value in countryFrequency.items():
-		coords = g.get_boundingbox_country(country=key, output_as='center')
+		coords = getCountryCoordinates(key, coordList)
+		#coords = g.get_boundingbox_country(country=key, output_as='center')
 		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(gCfreqFile,newCountryList)	
+	
+def getCountryCoordinates(country,coordList):
+	if country == "Europe":
+		coords = [float(60),float(60)]
+		return coords
+	elif country == "Unknown":
+		coords = [float(30),float(-40)]
+		return coords
+	else:
+		for item in coordList:
+			if item["name"] == country:
+				coords = [float(item["latitude"]),float(item["longitude"])]
+				return coords
 
 def requestFrequency():
 	requestList = []
@@ -145,7 +174,6 @@ def statusCodeFrequency():
 		newCodeList.append(entry)
 	write_list_of_dicts_to_csv(gStatusCodesFile,newCodeList)
 	
-	
 def timeOfDay():
 	timeList = []
 	for item in activityList:
@@ -163,10 +191,6 @@ def timeOfDay():
 		newTimeList.append(entry)
 	sortedTimeList = sorted(newTimeList,key=lambda x:x['Timestamp'])
 	write_list_of_dicts_to_csv(gTimeOfDayFile,sortedTimeList)
-	
-# TODO:
-# make this function only include GET requests
-# make similar functions for other types of requests
 
 def resourceFrequency():
 	resourceList = []
@@ -189,7 +213,6 @@ def resourceFrequency():
 		else:
 			topURI.append(item)
 			counter = counter + 1
-	print topURI
 	write_list_of_dicts_to_csv(gTopURIFile, topURI)
 	write_list_of_dicts_to_csv(gResourceFile,sortedResourceList)	
 
@@ -207,16 +230,29 @@ def dailyActivityTotals():
 		newHitList.append(entry)
 	write_list_of_dicts_to_csv(gDailyHitsFile,newHitList)	
 
+def selectAction(x):
+		if x == "-all":
+			parseAllLogs()
+			write_list_of_dicts_to_csv(outFile,activityList)
+			countryFrequency()
+			requestFrequency()
+			resourceFrequency()
+			dailyActivityTotals()
+			statusCodeFrequency()
+			timeOfDay()
+			print "Glastopf Logs Parsed"
+		elif x == "-today":
+			parseTodaysLog()
+			write_list_of_dicts_to_csv(outFile,activityList)
+			countryFrequency()
+			requestFrequency()
+			resourceFrequency()
+			dailyActivityTotals()
+			statusCodeFrequency()
+			timeOfDay()
+			print "Current Glastopf Log Parsed"
+		else:
+			pass
 
-
-
-
-#parseLog(fileName)
-#write_list_of_dicts_to_csv(outFile,activityList)
-parseAllLogs()
-#countryFrequency()
-requestFrequency()
-resourceFrequency()
-dailyActivityTotals()
-statusCodeFrequency()
-timeOfDay()
+if __name__ == '__main__':
+	selectAction(*sys.argv[1:])

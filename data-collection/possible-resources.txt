@@ -7,3 +7,5 @@ See for reusable charts idea:
 See for responsive charts & great composition overall:
 	https://blog.webkid.io/responsive-chart-usability-d3/
 	
+Google country coordinate data:
+	https://developers.google.com/public-data/docs/canonical/countries_csv
