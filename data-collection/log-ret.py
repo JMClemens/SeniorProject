@@ -24,8 +24,6 @@ glastopfLogs = []
 amunLogPath = '../jmc/amun/logs/'
 amunLogDestinationPath = "../jmc/am/logs/"
 acceptedLogs = ['shellcode','request','vulnerabilities']
-amunIgnoredLines = ['Traceback','Failure']
-amunLogDates = []
 
 kippoLogPath = '../caw/kippo/kippo/log/'
 kippoLogDestinationPath = "../jmc/kp/logs/"
@@ -39,13 +37,13 @@ def getAllGlastopfLogs():
 	for log in logs:
 		subprocess.Popen(["scp", glastopfLogPath+log, glastopfLogDestinationPath]).wait()
 	
-	'''
+	
 	# Rename current day's log to be timestamped
 	os.chdir(glastopfLogDestinationPath)
-	subprocess.Popen(["sudo scp", "glastopf.log", "glastopf.log."+str(datetime.date.today())]).wait()
+	subprocess.Popen(["scp", "glastopf.log", "glastopf.log."+str(datetime.date.today())]).wait()
 	subprocess.Popen(["rm","glastopf.log"]).wait()
 	os.chdir("../../")
-	'''
+	
 
 def getCurrentGlastopfLog():
 	pass
@@ -68,32 +66,27 @@ def getAllAmunLogs():
 		
 def getAllKippoLogs():
 	
+	
+	print "Getting Kippo Logs"
 	# Get all files in the Kippo log directory
 	logs = [f for f in os.listdir(kippoLogPath) if os.path.isfile(os.path.join(kippoLogPath, f))]
 	
 	# Copy files to local directory for backup & dating
 	for log in logs:
 		subprocess.Popen(["scp", kippoLogPath+log, kippoLogDestinationPath]).wait()
-	
-	# Get logs dates
+		
+	print "Dating Kippo Logs"
+	# Get log dates
 	for log in logs:
-		dateList = []
 		datePattern = re.compile(r'\d{4}-\d{2}-\d{2}')
-		print log
 		with open(kippoLogDestinationPath+log, "r") as file:
 			for line in file:
 				if datePattern.match(line):
 					match = re.search(r'\d{4}-\d{2}-\d{2}',line)
 					date = datetime.datetime.strptime(match.group(), '%Y-%m-%d').strftime("%Y-%m-%d")
-					if date not in dateList:
-						dateList.append(date)
-					else:
-						pass
-				else:
-					pass
-		amunLogDates.append(dateList)
-		
-	print amunLogDates
+					outFile = "dkl/kippo.log." + date
+					with open(outFile, "a+") as file:
+						file.write(line)
 	
 def writeLineToFile(fileName, line):
 	pass
