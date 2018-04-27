@@ -48,9 +48,7 @@ def parseLog(fileName):
 		if "shellcode" in fileName:
 			print "Shellcode manager parsing..."
 			for line in file:
-				print type(line)
 				contents = line.split()
-				print contents
 				date = contents[0]
 				secondGroup = contents[1].split(",")
 				timeStamp = secondGroup[0]
@@ -85,6 +83,8 @@ def parseLog(fileName):
 				timeStamp = secondGroup[0]
 				statusCode = secondGroup[1]
 				countryName = gip.country_name_by_addr(ipAddr)
+				if countryName == '':
+					countryName = "Unknown"
 				entry = {"Port":port,"IP":ipAddr,"Date":dateStamp,"Timestamp":timeStamp,"Status Code":statusCode,"Country":countryName}
 				print entry
 				requestHandlerActivity.append(entry)
@@ -213,7 +213,7 @@ def selectAction(x):
 			countryFrequency()
 			dailyActivityTotals()
 			portTotals()
-			print "Current Glastopf Log Parsed"
+			print "Current Amun Log Parsed"
 		else:
 			pass
 
