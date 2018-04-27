@@ -133,10 +133,11 @@ def getAllKippoLogs():
 				if datePattern.match(line):
 					match = re.search(r'\d{4}-\d{2}-\d{2}',line)
 					date = datetime.datetime.strptime(match.group(), '%Y-%m-%d').strftime("%Y-%m-%d")
-					outFile = "kp/logs/kippo.log." + date
+					outFile = "kp/logs/dated/kippo.log." + date
 					with open(outFile, "a+") as file:
 						file.write(line)
 
+		
 def getCurrentKippoLog():
 	print "Getting current Kippo log"
 	# Get the path to the current kippo logs

@@ -1,0 +1,1111 @@
+2018-03-22 16:36:16-0400 [-] Log opened.
+2018-03-22 16:36:16-0400 [-] twistd 14.0.2 (/usr/bin/python 2.7.12) starting up.
+2018-03-22 16:36:16-0400 [-] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-03-22 16:36:16-0400 [-] HoneyPotSSHFactory starting on 22
+2018-03-22 16:36:16-0400 [-] Starting factory <kippo.core.ssh.HoneyPotSSHFactory instance at 0x7f976be03ef0>
+2018-03-22 16:36:57-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 76.100.27.231:54107 (192.250.236.104:22) [session: 0]
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] Remote SSH version: SSH-2.0-MoTTY_Release_0.36
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] outgoing: aes256-ctr hmac-sha1 zlib
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] incoming: aes256-ctr hmac-sha1 zlib
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] /usr/lib/python2.7/dist-packages/Crypto/Cipher/blockalgo.py:141: exceptions.FutureWarning: CTR mode needs counter parameter, not IV
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] NEW KEYS
+2018-03-22 16:36:57-0400 [HoneyPotTransport,0,76.100.27.231] starting service ssh-userauth
+2018-03-22 16:36:57-0400 [SSHService ssh-userauth on HoneyPotTransport,0,76.100.27.231] root trying auth none
+2018-03-22 16:36:57-0400 [SSHService ssh-userauth on HoneyPotTransport,0,76.100.27.231] root trying auth keyboard-interactive
+2018-03-22 16:36:59-0400 [SSHService ssh-userauth on HoneyPotTransport,0,76.100.27.231] login attempt [root/123456] succeeded
+2018-03-22 16:36:59-0400 [SSHService ssh-userauth on HoneyPotTransport,0,76.100.27.231] root authenticated with keyboard-interactive
+2018-03-22 16:36:59-0400 [SSHService ssh-userauth on HoneyPotTransport,0,76.100.27.231] starting service ssh-connection
+2018-03-22 16:36:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 76.100.27.231:54108 (192.250.236.104:22) [session: 1]
+2018-03-22 16:37:00-0400 [-] Received SIGTERM, shutting down.
+2018-03-22 16:37:00-0400 [-] (TCP Port 22 Closed)
+2018-03-22 16:37:00-0400 [-] Stopping factory <kippo.core.ssh.HoneyPotSSHFactory instance at 0x7f976be03ef0>
+2018-03-22 16:37:00-0400 [HoneyPotTransport,1,76.100.27.231] connection lost
+2018-03-22 16:37:00-0400 [HoneyPotTransport,0,76.100.27.231] connection lost
+2018-03-22 16:37:00-0400 [-] Main loop terminated.
+2018-03-22 16:37:00-0400 [-] Server Shut Down.
+2018-03-22 16:37:12-0400 [-] Log opened.
+2018-03-22 16:37:12-0400 [-] twistd 14.0.2 (/usr/bin/python 2.7.12) starting up.
+2018-03-22 16:37:12-0400 [-] reactor class: twisted.internet.epollreactor.EPollReactor.
+2018-03-22 16:37:12-0400 [-] HoneyPotSSHFactory starting on 22
+2018-03-22 16:37:12-0400 [-] Starting factory <kippo.core.ssh.HoneyPotSSHFactory instance at 0x7f035af2fef0>
+2018-03-22 16:38:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 144.175.142.98:51014 (192.250.236.104:22) [session: 0]
+2018-03-22 16:38:10-0400 [HoneyPotTransport,0,144.175.142.98] Remote SSH version: SSH-2.0-OpenSSH_7.6
+2018-03-22 16:38:10-0400 [HoneyPotTransport,0,144.175.142.98] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 16:38:10-0400 [HoneyPotTransport,0,144.175.142.98] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 16:38:10-0400 [HoneyPotTransport,0,144.175.142.98] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 16:38:14-0400 [HoneyPotTransport,0,144.175.142.98] /usr/lib/python2.7/dist-packages/Crypto/Cipher/blockalgo.py:141: exceptions.FutureWarning: CTR mode needs counter parameter, not IV
+2018-03-22 16:38:14-0400 [HoneyPotTransport,0,144.175.142.98] connection lost
+2018-03-22 16:38:28-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 144.175.142.98:51015 (192.250.236.104:22) [session: 1]
+2018-03-22 16:38:28-0400 [HoneyPotTransport,1,144.175.142.98] Remote SSH version: SSH-2.0-OpenSSH_7.6
+2018-03-22 16:38:28-0400 [HoneyPotTransport,1,144.175.142.98] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 16:38:28-0400 [HoneyPotTransport,1,144.175.142.98] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 16:38:28-0400 [HoneyPotTransport,1,144.175.142.98] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 16:38:32-0400 [HoneyPotTransport,1,144.175.142.98] connection lost
+2018-03-22 16:38:53-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 144.175.142.98:51016 (192.250.236.104:22) [session: 2]
+2018-03-22 16:38:54-0400 [HoneyPotTransport,2,144.175.142.98] Remote SSH version: SSH-2.0-OpenSSH_7.6
+2018-03-22 16:38:54-0400 [HoneyPotTransport,2,144.175.142.98] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 16:38:54-0400 [HoneyPotTransport,2,144.175.142.98] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 16:38:54-0400 [HoneyPotTransport,2,144.175.142.98] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 16:38:57-0400 [HoneyPotTransport,2,144.175.142.98] connection lost
+2018-03-22 16:39:06-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 144.175.142.98:51018 (192.250.236.104:22) [session: 3]
+2018-03-22 16:39:06-0400 [HoneyPotTransport,3,144.175.142.98] Remote SSH version: SSH-2.0-OpenSSH_7.6
+2018-03-22 16:39:06-0400 [HoneyPotTransport,3,144.175.142.98] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 16:39:06-0400 [HoneyPotTransport,3,144.175.142.98] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 16:39:06-0400 [HoneyPotTransport,3,144.175.142.98] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 16:39:11-0400 [HoneyPotTransport,3,144.175.142.98] connection lost
+2018-03-22 17:21:11-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.101.40.10:39727 (192.250.236.104:22) [session: 4]
+2018-03-22 17:21:17-0400 [HoneyPotTransport,4,5.101.40.10] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 17:21:17-0400 [HoneyPotTransport,4,5.101.40.10] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 17:21:17-0400 [HoneyPotTransport,4,5.101.40.10] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:17-0400 [HoneyPotTransport,4,5.101.40.10] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:21-0400 [HoneyPotTransport,4,5.101.40.10] NEW KEYS
+2018-03-22 17:21:24-0400 [HoneyPotTransport,4,5.101.40.10] starting service ssh-userauth
+2018-03-22 17:21:25-0400 [SSHService ssh-userauth on HoneyPotTransport,4,5.101.40.10] 0 trying auth password
+2018-03-22 17:21:25-0400 [SSHService ssh-userauth on HoneyPotTransport,4,5.101.40.10] login attempt [0/] failed
+2018-03-22 17:21:26-0400 [-] 0 failed auth password
+2018-03-22 17:21:26-0400 [-] unauthorized login: 
+2018-03-22 17:21:27-0400 [SSHService ssh-userauth on HoneyPotTransport,4,5.101.40.10] 0 trying auth password
+2018-03-22 17:21:27-0400 [SSHService ssh-userauth on HoneyPotTransport,4,5.101.40.10] login attempt [0/ ] failed
+2018-03-22 17:21:28-0400 [-] 0 failed auth password
+2018-03-22 17:21:28-0400 [-] unauthorized login: 
+2018-03-22 17:21:28-0400 [HoneyPotTransport,4,5.101.40.10] connection lost
+2018-03-22 17:21:28-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.101.40.10:44793 (192.250.236.104:22) [session: 5]
+2018-03-22 17:21:32-0400 [HoneyPotTransport,5,5.101.40.10] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 17:21:32-0400 [HoneyPotTransport,5,5.101.40.10] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 17:21:32-0400 [HoneyPotTransport,5,5.101.40.10] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:32-0400 [HoneyPotTransport,5,5.101.40.10] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:35-0400 [HoneyPotTransport,5,5.101.40.10] NEW KEYS
+2018-03-22 17:21:38-0400 [HoneyPotTransport,5,5.101.40.10] starting service ssh-userauth
+2018-03-22 17:21:40-0400 [SSHService ssh-userauth on HoneyPotTransport,5,5.101.40.10] 0101 trying auth password
+2018-03-22 17:21:40-0400 [SSHService ssh-userauth on HoneyPotTransport,5,5.101.40.10] login attempt [0101/0101] failed
+2018-03-22 17:21:41-0400 [-] 0101 failed auth password
+2018-03-22 17:21:41-0400 [-] unauthorized login: 
+2018-03-22 17:21:42-0400 [HoneyPotTransport,5,5.101.40.10] connection lost
+2018-03-22 17:21:42-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.101.40.10:46484 (192.250.236.104:22) [session: 6]
+2018-03-22 17:21:47-0400 [HoneyPotTransport,6,5.101.40.10] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 17:21:47-0400 [HoneyPotTransport,6,5.101.40.10] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 17:21:47-0400 [HoneyPotTransport,6,5.101.40.10] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:47-0400 [HoneyPotTransport,6,5.101.40.10] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:48-0400 [HoneyPotTransport,6,5.101.40.10] NEW KEYS
+2018-03-22 17:21:48-0400 [HoneyPotTransport,6,5.101.40.10] starting service ssh-userauth
+2018-03-22 17:21:49-0400 [SSHService ssh-userauth on HoneyPotTransport,6,5.101.40.10] 1234 trying auth password
+2018-03-22 17:21:49-0400 [SSHService ssh-userauth on HoneyPotTransport,6,5.101.40.10] login attempt [1234/1234] failed
+2018-03-22 17:21:50-0400 [-] 1234 failed auth password
+2018-03-22 17:21:50-0400 [-] unauthorized login: 
+2018-03-22 17:21:51-0400 [HoneyPotTransport,6,5.101.40.10] connection lost
+2018-03-22 17:21:51-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.101.40.10:53176 (192.250.236.104:22) [session: 7]
+2018-03-22 17:21:55-0400 [HoneyPotTransport,7,5.101.40.10] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 17:21:55-0400 [HoneyPotTransport,7,5.101.40.10] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 17:21:55-0400 [HoneyPotTransport,7,5.101.40.10] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:55-0400 [HoneyPotTransport,7,5.101.40.10] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:56-0400 [HoneyPotTransport,7,5.101.40.10] NEW KEYS
+2018-03-22 17:21:56-0400 [HoneyPotTransport,7,5.101.40.10] starting service ssh-userauth
+2018-03-22 17:21:56-0400 [SSHService ssh-userauth on HoneyPotTransport,7,5.101.40.10] admin trying auth password
+2018-03-22 17:21:56-0400 [SSHService ssh-userauth on HoneyPotTransport,7,5.101.40.10] login attempt [admin/] failed
+2018-03-22 17:21:57-0400 [-] admin failed auth password
+2018-03-22 17:21:57-0400 [-] unauthorized login: 
+2018-03-22 17:21:58-0400 [HoneyPotTransport,7,5.101.40.10] connection lost
+2018-03-22 17:21:58-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.101.40.10:47035 (192.250.236.104:22) [session: 8]
+2018-03-22 17:21:59-0400 [HoneyPotTransport,8,5.101.40.10] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 17:21:59-0400 [HoneyPotTransport,8,5.101.40.10] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 17:21:59-0400 [HoneyPotTransport,8,5.101.40.10] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 17:21:59-0400 [HoneyPotTransport,8,5.101.40.10] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 17:22:00-0400 [HoneyPotTransport,8,5.101.40.10] NEW KEYS
+2018-03-22 17:22:02-0400 [HoneyPotTransport,8,5.101.40.10] starting service ssh-userauth
+2018-03-22 17:22:02-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] admin trying auth password
+2018-03-22 17:22:02-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] login attempt [admin/!] failed
+2018-03-22 17:22:03-0400 [-] admin failed auth password
+2018-03-22 17:22:03-0400 [-] unauthorized login: 
+2018-03-22 17:22:03-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] admin trying auth password
+2018-03-22 17:22:03-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] login attempt [admin/&] failed
+2018-03-22 17:22:04-0400 [-] admin failed auth password
+2018-03-22 17:22:04-0400 [-] unauthorized login: 
+2018-03-22 17:22:05-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] admin trying auth password
+2018-03-22 17:22:05-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] login attempt [admin/100000] failed
+2018-03-22 17:22:06-0400 [-] admin failed auth password
+2018-03-22 17:22:06-0400 [-] unauthorized login: 
+2018-03-22 17:22:07-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] admin trying auth password
+2018-03-22 17:22:07-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] login attempt [admin/1234] failed
+2018-03-22 17:22:08-0400 [-] admin failed auth password
+2018-03-22 17:22:08-0400 [-] unauthorized login: 
+2018-03-22 17:22:09-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] admin trying auth password
+2018-03-22 17:22:09-0400 [SSHService ssh-userauth on HoneyPotTransport,8,5.101.40.10] login attempt [admin/12345] failed
+2018-03-22 17:22:10-0400 [-] admin failed auth password
+2018-03-22 17:22:10-0400 [-] unauthorized login: 
+2018-03-22 17:22:10-0400 [HoneyPotTransport,8,5.101.40.10] connection lost
+2018-03-22 17:22:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.101.40.10:43506 (192.250.236.104:22) [session: 9]
+2018-03-22 17:22:13-0400 [HoneyPotTransport,9,5.101.40.10] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 17:22:13-0400 [HoneyPotTransport,9,5.101.40.10] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 17:22:13-0400 [HoneyPotTransport,9,5.101.40.10] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 17:22:13-0400 [HoneyPotTransport,9,5.101.40.10] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 17:22:14-0400 [HoneyPotTransport,9,5.101.40.10] NEW KEYS
+2018-03-22 17:22:14-0400 [HoneyPotTransport,9,5.101.40.10] starting service ssh-userauth
+2018-03-22 17:22:14-0400 [SSHService ssh-userauth on HoneyPotTransport,9,5.101.40.10] admin trying auth password
+2018-03-22 17:22:14-0400 [SSHService ssh-userauth on HoneyPotTransport,9,5.101.40.10] login attempt [admin/123456] succeeded
+2018-03-22 17:22:14-0400 [SSHService ssh-userauth on HoneyPotTransport,9,5.101.40.10] admin authenticated with password
+2018-03-22 17:22:14-0400 [SSHService ssh-userauth on HoneyPotTransport,9,5.101.40.10] starting service ssh-connection
+2018-03-22 17:22:14-0400 [HoneyPotTransport,9,5.101.40.10] connection lost
+2018-03-22 18:39:32-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:48484 (192.250.236.104:22) [session: 10]
+2018-03-22 18:39:32-0400 [HoneyPotTransport,10,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 18:39:32-0400 [HoneyPotTransport,10,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 18:39:32-0400 [HoneyPotTransport,10,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 18:39:32-0400 [HoneyPotTransport,10,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 18:39:32-0400 [HoneyPotTransport,10,185.173.224.188] NEW KEYS
+2018-03-22 18:39:32-0400 [HoneyPotTransport,10,185.173.224.188] starting service ssh-userauth
+2018-03-22 18:39:32-0400 [SSHService ssh-userauth on HoneyPotTransport,10,185.173.224.188] tester trying auth password
+2018-03-22 18:39:32-0400 [SSHService ssh-userauth on HoneyPotTransport,10,185.173.224.188] login attempt [tester/tester1] failed
+2018-03-22 18:39:33-0400 [-] tester failed auth password
+2018-03-22 18:39:33-0400 [-] unauthorized login: 
+2018-03-22 18:39:33-0400 [HoneyPotTransport,10,185.173.224.188] connection lost
+2018-03-22 19:08:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:42299 (192.250.236.104:22) [session: 11]
+2018-03-22 19:08:19-0400 [HoneyPotTransport,11,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 19:08:19-0400 [HoneyPotTransport,11,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 19:08:19-0400 [HoneyPotTransport,11,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 19:08:19-0400 [HoneyPotTransport,11,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 19:08:19-0400 [HoneyPotTransport,11,185.173.224.188] NEW KEYS
+2018-03-22 19:08:19-0400 [HoneyPotTransport,11,185.173.224.188] starting service ssh-userauth
+2018-03-22 19:08:19-0400 [SSHService ssh-userauth on HoneyPotTransport,11,185.173.224.188] data trying auth password
+2018-03-22 19:08:19-0400 [SSHService ssh-userauth on HoneyPotTransport,11,185.173.224.188] login attempt [data/123456] failed
+2018-03-22 19:08:20-0400 [-] data failed auth password
+2018-03-22 19:08:20-0400 [-] unauthorized login: 
+2018-03-22 19:08:20-0400 [HoneyPotTransport,11,185.173.224.188] connection lost
+2018-03-22 19:36:46-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:35176 (192.250.236.104:22) [session: 12]
+2018-03-22 19:36:46-0400 [HoneyPotTransport,12,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 19:36:46-0400 [HoneyPotTransport,12,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 19:36:46-0400 [HoneyPotTransport,12,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 19:36:46-0400 [HoneyPotTransport,12,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 19:36:46-0400 [HoneyPotTransport,12,185.173.224.188] NEW KEYS
+2018-03-22 19:36:46-0400 [HoneyPotTransport,12,185.173.224.188] starting service ssh-userauth
+2018-03-22 19:36:46-0400 [SSHService ssh-userauth on HoneyPotTransport,12,185.173.224.188] cyrus trying auth password
+2018-03-22 19:36:46-0400 [SSHService ssh-userauth on HoneyPotTransport,12,185.173.224.188] login attempt [cyrus/cyrus123] failed
+2018-03-22 19:36:47-0400 [-] cyrus failed auth password
+2018-03-22 19:36:47-0400 [-] unauthorized login: 
+2018-03-22 19:36:47-0400 [HoneyPotTransport,12,185.173.224.188] connection lost
+2018-03-22 19:40:18-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 49.231.145.167:56132 (192.250.236.104:22) [session: 13]
+2018-03-22 19:40:18-0400 [HoneyPotTransport,13,49.231.145.167] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 19:40:18-0400 [HoneyPotTransport,13,49.231.145.167] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 19:40:18-0400 [HoneyPotTransport,13,49.231.145.167] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 19:40:18-0400 [HoneyPotTransport,13,49.231.145.167] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 19:40:19-0400 [HoneyPotTransport,13,49.231.145.167] NEW KEYS
+2018-03-22 19:40:19-0400 [HoneyPotTransport,13,49.231.145.167] starting service ssh-userauth
+2018-03-22 19:40:20-0400 [SSHService ssh-userauth on HoneyPotTransport,13,49.231.145.167] cssserver trying auth password
+2018-03-22 19:40:20-0400 [SSHService ssh-userauth on HoneyPotTransport,13,49.231.145.167] login attempt [cssserver/cssserver123] failed
+2018-03-22 19:40:21-0400 [-] cssserver failed auth password
+2018-03-22 19:40:21-0400 [-] unauthorized login: 
+2018-03-22 19:40:21-0400 [HoneyPotTransport,13,49.231.145.167] connection lost
+2018-03-22 19:49:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.188.10.144:35564 (192.250.236.104:22) [session: 14]
+2018-03-22 19:49:16-0400 [HoneyPotTransport,14,5.188.10.144] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 19:49:16-0400 [HoneyPotTransport,14,5.188.10.144] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 19:49:16-0400 [HoneyPotTransport,14,5.188.10.144] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 19:49:16-0400 [HoneyPotTransport,14,5.188.10.144] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 19:49:17-0400 [HoneyPotTransport,14,5.188.10.144] NEW KEYS
+2018-03-22 19:49:17-0400 [HoneyPotTransport,14,5.188.10.144] starting service ssh-userauth
+2018-03-22 19:49:17-0400 [SSHService ssh-userauth on HoneyPotTransport,14,5.188.10.144] admin trying auth password
+2018-03-22 19:49:17-0400 [SSHService ssh-userauth on HoneyPotTransport,14,5.188.10.144] login attempt [admin/123456] succeeded
+2018-03-22 19:49:17-0400 [SSHService ssh-userauth on HoneyPotTransport,14,5.188.10.144] admin authenticated with password
+2018-03-22 19:49:17-0400 [SSHService ssh-userauth on HoneyPotTransport,14,5.188.10.144] starting service ssh-connection
+2018-03-22 19:49:18-0400 [SSHService ssh-connection on HoneyPotTransport,14,5.188.10.144] got channel direct-tcpip request
+2018-03-22 19:49:18-0400 [SSHService ssh-connection on HoneyPotTransport,14,5.188.10.144] channel open failed
+	Traceback (most recent call last):
+	Failure: twisted.conch.error.ConchError: (3, 'unknown channel')
+	
+2018-03-22 19:49:18-0400 [HoneyPotTransport,14,5.188.10.144] connection lost
+2018-03-22 19:49:46-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 93.33.234.5:43753 (192.250.236.104:22) [session: 15]
+2018-03-22 19:49:46-0400 [HoneyPotTransport,15,93.33.234.5] Remote SSH version: SSH-2.0-sshlib-0.1
+2018-03-22 19:49:46-0400 [HoneyPotTransport,15,93.33.234.5] kex alg, key alg: diffie-hellman-group1-sha1 ssh-dss
+2018-03-22 19:49:46-0400 [HoneyPotTransport,15,93.33.234.5] outgoing: aes128-cbc hmac-md5 none
+2018-03-22 19:49:46-0400 [HoneyPotTransport,15,93.33.234.5] incoming: aes128-cbc hmac-md5 none
+2018-03-22 19:49:46-0400 [HoneyPotTransport,15,93.33.234.5] NEW KEYS
+2018-03-22 19:49:47-0400 [HoneyPotTransport,15,93.33.234.5] starting service ssh-userauth
+2018-03-22 19:49:47-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:47-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin1] failed
+2018-03-22 19:49:48-0400 [-] admin failed auth password
+2018-03-22 19:49:48-0400 [-] unauthorized login: 
+2018-03-22 19:49:48-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:48-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/7ujMko0admin] failed
+2018-03-22 19:49:49-0400 [-] admin failed auth password
+2018-03-22 19:49:49-0400 [-] unauthorized login: 
+2018-03-22 19:49:49-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:49-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/pfsense] failed
+2018-03-22 19:49:50-0400 [-] admin failed auth password
+2018-03-22 19:49:50-0400 [-] unauthorized login: 
+2018-03-22 19:49:50-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:50-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/changeme] failed
+2018-03-22 19:49:51-0400 [-] admin failed auth password
+2018-03-22 19:49:51-0400 [-] unauthorized login: 
+2018-03-22 19:49:51-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:51-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/manager] failed
+2018-03-22 19:49:52-0400 [-] admin failed auth password
+2018-03-22 19:49:52-0400 [-] unauthorized login: 
+2018-03-22 19:49:53-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:53-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin] failed
+2018-03-22 19:49:54-0400 [-] admin failed auth password
+2018-03-22 19:49:54-0400 [-] unauthorized login: 
+2018-03-22 19:49:54-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:54-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/changeme] failed
+2018-03-22 19:49:55-0400 [-] admin failed auth password
+2018-03-22 19:49:55-0400 [-] unauthorized login: 
+2018-03-22 19:49:55-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:55-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin123] failed
+2018-03-22 19:49:56-0400 [-] admin failed auth password
+2018-03-22 19:49:56-0400 [-] unauthorized login: 
+2018-03-22 19:49:56-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:56-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/1234] failed
+2018-03-22 19:49:57-0400 [-] admin failed auth password
+2018-03-22 19:49:57-0400 [-] unauthorized login: 
+2018-03-22 19:49:57-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:57-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/7ujMko0admin] failed
+2018-03-22 19:49:58-0400 [-] admin failed auth password
+2018-03-22 19:49:58-0400 [-] unauthorized login: 
+2018-03-22 19:49:58-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:49:58-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/changeme] failed
+2018-03-22 19:49:59-0400 [-] admin failed auth password
+2018-03-22 19:49:59-0400 [-] unauthorized login: 
+2018-03-22 19:50:00-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:00-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/motorola] failed
+2018-03-22 19:50:01-0400 [-] admin failed auth password
+2018-03-22 19:50:01-0400 [-] unauthorized login: 
+2018-03-22 19:50:01-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:01-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/changeme] failed
+2018-03-22 19:50:02-0400 [-] admin failed auth password
+2018-03-22 19:50:02-0400 [-] unauthorized login: 
+2018-03-22 19:50:02-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:02-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/changeme] failed
+2018-03-22 19:50:03-0400 [-] admin failed auth password
+2018-03-22 19:50:03-0400 [-] unauthorized login: 
+2018-03-22 19:50:03-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:03-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin123] failed
+2018-03-22 19:50:04-0400 [-] admin failed auth password
+2018-03-22 19:50:04-0400 [-] unauthorized login: 
+2018-03-22 19:50:04-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:04-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/changeme] failed
+2018-03-22 19:50:05-0400 [-] admin failed auth password
+2018-03-22 19:50:05-0400 [-] unauthorized login: 
+2018-03-22 19:50:05-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:05-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/7ujMko0admin] failed
+2018-03-22 19:50:06-0400 [-] admin failed auth password
+2018-03-22 19:50:06-0400 [-] unauthorized login: 
+2018-03-22 19:50:07-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:07-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin] failed
+2018-03-22 19:50:08-0400 [-] admin failed auth password
+2018-03-22 19:50:08-0400 [-] unauthorized login: 
+2018-03-22 19:50:08-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:08-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/manager] failed
+2018-03-22 19:50:09-0400 [-] admin failed auth password
+2018-03-22 19:50:09-0400 [-] unauthorized login: 
+2018-03-22 19:50:09-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:09-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin123] failed
+2018-03-22 19:50:10-0400 [-] admin failed auth password
+2018-03-22 19:50:10-0400 [-] unauthorized login: 
+2018-03-22 19:50:10-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] admin trying auth password
+2018-03-22 19:50:10-0400 [SSHService ssh-userauth on HoneyPotTransport,15,93.33.234.5] login attempt [admin/admin123] failed
+2018-03-22 19:50:11-0400 [-] admin failed auth password
+2018-03-22 19:50:11-0400 [-] unauthorized login: 
+2018-03-22 19:50:11-0400 [-] Disconnecting with error, code 14
+	reason: too many bad auths
+2018-03-22 19:50:11-0400 [HoneyPotTransport,15,93.33.234.5] connection lost
+2018-03-22 20:05:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:56278 (192.250.236.104:22) [session: 16]
+2018-03-22 20:05:15-0400 [HoneyPotTransport,16,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 20:05:15-0400 [HoneyPotTransport,16,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 20:05:15-0400 [HoneyPotTransport,16,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 20:05:15-0400 [HoneyPotTransport,16,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 20:05:15-0400 [HoneyPotTransport,16,185.173.224.188] NEW KEYS
+2018-03-22 20:05:15-0400 [HoneyPotTransport,16,185.173.224.188] starting service ssh-userauth
+2018-03-22 20:05:16-0400 [SSHService ssh-userauth on HoneyPotTransport,16,185.173.224.188] nvidia trying auth password
+2018-03-22 20:05:16-0400 [SSHService ssh-userauth on HoneyPotTransport,16,185.173.224.188] login attempt [nvidia/nvidia] failed
+2018-03-22 20:05:17-0400 [-] nvidia failed auth password
+2018-03-22 20:05:17-0400 [-] unauthorized login: 
+2018-03-22 20:05:17-0400 [HoneyPotTransport,16,185.173.224.188] connection lost
+2018-03-22 20:33:47-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:49147 (192.250.236.104:22) [session: 17]
+2018-03-22 20:33:47-0400 [HoneyPotTransport,17,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 20:33:47-0400 [HoneyPotTransport,17,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 20:33:47-0400 [HoneyPotTransport,17,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 20:33:47-0400 [HoneyPotTransport,17,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 20:33:48-0400 [HoneyPotTransport,17,185.173.224.188] NEW KEYS
+2018-03-22 20:33:48-0400 [HoneyPotTransport,17,185.173.224.188] starting service ssh-userauth
+2018-03-22 20:33:48-0400 [SSHService ssh-userauth on HoneyPotTransport,17,185.173.224.188] radio trying auth password
+2018-03-22 20:33:48-0400 [SSHService ssh-userauth on HoneyPotTransport,17,185.173.224.188] login attempt [radio/radio123] failed
+2018-03-22 20:33:49-0400 [-] radio failed auth password
+2018-03-22 20:33:49-0400 [-] unauthorized login: 
+2018-03-22 20:33:49-0400 [HoneyPotTransport,17,185.173.224.188] connection lost
+2018-03-22 20:40:22-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 103.16.203.66:47121 (192.250.236.104:22) [session: 18]
+2018-03-22 20:40:23-0400 [HoneyPotTransport,18,103.16.203.66] connection lost
+2018-03-22 21:02:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:42012 (192.250.236.104:22) [session: 19]
+2018-03-22 21:02:19-0400 [HoneyPotTransport,19,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 21:02:19-0400 [HoneyPotTransport,19,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 21:02:19-0400 [HoneyPotTransport,19,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 21:02:19-0400 [HoneyPotTransport,19,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 21:02:19-0400 [HoneyPotTransport,19,185.173.224.188] NEW KEYS
+2018-03-22 21:02:19-0400 [HoneyPotTransport,19,185.173.224.188] starting service ssh-userauth
+2018-03-22 21:02:19-0400 [SSHService ssh-userauth on HoneyPotTransport,19,185.173.224.188] nivarra trying auth password
+2018-03-22 21:02:19-0400 [SSHService ssh-userauth on HoneyPotTransport,19,185.173.224.188] login attempt [nivarra/nivarra] failed
+2018-03-22 21:02:20-0400 [-] nivarra failed auth password
+2018-03-22 21:02:20-0400 [-] unauthorized login: 
+2018-03-22 21:02:20-0400 [HoneyPotTransport,19,185.173.224.188] connection lost
+2018-03-22 21:30:57-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:34875 (192.250.236.104:22) [session: 20]
+2018-03-22 21:30:58-0400 [HoneyPotTransport,20,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 21:30:58-0400 [HoneyPotTransport,20,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 21:30:58-0400 [HoneyPotTransport,20,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 21:30:58-0400 [HoneyPotTransport,20,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 21:30:58-0400 [HoneyPotTransport,20,185.173.224.188] NEW KEYS
+2018-03-22 21:30:58-0400 [HoneyPotTransport,20,185.173.224.188] starting service ssh-userauth
+2018-03-22 21:30:58-0400 [SSHService ssh-userauth on HoneyPotTransport,20,185.173.224.188] uploader trying auth password
+2018-03-22 21:30:58-0400 [SSHService ssh-userauth on HoneyPotTransport,20,185.173.224.188] login attempt [uploader/p@ssw0rd] failed
+2018-03-22 21:30:59-0400 [-] uploader failed auth password
+2018-03-22 21:30:59-0400 [-] unauthorized login: 
+2018-03-22 21:30:59-0400 [HoneyPotTransport,20,185.173.224.188] connection lost
+2018-03-22 21:33:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:34386 (192.250.236.104:22) [session: 21]
+2018-03-22 21:33:17-0400 [HoneyPotTransport,21,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 21:33:17-0400 [HoneyPotTransport,21,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 21:33:17-0400 [HoneyPotTransport,21,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 21:33:17-0400 [HoneyPotTransport,21,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 21:33:18-0400 [HoneyPotTransport,21,81.139.172.16] connection lost
+2018-03-22 21:34:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:44596 (192.250.236.104:22) [session: 22]
+2018-03-22 21:34:57-0400 [HoneyPotTransport,22,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 21:34:57-0400 [HoneyPotTransport,22,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 21:34:57-0400 [HoneyPotTransport,22,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 21:34:57-0400 [HoneyPotTransport,22,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 21:34:58-0400 [HoneyPotTransport,22,81.139.172.16] NEW KEYS
+2018-03-22 21:34:59-0400 [HoneyPotTransport,22,81.139.172.16] starting service ssh-userauth
+2018-03-22 21:34:59-0400 [HoneyPotTransport,22,81.139.172.16] connection lost
+2018-03-22 21:59:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:55972 (192.250.236.104:22) [session: 23]
+2018-03-22 21:59:44-0400 [HoneyPotTransport,23,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 21:59:44-0400 [HoneyPotTransport,23,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 21:59:44-0400 [HoneyPotTransport,23,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 21:59:44-0400 [HoneyPotTransport,23,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 21:59:44-0400 [HoneyPotTransport,23,185.173.224.188] NEW KEYS
+2018-03-22 21:59:44-0400 [HoneyPotTransport,23,185.173.224.188] starting service ssh-userauth
+2018-03-22 21:59:44-0400 [SSHService ssh-userauth on HoneyPotTransport,23,185.173.224.188] frank trying auth password
+2018-03-22 21:59:45-0400 [SSHService ssh-userauth on HoneyPotTransport,23,185.173.224.188] login attempt [frank/frank123] failed
+2018-03-22 21:59:46-0400 [-] frank failed auth password
+2018-03-22 21:59:46-0400 [-] unauthorized login: 
+2018-03-22 21:59:46-0400 [HoneyPotTransport,23,185.173.224.188] connection lost
+2018-03-22 22:14:43-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:55847 (192.250.236.104:22) [session: 24]
+2018-03-22 22:14:46-0400 [HoneyPotTransport,24,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:14:46-0400 [HoneyPotTransport,24,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:14:46-0400 [HoneyPotTransport,24,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:14:46-0400 [HoneyPotTransport,24,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:14:48-0400 [HoneyPotTransport,24,81.139.172.16] connection lost
+2018-03-22 22:28:32-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:48835 (192.250.236.104:22) [session: 25]
+2018-03-22 22:28:32-0400 [HoneyPotTransport,25,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:28:32-0400 [HoneyPotTransport,25,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:28:32-0400 [HoneyPotTransport,25,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:28:32-0400 [HoneyPotTransport,25,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:28:32-0400 [HoneyPotTransport,25,185.173.224.188] NEW KEYS
+2018-03-22 22:28:32-0400 [HoneyPotTransport,25,185.173.224.188] starting service ssh-userauth
+2018-03-22 22:28:32-0400 [SSHService ssh-userauth on HoneyPotTransport,25,185.173.224.188] cron trying auth password
+2018-03-22 22:28:32-0400 [SSHService ssh-userauth on HoneyPotTransport,25,185.173.224.188] login attempt [cron/cron] failed
+2018-03-22 22:28:33-0400 [-] cron failed auth password
+2018-03-22 22:28:33-0400 [-] unauthorized login: 
+2018-03-22 22:28:33-0400 [HoneyPotTransport,25,185.173.224.188] connection lost
+2018-03-22 22:43:27-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:55977 (192.250.236.104:22) [session: 26]
+2018-03-22 22:43:28-0400 [HoneyPotTransport,26,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:43:28-0400 [HoneyPotTransport,26,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:43:28-0400 [HoneyPotTransport,26,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:43:28-0400 [HoneyPotTransport,26,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:43:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:56006 (192.250.236.104:22) [session: 27]
+2018-03-22 22:43:30-0400 [HoneyPotTransport,26,81.139.172.16] NEW KEYS
+2018-03-22 22:43:33-0400 [HoneyPotTransport,27,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:43:33-0400 [HoneyPotTransport,27,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:43:33-0400 [HoneyPotTransport,27,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:43:33-0400 [HoneyPotTransport,27,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:43:33-0400 [HoneyPotTransport,26,81.139.172.16] starting service ssh-userauth
+2018-03-22 22:43:33-0400 [HoneyPotTransport,26,81.139.172.16] connection lost
+2018-03-22 22:43:34-0400 [HoneyPotTransport,27,81.139.172.16] connection lost
+2018-03-22 22:47:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 187.118.175.133:50068 (192.250.236.104:22) [session: 28]
+2018-03-22 22:47:14-0400 [HoneyPotTransport,28,187.118.175.133] connection lost
+2018-03-22 22:49:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:49561 (192.250.236.104:22) [session: 29]
+2018-03-22 22:49:12-0400 [HoneyPotTransport,29,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:49:12-0400 [HoneyPotTransport,29,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:49:12-0400 [HoneyPotTransport,29,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:49:12-0400 [HoneyPotTransport,29,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:49:14-0400 [HoneyPotTransport,29,81.139.172.16] NEW KEYS
+2018-03-22 22:49:16-0400 [HoneyPotTransport,29,81.139.172.16] starting service ssh-userauth
+2018-03-22 22:49:16-0400 [HoneyPotTransport,29,81.139.172.16] connection lost
+2018-03-22 22:52:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 81.139.172.16:51638 (192.250.236.104:22) [session: 30]
+2018-03-22 22:52:50-0400 [HoneyPotTransport,30,81.139.172.16] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:52:50-0400 [HoneyPotTransport,30,81.139.172.16] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:52:50-0400 [HoneyPotTransport,30,81.139.172.16] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:52:50-0400 [HoneyPotTransport,30,81.139.172.16] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:52:50-0400 [HoneyPotTransport,30,81.139.172.16] connection lost
+2018-03-22 22:57:16-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 185.173.224.188:41697 (192.250.236.104:22) [session: 31]
+2018-03-22 22:57:16-0400 [HoneyPotTransport,31,185.173.224.188] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 22:57:16-0400 [HoneyPotTransport,31,185.173.224.188] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:57:16-0400 [HoneyPotTransport,31,185.173.224.188] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:57:16-0400 [HoneyPotTransport,31,185.173.224.188] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:57:16-0400 [HoneyPotTransport,31,185.173.224.188] NEW KEYS
+2018-03-22 22:57:16-0400 [HoneyPotTransport,31,185.173.224.188] starting service ssh-userauth
+2018-03-22 22:57:16-0400 [SSHService ssh-userauth on HoneyPotTransport,31,185.173.224.188] scaner trying auth password
+2018-03-22 22:57:16-0400 [SSHService ssh-userauth on HoneyPotTransport,31,185.173.224.188] login attempt [scaner/scaner@123] failed
+2018-03-22 22:57:17-0400 [-] scaner failed auth password
+2018-03-22 22:57:17-0400 [-] unauthorized login: 
+2018-03-22 22:57:17-0400 [HoneyPotTransport,31,185.173.224.188] connection lost
+2018-03-22 22:58:43-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 122.226.181.167:43176 (192.250.236.104:22) [session: 32]
+2018-03-22 22:58:43-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.245:39962 (192.250.236.104:22) [session: 33]
+2018-03-22 22:58:43-0400 [HoneyPotTransport,32,122.226.181.167] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 22:58:43-0400 [HoneyPotTransport,32,122.226.181.167] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:58:43-0400 [HoneyPotTransport,32,122.226.181.167] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:43-0400 [HoneyPotTransport,32,122.226.181.167] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:43-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.245:40888 (192.250.236.104:22) [session: 34]
+2018-03-22 22:58:43-0400 [HoneyPotTransport,33,221.194.47.245] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 22:58:43-0400 [HoneyPotTransport,33,221.194.47.245] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:58:43-0400 [HoneyPotTransport,33,221.194.47.245] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:43-0400 [HoneyPotTransport,33,221.194.47.245] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:43-0400 [HoneyPotTransport,34,221.194.47.245] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 22:58:43-0400 [HoneyPotTransport,34,221.194.47.245] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:58:43-0400 [HoneyPotTransport,34,221.194.47.245] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:43-0400 [HoneyPotTransport,34,221.194.47.245] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:44101 (192.250.236.104:22) [session: 35]
+2018-03-22 22:58:44-0400 [HoneyPotTransport,32,122.226.181.167] NEW KEYS
+2018-03-22 22:58:44-0400 [HoneyPotTransport,35,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 22:58:44-0400 [HoneyPotTransport,35,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:58:44-0400 [HoneyPotTransport,35,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:44-0400 [HoneyPotTransport,35,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.221:34622 (192.250.236.104:22) [session: 36]
+2018-03-22 22:58:44-0400 [HoneyPotTransport,34,221.194.47.245] NEW KEYS
+2018-03-22 22:58:44-0400 [HoneyPotTransport,32,122.226.181.167] starting service ssh-userauth
+2018-03-22 22:58:44-0400 [HoneyPotTransport,36,221.194.47.221] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 22:58:44-0400 [HoneyPotTransport,36,221.194.47.221] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:58:44-0400 [HoneyPotTransport,36,221.194.47.221] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:44-0400 [HoneyPotTransport,36,221.194.47.221] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:44-0400 [HoneyPotTransport,34,221.194.47.245] starting service ssh-userauth
+2018-03-22 22:58:44-0400 [HoneyPotTransport,32,122.226.181.167] Got remote error, code 11
+	reason: 
+2018-03-22 22:58:44-0400 [HoneyPotTransport,32,122.226.181.167] connection lost
+2018-03-22 22:58:44-0400 [HoneyPotTransport,34,221.194.47.245] Got remote error, code 11
+	reason: 
+2018-03-22 22:58:44-0400 [HoneyPotTransport,34,221.194.47.245] connection lost
+2018-03-22 22:58:44-0400 [HoneyPotTransport,33,221.194.47.245] NEW KEYS
+2018-03-22 22:58:45-0400 [HoneyPotTransport,35,221.194.47.236] NEW KEYS
+2018-03-22 22:58:45-0400 [HoneyPotTransport,35,221.194.47.236] starting service ssh-userauth
+2018-03-22 22:58:45-0400 [HoneyPotTransport,33,221.194.47.245] starting service ssh-userauth
+2018-03-22 22:58:45-0400 [HoneyPotTransport,35,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 22:58:45-0400 [HoneyPotTransport,35,221.194.47.236] connection lost
+2018-03-22 22:58:45-0400 [HoneyPotTransport,33,221.194.47.245] Got remote error, code 11
+	reason: 
+2018-03-22 22:58:45-0400 [HoneyPotTransport,33,221.194.47.245] connection lost
+2018-03-22 22:58:46-0400 [HoneyPotTransport,36,221.194.47.221] NEW KEYS
+2018-03-22 22:58:46-0400 [HoneyPotTransport,36,221.194.47.221] starting service ssh-userauth
+2018-03-22 22:58:46-0400 [HoneyPotTransport,36,221.194.47.221] Got remote error, code 11
+	reason: 
+2018-03-22 22:58:46-0400 [HoneyPotTransport,36,221.194.47.221] connection lost
+2018-03-22 22:58:47-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.221:45276 (192.250.236.104:22) [session: 37]
+2018-03-22 22:58:47-0400 [HoneyPotTransport,37,221.194.47.221] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 22:58:47-0400 [HoneyPotTransport,37,221.194.47.221] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 22:58:47-0400 [HoneyPotTransport,37,221.194.47.221] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:47-0400 [HoneyPotTransport,37,221.194.47.221] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 22:58:48-0400 [HoneyPotTransport,37,221.194.47.221] NEW KEYS
+2018-03-22 22:58:49-0400 [HoneyPotTransport,37,221.194.47.221] starting service ssh-userauth
+2018-03-22 22:58:49-0400 [HoneyPotTransport,37,221.194.47.221] Got remote error, code 11
+	reason: 
+2018-03-22 22:58:49-0400 [HoneyPotTransport,37,221.194.47.221] connection lost
+2018-03-22 23:00:18-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.221:43872 (192.250.236.104:22) [session: 38]
+2018-03-22 23:00:19-0400 [HoneyPotTransport,38,221.194.47.221] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:00:19-0400 [HoneyPotTransport,38,221.194.47.221] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:00:19-0400 [HoneyPotTransport,38,221.194.47.221] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:00:19-0400 [HoneyPotTransport,38,221.194.47.221] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:00:22-0400 [HoneyPotTransport,38,221.194.47.221] NEW KEYS
+2018-03-22 23:00:23-0400 [HoneyPotTransport,38,221.194.47.221] starting service ssh-userauth
+2018-03-22 23:00:23-0400 [HoneyPotTransport,38,221.194.47.221] Got remote error, code 11
+	reason: 
+2018-03-22 23:00:23-0400 [HoneyPotTransport,38,221.194.47.221] connection lost
+2018-03-22 23:02:18-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.221:37794 (192.250.236.104:22) [session: 39]
+2018-03-22 23:02:19-0400 [HoneyPotTransport,39,221.194.47.221] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:02:19-0400 [HoneyPotTransport,39,221.194.47.221] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:02:19-0400 [HoneyPotTransport,39,221.194.47.221] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:02:19-0400 [HoneyPotTransport,39,221.194.47.221] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:02:19-0400 [HoneyPotTransport,39,221.194.47.221] NEW KEYS
+2018-03-22 23:02:20-0400 [HoneyPotTransport,39,221.194.47.221] starting service ssh-userauth
+2018-03-22 23:02:20-0400 [HoneyPotTransport,39,221.194.47.221] Got remote error, code 11
+	reason: 
+2018-03-22 23:02:20-0400 [HoneyPotTransport,39,221.194.47.221] connection lost
+2018-03-22 23:04:03-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:38319 (192.250.236.104:22) [session: 40]
+2018-03-22 23:04:03-0400 [HoneyPotTransport,40,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:04:03-0400 [HoneyPotTransport,40,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:04:03-0400 [HoneyPotTransport,40,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:04:03-0400 [HoneyPotTransport,40,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:04:04-0400 [HoneyPotTransport,40,221.194.47.236] NEW KEYS
+2018-03-22 23:04:04-0400 [HoneyPotTransport,40,221.194.47.236] starting service ssh-userauth
+2018-03-22 23:04:04-0400 [HoneyPotTransport,40,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 23:04:04-0400 [HoneyPotTransport,40,221.194.47.236] connection lost
+2018-03-22 23:04:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.243:47219 (192.250.236.104:22) [session: 41]
+2018-03-22 23:04:49-0400 [HoneyPotTransport,41,221.194.47.243] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:04:49-0400 [HoneyPotTransport,41,221.194.47.243] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:04:49-0400 [HoneyPotTransport,41,221.194.47.243] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:04:49-0400 [HoneyPotTransport,41,221.194.47.243] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:04:50-0400 [HoneyPotTransport,41,221.194.47.243] NEW KEYS
+2018-03-22 23:04:50-0400 [HoneyPotTransport,41,221.194.47.243] starting service ssh-userauth
+2018-03-22 23:04:51-0400 [HoneyPotTransport,41,221.194.47.243] Got remote error, code 11
+	reason: 
+2018-03-22 23:04:51-0400 [HoneyPotTransport,41,221.194.47.243] connection lost
+2018-03-22 23:05:38-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:45184 (192.250.236.104:22) [session: 42]
+2018-03-22 23:05:38-0400 [HoneyPotTransport,42,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:05:38-0400 [HoneyPotTransport,42,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:05:38-0400 [HoneyPotTransport,42,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:05:38-0400 [HoneyPotTransport,42,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:05:39-0400 [HoneyPotTransport,42,221.194.47.236] NEW KEYS
+2018-03-22 23:05:40-0400 [HoneyPotTransport,42,221.194.47.236] starting service ssh-userauth
+2018-03-22 23:05:40-0400 [HoneyPotTransport,42,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 23:05:40-0400 [HoneyPotTransport,42,221.194.47.236] connection lost
+2018-03-22 23:06:43-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 121.18.238.115:60475 (192.250.236.104:22) [session: 43]
+2018-03-22 23:06:43-0400 [HoneyPotTransport,43,121.18.238.115] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:06:43-0400 [HoneyPotTransport,43,121.18.238.115] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:06:43-0400 [HoneyPotTransport,43,121.18.238.115] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:06:43-0400 [HoneyPotTransport,43,121.18.238.115] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:06:45-0400 [HoneyPotTransport,43,121.18.238.115] NEW KEYS
+2018-03-22 23:06:45-0400 [HoneyPotTransport,43,121.18.238.115] starting service ssh-userauth
+2018-03-22 23:06:45-0400 [HoneyPotTransport,43,121.18.238.115] Got remote error, code 11
+	reason: 
+2018-03-22 23:06:45-0400 [HoneyPotTransport,43,121.18.238.115] connection lost
+2018-03-22 23:06:46-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.243:54688 (192.250.236.104:22) [session: 44]
+2018-03-22 23:06:46-0400 [HoneyPotTransport,44,221.194.47.243] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:06:46-0400 [HoneyPotTransport,44,221.194.47.243] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:06:46-0400 [HoneyPotTransport,44,221.194.47.243] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:06:46-0400 [HoneyPotTransport,44,221.194.47.243] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:06:47-0400 [HoneyPotTransport,44,221.194.47.243] NEW KEYS
+2018-03-22 23:06:48-0400 [HoneyPotTransport,44,221.194.47.243] starting service ssh-userauth
+2018-03-22 23:06:48-0400 [HoneyPotTransport,44,221.194.47.243] Got remote error, code 11
+	reason: 
+2018-03-22 23:06:48-0400 [HoneyPotTransport,44,221.194.47.243] connection lost
+2018-03-22 23:07:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.245:42763 (192.250.236.104:22) [session: 45]
+2018-03-22 23:07:59-0400 [HoneyPotTransport,45,221.194.47.245] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:07:59-0400 [HoneyPotTransport,45,221.194.47.245] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:07:59-0400 [HoneyPotTransport,45,221.194.47.245] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:07:59-0400 [HoneyPotTransport,45,221.194.47.245] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:08:00-0400 [HoneyPotTransport,45,221.194.47.245] NEW KEYS
+2018-03-22 23:08:00-0400 [HoneyPotTransport,45,221.194.47.245] starting service ssh-userauth
+2018-03-22 23:08:00-0400 [HoneyPotTransport,45,221.194.47.245] Got remote error, code 11
+	reason: 
+2018-03-22 23:08:00-0400 [HoneyPotTransport,45,221.194.47.245] connection lost
+2018-03-22 23:13:12-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 115.238.245.2:49068 (192.250.236.104:22) [session: 46]
+2018-03-22 23:13:13-0400 [HoneyPotTransport,46,115.238.245.2] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:13:13-0400 [HoneyPotTransport,46,115.238.245.2] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:13:13-0400 [HoneyPotTransport,46,115.238.245.2] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:13:13-0400 [HoneyPotTransport,46,115.238.245.2] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:13:20-0400 [HoneyPotTransport,46,115.238.245.2] NEW KEYS
+2018-03-22 23:13:20-0400 [HoneyPotTransport,46,115.238.245.2] starting service ssh-userauth
+2018-03-22 23:13:20-0400 [HoneyPotTransport,46,115.238.245.2] Got remote error, code 11
+	reason: 
+2018-03-22 23:13:20-0400 [HoneyPotTransport,46,115.238.245.2] connection lost
+2018-03-22 23:13:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 114.242.245.37:2563 (192.250.236.104:22) [session: 47]
+2018-03-22 23:13:49-0400 [HoneyPotTransport,47,114.242.245.37] Remote SSH version: SSH-2.0-libssh2_1.7.0
+2018-03-22 23:13:49-0400 [HoneyPotTransport,47,114.242.245.37] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:13:49-0400 [HoneyPotTransport,47,114.242.245.37] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:13:49-0400 [HoneyPotTransport,47,114.242.245.37] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:13:50-0400 [HoneyPotTransport,47,114.242.245.37] NEW KEYS
+2018-03-22 23:13:50-0400 [HoneyPotTransport,47,114.242.245.37] starting service ssh-userauth
+2018-03-22 23:13:50-0400 [SSHService ssh-userauth on HoneyPotTransport,47,114.242.245.37] user trying auth password
+2018-03-22 23:13:50-0400 [SSHService ssh-userauth on HoneyPotTransport,47,114.242.245.37] login attempt [user/1] failed
+2018-03-22 23:13:51-0400 [-] user failed auth password
+2018-03-22 23:13:51-0400 [-] unauthorized login: 
+2018-03-22 23:13:52-0400 [HoneyPotTransport,47,114.242.245.37] connection lost
+2018-03-22 23:16:18-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 5.188.10.144:53992 (192.250.236.104:22) [session: 48]
+2018-03-22 23:16:21-0400 [HoneyPotTransport,48,5.188.10.144] Remote SSH version: SSH-2.0-OpenSSH_7.3
+2018-03-22 23:16:21-0400 [HoneyPotTransport,48,5.188.10.144] kex alg, key alg: diffie-hellman-group1-sha1 ssh-rsa
+2018-03-22 23:16:21-0400 [HoneyPotTransport,48,5.188.10.144] outgoing: 3des-cbc hmac-sha1 none
+2018-03-22 23:16:21-0400 [HoneyPotTransport,48,5.188.10.144] incoming: 3des-cbc hmac-sha1 none
+2018-03-22 23:16:24-0400 [HoneyPotTransport,48,5.188.10.144] NEW KEYS
+2018-03-22 23:16:25-0400 [HoneyPotTransport,48,5.188.10.144] starting service ssh-userauth
+2018-03-22 23:16:26-0400 [SSHService ssh-userauth on HoneyPotTransport,48,5.188.10.144] admin trying auth password
+2018-03-22 23:16:26-0400 [SSHService ssh-userauth on HoneyPotTransport,48,5.188.10.144] login attempt [admin/123456] succeeded
+2018-03-22 23:16:26-0400 [SSHService ssh-userauth on HoneyPotTransport,48,5.188.10.144] admin authenticated with password
+2018-03-22 23:16:26-0400 [SSHService ssh-userauth on HoneyPotTransport,48,5.188.10.144] starting service ssh-connection
+2018-03-22 23:16:27-0400 [SSHService ssh-connection on HoneyPotTransport,48,5.188.10.144] got channel direct-tcpip request
+2018-03-22 23:16:27-0400 [SSHService ssh-connection on HoneyPotTransport,48,5.188.10.144] channel open failed
+	Traceback (most recent call last):
+	Failure: twisted.conch.error.ConchError: (3, 'unknown channel')
+	
+2018-03-22 23:16:29-0400 [HoneyPotTransport,48,5.188.10.144] connection lost
+2018-03-22 23:23:08-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:54238 (192.250.236.104:22) [session: 49]
+2018-03-22 23:23:09-0400 [HoneyPotTransport,49,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:23:09-0400 [HoneyPotTransport,49,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:23:09-0400 [HoneyPotTransport,49,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:23:09-0400 [HoneyPotTransport,49,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:23:11-0400 [HoneyPotTransport,49,221.194.47.236] NEW KEYS
+2018-03-22 23:23:11-0400 [HoneyPotTransport,49,221.194.47.236] starting service ssh-userauth
+2018-03-22 23:23:12-0400 [HoneyPotTransport,49,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 23:23:12-0400 [HoneyPotTransport,49,221.194.47.236] connection lost
+2018-03-22 23:24:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 115.238.245.4:50771 (192.250.236.104:22) [session: 50]
+2018-03-22 23:24:11-0400 [HoneyPotTransport,50,115.238.245.4] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:24:11-0400 [HoneyPotTransport,50,115.238.245.4] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:24:11-0400 [HoneyPotTransport,50,115.238.245.4] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:24:11-0400 [HoneyPotTransport,50,115.238.245.4] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:24:12-0400 [HoneyPotTransport,50,115.238.245.4] NEW KEYS
+2018-03-22 23:24:13-0400 [HoneyPotTransport,50,115.238.245.4] starting service ssh-userauth
+2018-03-22 23:24:13-0400 [HoneyPotTransport,50,115.238.245.4] Got remote error, code 11
+	reason: 
+2018-03-22 23:24:13-0400 [HoneyPotTransport,50,115.238.245.4] connection lost
+2018-03-22 23:35:01-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 121.18.238.115:60924 (192.250.236.104:22) [session: 51]
+2018-03-22 23:35:02-0400 [HoneyPotTransport,51,121.18.238.115] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:35:02-0400 [HoneyPotTransport,51,121.18.238.115] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:35:02-0400 [HoneyPotTransport,51,121.18.238.115] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:35:02-0400 [HoneyPotTransport,51,121.18.238.115] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:35:03-0400 [HoneyPotTransport,51,121.18.238.115] NEW KEYS
+2018-03-22 23:35:03-0400 [HoneyPotTransport,51,121.18.238.115] starting service ssh-userauth
+2018-03-22 23:35:03-0400 [HoneyPotTransport,51,121.18.238.115] Got remote error, code 11
+	reason: 
+2018-03-22 23:35:03-0400 [HoneyPotTransport,51,121.18.238.115] connection lost
+2018-03-22 23:36:18-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 115.238.245.2:34814 (192.250.236.104:22) [session: 52]
+2018-03-22 23:36:18-0400 [HoneyPotTransport,52,115.238.245.2] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:36:18-0400 [HoneyPotTransport,52,115.238.245.2] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:36:18-0400 [HoneyPotTransport,52,115.238.245.2] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:36:18-0400 [HoneyPotTransport,52,115.238.245.2] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:36:19-0400 [HoneyPotTransport,52,115.238.245.2] NEW KEYS
+2018-03-22 23:36:19-0400 [HoneyPotTransport,52,115.238.245.2] starting service ssh-userauth
+2018-03-22 23:36:20-0400 [HoneyPotTransport,52,115.238.245.2] Got remote error, code 11
+	reason: 
+2018-03-22 23:36:20-0400 [HoneyPotTransport,52,115.238.245.2] connection lost
+2018-03-22 23:37:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:37703 (192.250.236.104:22) [session: 53]
+2018-03-22 23:37:41-0400 [HoneyPotTransport,53,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:37:41-0400 [HoneyPotTransport,53,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:37:41-0400 [HoneyPotTransport,53,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:37:41-0400 [HoneyPotTransport,53,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:37:44-0400 [HoneyPotTransport,53,221.194.47.236] NEW KEYS
+2018-03-22 23:37:44-0400 [HoneyPotTransport,53,221.194.47.236] starting service ssh-userauth
+2018-03-22 23:37:44-0400 [HoneyPotTransport,53,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 23:37:44-0400 [HoneyPotTransport,53,221.194.47.236] connection lost
+2018-03-22 23:43:12-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60700 (192.250.236.104:22) [session: 54]
+2018-03-22 23:43:12-0400 [HoneyPotTransport,54,54.39.23.200] connection lost
+2018-03-22 23:43:31-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43528 (192.250.236.104:22) [session: 55]
+2018-03-22 23:43:36-0400 [HoneyPotTransport,55,54.39.23.200] connection lost
+2018-03-22 23:43:36-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44816 (192.250.236.104:22) [session: 56]
+2018-03-22 23:43:41-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46136 (192.250.236.104:22) [session: 57]
+2018-03-22 23:43:41-0400 [HoneyPotTransport,56,54.39.23.200] connection lost
+2018-03-22 23:43:46-0400 [HoneyPotTransport,57,54.39.23.200] connection lost
+2018-03-22 23:43:46-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47430 (192.250.236.104:22) [session: 58]
+2018-03-22 23:43:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48730 (192.250.236.104:22) [session: 59]
+2018-03-22 23:43:51-0400 [HoneyPotTransport,58,54.39.23.200] connection lost
+2018-03-22 23:43:54-0400 [HoneyPotTransport,59,54.39.23.200] connection lost
+2018-03-22 23:43:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50028 (192.250.236.104:22) [session: 60]
+2018-03-22 23:44:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51326 (192.250.236.104:22) [session: 61]
+2018-03-22 23:44:00-0400 [HoneyPotTransport,60,54.39.23.200] connection lost
+2018-03-22 23:44:04-0400 [HoneyPotTransport,61,54.39.23.200] connection lost
+2018-03-22 23:44:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52624 (192.250.236.104:22) [session: 62]
+2018-03-22 23:44:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53922 (192.250.236.104:22) [session: 63]
+2018-03-22 23:44:09-0400 [HoneyPotTransport,62,54.39.23.200] connection lost
+2018-03-22 23:44:14-0400 [HoneyPotTransport,63,54.39.23.200] connection lost
+2018-03-22 23:44:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55220 (192.250.236.104:22) [session: 64]
+2018-03-22 23:44:19-0400 [HoneyPotTransport,64,54.39.23.200] connection lost
+2018-03-22 23:44:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56518 (192.250.236.104:22) [session: 65]
+2018-03-22 23:44:24-0400 [HoneyPotTransport,65,54.39.23.200] connection lost
+2018-03-22 23:44:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57816 (192.250.236.104:22) [session: 66]
+2018-03-22 23:44:29-0400 [HoneyPotTransport,66,54.39.23.200] connection lost
+2018-03-22 23:44:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59114 (192.250.236.104:22) [session: 67]
+2018-03-22 23:44:34-0400 [HoneyPotTransport,67,54.39.23.200] connection lost
+2018-03-22 23:44:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60412 (192.250.236.104:22) [session: 68]
+2018-03-22 23:44:39-0400 [HoneyPotTransport,68,54.39.23.200] connection lost
+2018-03-22 23:44:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33478 (192.250.236.104:22) [session: 69]
+2018-03-22 23:44:45-0400 [HoneyPotTransport,69,54.39.23.200] connection lost
+2018-03-22 23:44:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34776 (192.250.236.104:22) [session: 70]
+2018-03-22 23:44:50-0400 [HoneyPotTransport,70,54.39.23.200] connection lost
+2018-03-22 23:44:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36074 (192.250.236.104:22) [session: 71]
+2018-03-22 23:44:55-0400 [HoneyPotTransport,71,54.39.23.200] connection lost
+2018-03-22 23:44:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37372 (192.250.236.104:22) [session: 72]
+2018-03-22 23:45:00-0400 [HoneyPotTransport,72,54.39.23.200] connection lost
+2018-03-22 23:45:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38670 (192.250.236.104:22) [session: 73]
+2018-03-22 23:45:05-0400 [HoneyPotTransport,73,54.39.23.200] connection lost
+2018-03-22 23:45:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39966 (192.250.236.104:22) [session: 74]
+2018-03-22 23:45:10-0400 [HoneyPotTransport,74,54.39.23.200] connection lost
+2018-03-22 23:45:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41264 (192.250.236.104:22) [session: 75]
+2018-03-22 23:45:15-0400 [HoneyPotTransport,75,54.39.23.200] connection lost
+2018-03-22 23:45:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42562 (192.250.236.104:22) [session: 76]
+2018-03-22 23:45:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43858 (192.250.236.104:22) [session: 77]
+2018-03-22 23:45:20-0400 [HoneyPotTransport,76,54.39.23.200] connection lost
+2018-03-22 23:45:25-0400 [HoneyPotTransport,77,54.39.23.200] connection lost
+2018-03-22 23:45:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45156 (192.250.236.104:22) [session: 78]
+2018-03-22 23:45:30-0400 [HoneyPotTransport,78,54.39.23.200] connection lost
+2018-03-22 23:45:30-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46456 (192.250.236.104:22) [session: 79]
+2018-03-22 23:45:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47752 (192.250.236.104:22) [session: 80]
+2018-03-22 23:45:35-0400 [HoneyPotTransport,79,54.39.23.200] connection lost
+2018-03-22 23:45:40-0400 [HoneyPotTransport,80,54.39.23.200] connection lost
+2018-03-22 23:45:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:49050 (192.250.236.104:22) [session: 81]
+2018-03-22 23:45:45-0400 [HoneyPotTransport,81,54.39.23.200] connection lost
+2018-03-22 23:45:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50348 (192.250.236.104:22) [session: 82]
+2018-03-22 23:45:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51646 (192.250.236.104:22) [session: 83]
+2018-03-22 23:45:50-0400 [HoneyPotTransport,82,54.39.23.200] connection lost
+2018-03-22 23:45:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52944 (192.250.236.104:22) [session: 84]
+2018-03-22 23:45:55-0400 [HoneyPotTransport,83,54.39.23.200] connection lost
+2018-03-22 23:46:00-0400 [HoneyPotTransport,84,54.39.23.200] connection lost
+2018-03-22 23:46:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:54242 (192.250.236.104:22) [session: 85]
+2018-03-22 23:46:05-0400 [HoneyPotTransport,85,54.39.23.200] connection lost
+2018-03-22 23:46:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55540 (192.250.236.104:22) [session: 86]
+2018-03-22 23:46:10-0400 [HoneyPotTransport,86,54.39.23.200] connection lost
+2018-03-22 23:46:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56838 (192.250.236.104:22) [session: 87]
+2018-03-22 23:46:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:58136 (192.250.236.104:22) [session: 88]
+2018-03-22 23:46:15-0400 [HoneyPotTransport,87,54.39.23.200] connection lost
+2018-03-22 23:46:20-0400 [HoneyPotTransport,88,54.39.23.200] connection lost
+2018-03-22 23:46:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59434 (192.250.236.104:22) [session: 89]
+2018-03-22 23:46:25-0400 [HoneyPotTransport,89,54.39.23.200] connection lost
+2018-03-22 23:46:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60732 (192.250.236.104:22) [session: 90]
+2018-03-22 23:46:30-0400 [HoneyPotTransport,90,54.39.23.200] connection lost
+2018-03-22 23:46:30-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33798 (192.250.236.104:22) [session: 91]
+2018-03-22 23:46:35-0400 [HoneyPotTransport,91,54.39.23.200] connection lost
+2018-03-22 23:46:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:35096 (192.250.236.104:22) [session: 92]
+2018-03-22 23:46:40-0400 [HoneyPotTransport,92,54.39.23.200] connection lost
+2018-03-22 23:46:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36394 (192.250.236.104:22) [session: 93]
+2018-03-22 23:46:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37692 (192.250.236.104:22) [session: 94]
+2018-03-22 23:46:45-0400 [HoneyPotTransport,93,54.39.23.200] connection lost
+2018-03-22 23:46:50-0400 [HoneyPotTransport,94,54.39.23.200] connection lost
+2018-03-22 23:46:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38990 (192.250.236.104:22) [session: 95]
+2018-03-22 23:46:55-0400 [HoneyPotTransport,95,54.39.23.200] connection lost
+2018-03-22 23:46:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:40284 (192.250.236.104:22) [session: 96]
+2018-03-22 23:47:00-0400 [HoneyPotTransport,96,54.39.23.200] connection lost
+2018-03-22 23:47:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41584 (192.250.236.104:22) [session: 97]
+2018-03-22 23:47:05-0400 [HoneyPotTransport,97,54.39.23.200] connection lost
+2018-03-22 23:47:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42882 (192.250.236.104:22) [session: 98]
+2018-03-22 23:47:10-0400 [HoneyPotTransport,98,54.39.23.200] connection lost
+2018-03-22 23:47:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44180 (192.250.236.104:22) [session: 99]
+2018-03-22 23:47:15-0400 [HoneyPotTransport,99,54.39.23.200] connection lost
+2018-03-22 23:47:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45478 (192.250.236.104:22) [session: 100]
+2018-03-22 23:47:20-0400 [HoneyPotTransport,100,54.39.23.200] connection lost
+2018-03-22 23:47:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46776 (192.250.236.104:22) [session: 101]
+2018-03-22 23:47:25-0400 [HoneyPotTransport,101,54.39.23.200] connection lost
+2018-03-22 23:47:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48074 (192.250.236.104:22) [session: 102]
+2018-03-22 23:47:30-0400 [HoneyPotTransport,102,54.39.23.200] connection lost
+2018-03-22 23:47:31-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:49372 (192.250.236.104:22) [session: 103]
+2018-03-22 23:47:35-0400 [HoneyPotTransport,103,54.39.23.200] connection lost
+2018-03-22 23:47:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50668 (192.250.236.104:22) [session: 104]
+2018-03-22 23:47:40-0400 [HoneyPotTransport,104,54.39.23.200] connection lost
+2018-03-22 23:47:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51968 (192.250.236.104:22) [session: 105]
+2018-03-22 23:47:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53266 (192.250.236.104:22) [session: 106]
+2018-03-22 23:47:45-0400 [HoneyPotTransport,105,54.39.23.200] connection lost
+2018-03-22 23:47:50-0400 [HoneyPotTransport,106,54.39.23.200] connection lost
+2018-03-22 23:47:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:54564 (192.250.236.104:22) [session: 107]
+2018-03-22 23:47:55-0400 [HoneyPotTransport,107,54.39.23.200] connection lost
+2018-03-22 23:47:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55862 (192.250.236.104:22) [session: 108]
+2018-03-22 23:48:00-0400 [HoneyPotTransport,108,54.39.23.200] connection lost
+2018-03-22 23:48:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57160 (192.250.236.104:22) [session: 109]
+2018-03-22 23:48:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:58458 (192.250.236.104:22) [session: 110]
+2018-03-22 23:48:05-0400 [HoneyPotTransport,109,54.39.23.200] connection lost
+2018-03-22 23:48:10-0400 [HoneyPotTransport,110,54.39.23.200] connection lost
+2018-03-22 23:48:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59756 (192.250.236.104:22) [session: 111]
+2018-03-22 23:48:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:32822 (192.250.236.104:22) [session: 112]
+2018-03-22 23:48:15-0400 [HoneyPotTransport,111,54.39.23.200] connection lost
+2018-03-22 23:48:20-0400 [HoneyPotTransport,112,54.39.23.200] connection lost
+2018-03-22 23:48:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34120 (192.250.236.104:22) [session: 113]
+2018-03-22 23:48:25-0400 [HoneyPotTransport,113,54.39.23.200] connection lost
+2018-03-22 23:48:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:35418 (192.250.236.104:22) [session: 114]
+2018-03-22 23:48:30-0400 [HoneyPotTransport,114,54.39.23.200] connection lost
+2018-03-22 23:48:30-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36716 (192.250.236.104:22) [session: 115]
+2018-03-22 23:48:35-0400 [HoneyPotTransport,115,54.39.23.200] connection lost
+2018-03-22 23:48:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38012 (192.250.236.104:22) [session: 116]
+2018-03-22 23:48:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39310 (192.250.236.104:22) [session: 117]
+2018-03-22 23:48:40-0400 [HoneyPotTransport,116,54.39.23.200] connection lost
+2018-03-22 23:48:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:40606 (192.250.236.104:22) [session: 118]
+2018-03-22 23:48:45-0400 [HoneyPotTransport,117,54.39.23.200] connection lost
+2018-03-22 23:48:50-0400 [HoneyPotTransport,118,54.39.23.200] connection lost
+2018-03-22 23:48:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41904 (192.250.236.104:22) [session: 119]
+2018-03-22 23:48:55-0400 [HoneyPotTransport,119,54.39.23.200] connection lost
+2018-03-22 23:48:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43202 (192.250.236.104:22) [session: 120]
+2018-03-22 23:49:00-0400 [HoneyPotTransport,120,54.39.23.200] connection lost
+2018-03-22 23:49:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44500 (192.250.236.104:22) [session: 121]
+2018-03-22 23:49:05-0400 [HoneyPotTransport,121,54.39.23.200] connection lost
+2018-03-22 23:49:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45798 (192.250.236.104:22) [session: 122]
+2018-03-22 23:49:10-0400 [HoneyPotTransport,122,54.39.23.200] connection lost
+2018-03-22 23:49:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47096 (192.250.236.104:22) [session: 123]
+2018-03-22 23:49:15-0400 [HoneyPotTransport,123,54.39.23.200] connection lost
+2018-03-22 23:49:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48394 (192.250.236.104:22) [session: 124]
+2018-03-22 23:49:20-0400 [HoneyPotTransport,124,54.39.23.200] connection lost
+2018-03-22 23:49:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:49692 (192.250.236.104:22) [session: 125]
+2018-03-22 23:49:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50990 (192.250.236.104:22) [session: 126]
+2018-03-22 23:49:25-0400 [HoneyPotTransport,125,54.39.23.200] connection lost
+2018-03-22 23:49:30-0400 [HoneyPotTransport,126,54.39.23.200] connection lost
+2018-03-22 23:49:30-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52286 (192.250.236.104:22) [session: 127]
+2018-03-22 23:49:35-0400 [HoneyPotTransport,127,54.39.23.200] connection lost
+2018-03-22 23:49:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53586 (192.250.236.104:22) [session: 128]
+2018-03-22 23:49:40-0400 [HoneyPotTransport,128,54.39.23.200] connection lost
+2018-03-22 23:49:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:54882 (192.250.236.104:22) [session: 129]
+2018-03-22 23:49:45-0400 [HoneyPotTransport,129,54.39.23.200] connection lost
+2018-03-22 23:49:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56182 (192.250.236.104:22) [session: 130]
+2018-03-22 23:49:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57480 (192.250.236.104:22) [session: 131]
+2018-03-22 23:49:50-0400 [HoneyPotTransport,130,54.39.23.200] connection lost
+2018-03-22 23:49:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:58778 (192.250.236.104:22) [session: 132]
+2018-03-22 23:49:55-0400 [HoneyPotTransport,131,54.39.23.200] connection lost
+2018-03-22 23:50:00-0400 [HoneyPotTransport,132,54.39.23.200] connection lost
+2018-03-22 23:50:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60076 (192.250.236.104:22) [session: 133]
+2018-03-22 23:50:05-0400 [HoneyPotTransport,133,54.39.23.200] connection lost
+2018-03-22 23:50:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33142 (192.250.236.104:22) [session: 134]
+2018-03-22 23:50:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34440 (192.250.236.104:22) [session: 135]
+2018-03-22 23:50:10-0400 [HoneyPotTransport,134,54.39.23.200] connection lost
+2018-03-22 23:50:15-0400 [HoneyPotTransport,135,54.39.23.200] connection lost
+2018-03-22 23:50:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:35740 (192.250.236.104:22) [session: 136]
+2018-03-22 23:50:20-0400 [HoneyPotTransport,136,54.39.23.200] connection lost
+2018-03-22 23:50:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37036 (192.250.236.104:22) [session: 137]
+2018-03-22 23:50:25-0400 [HoneyPotTransport,137,54.39.23.200] connection lost
+2018-03-22 23:50:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38332 (192.250.236.104:22) [session: 138]
+2018-03-22 23:50:30-0400 [HoneyPotTransport,138,54.39.23.200] connection lost
+2018-03-22 23:50:30-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39632 (192.250.236.104:22) [session: 139]
+2018-03-22 23:50:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:40926 (192.250.236.104:22) [session: 140]
+2018-03-22 23:50:35-0400 [HoneyPotTransport,139,54.39.23.200] connection lost
+2018-03-22 23:50:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42226 (192.250.236.104:22) [session: 141]
+2018-03-22 23:50:40-0400 [HoneyPotTransport,140,54.39.23.200] connection lost
+2018-03-22 23:50:45-0400 [HoneyPotTransport,141,54.39.23.200] connection lost
+2018-03-22 23:50:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43524 (192.250.236.104:22) [session: 142]
+2018-03-22 23:50:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44824 (192.250.236.104:22) [session: 143]
+2018-03-22 23:50:50-0400 [HoneyPotTransport,142,54.39.23.200] connection lost
+2018-03-22 23:50:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46118 (192.250.236.104:22) [session: 144]
+2018-03-22 23:50:55-0400 [HoneyPotTransport,143,54.39.23.200] connection lost
+2018-03-22 23:51:00-0400 [HoneyPotTransport,144,54.39.23.200] connection lost
+2018-03-22 23:51:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47422 (192.250.236.104:22) [session: 145]
+2018-03-22 23:51:05-0400 [HoneyPotTransport,145,54.39.23.200] connection lost
+2018-03-22 23:51:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48718 (192.250.236.104:22) [session: 146]
+2018-03-22 23:51:10-0400 [HoneyPotTransport,146,54.39.23.200] connection lost
+2018-03-22 23:51:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50016 (192.250.236.104:22) [session: 147]
+2018-03-22 23:51:15-0400 [HoneyPotTransport,147,54.39.23.200] connection lost
+2018-03-22 23:51:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51314 (192.250.236.104:22) [session: 148]
+2018-03-22 23:51:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52612 (192.250.236.104:22) [session: 149]
+2018-03-22 23:51:20-0400 [HoneyPotTransport,148,54.39.23.200] connection lost
+2018-03-22 23:51:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53910 (192.250.236.104:22) [session: 150]
+2018-03-22 23:51:24-0400 [HoneyPotTransport,149,54.39.23.200] connection lost
+2018-03-22 23:51:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55208 (192.250.236.104:22) [session: 151]
+2018-03-22 23:51:29-0400 [HoneyPotTransport,150,54.39.23.200] connection lost
+2018-03-22 23:51:34-0400 [HoneyPotTransport,151,54.39.23.200] connection lost
+2018-03-22 23:51:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56504 (192.250.236.104:22) [session: 152]
+2018-03-22 23:51:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57802 (192.250.236.104:22) [session: 153]
+2018-03-22 23:51:39-0400 [HoneyPotTransport,152,54.39.23.200] connection lost
+2018-03-22 23:51:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59100 (192.250.236.104:22) [session: 154]
+2018-03-22 23:51:44-0400 [HoneyPotTransport,153,54.39.23.200] connection lost
+2018-03-22 23:51:49-0400 [HoneyPotTransport,154,54.39.23.200] connection lost
+2018-03-22 23:51:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60400 (192.250.236.104:22) [session: 155]
+2018-03-22 23:51:54-0400 [HoneyPotTransport,155,54.39.23.200] connection lost
+2018-03-22 23:51:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33464 (192.250.236.104:22) [session: 156]
+2018-03-22 23:51:59-0400 [HoneyPotTransport,156,54.39.23.200] connection lost
+2018-03-22 23:51:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34762 (192.250.236.104:22) [session: 157]
+2018-03-22 23:52:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36060 (192.250.236.104:22) [session: 158]
+2018-03-22 23:52:04-0400 [HoneyPotTransport,157,54.39.23.200] connection lost
+2018-03-22 23:52:09-0400 [HoneyPotTransport,158,54.39.23.200] connection lost
+2018-03-22 23:52:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37358 (192.250.236.104:22) [session: 159]
+2018-03-22 23:52:14-0400 [HoneyPotTransport,159,54.39.23.200] connection lost
+2018-03-22 23:52:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38654 (192.250.236.104:22) [session: 160]
+2018-03-22 23:52:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39952 (192.250.236.104:22) [session: 161]
+2018-03-22 23:52:19-0400 [HoneyPotTransport,160,54.39.23.200] connection lost
+2018-03-22 23:52:24-0400 [HoneyPotTransport,161,54.39.23.200] connection lost
+2018-03-22 23:52:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41250 (192.250.236.104:22) [session: 162]
+2018-03-22 23:52:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42546 (192.250.236.104:22) [session: 163]
+2018-03-22 23:52:29-0400 [HoneyPotTransport,162,54.39.23.200] connection lost
+2018-03-22 23:52:34-0400 [HoneyPotTransport,163,54.39.23.200] connection lost
+2018-03-22 23:52:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43844 (192.250.236.104:22) [session: 164]
+2018-03-22 23:52:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45142 (192.250.236.104:22) [session: 165]
+2018-03-22 23:52:39-0400 [HoneyPotTransport,164,54.39.23.200] connection lost
+2018-03-22 23:52:44-0400 [HoneyPotTransport,165,54.39.23.200] connection lost
+2018-03-22 23:52:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46440 (192.250.236.104:22) [session: 166]
+2018-03-22 23:52:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47738 (192.250.236.104:22) [session: 167]
+2018-03-22 23:52:49-0400 [HoneyPotTransport,166,54.39.23.200] connection lost
+2018-03-22 23:52:54-0400 [HoneyPotTransport,167,54.39.23.200] connection lost
+2018-03-22 23:52:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:49032 (192.250.236.104:22) [session: 168]
+2018-03-22 23:52:59-0400 [HoneyPotTransport,168,54.39.23.200] connection lost
+2018-03-22 23:52:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50336 (192.250.236.104:22) [session: 169]
+2018-03-22 23:53:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51632 (192.250.236.104:22) [session: 170]
+2018-03-22 23:53:04-0400 [HoneyPotTransport,169,54.39.23.200] connection lost
+2018-03-22 23:53:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52930 (192.250.236.104:22) [session: 171]
+2018-03-22 23:53:09-0400 [HoneyPotTransport,170,54.39.23.200] connection lost
+2018-03-22 23:53:14-0400 [HoneyPotTransport,171,54.39.23.200] connection lost
+2018-03-22 23:53:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:54228 (192.250.236.104:22) [session: 172]
+2018-03-22 23:53:19-0400 [HoneyPotTransport,172,54.39.23.200] connection lost
+2018-03-22 23:53:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55526 (192.250.236.104:22) [session: 173]
+2018-03-22 23:53:24-0400 [HoneyPotTransport,173,54.39.23.200] connection lost
+2018-03-22 23:53:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56824 (192.250.236.104:22) [session: 174]
+2018-03-22 23:53:29-0400 [HoneyPotTransport,174,54.39.23.200] connection lost
+2018-03-22 23:53:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:58122 (192.250.236.104:22) [session: 175]
+2018-03-22 23:53:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59420 (192.250.236.104:22) [session: 176]
+2018-03-22 23:53:34-0400 [HoneyPotTransport,175,54.39.23.200] connection lost
+2018-03-22 23:53:39-0400 [HoneyPotTransport,176,54.39.23.200] connection lost
+2018-03-22 23:53:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60718 (192.250.236.104:22) [session: 177]
+2018-03-22 23:53:44-0400 [HoneyPotTransport,177,54.39.23.200] connection lost
+2018-03-22 23:53:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33784 (192.250.236.104:22) [session: 178]
+2018-03-22 23:53:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:35082 (192.250.236.104:22) [session: 179]
+2018-03-22 23:53:49-0400 [HoneyPotTransport,178,54.39.23.200] connection lost
+2018-03-22 23:53:54-0400 [HoneyPotTransport,179,54.39.23.200] connection lost
+2018-03-22 23:53:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36380 (192.250.236.104:22) [session: 180]
+2018-03-22 23:53:59-0400 [HoneyPotTransport,180,54.39.23.200] connection lost
+2018-03-22 23:53:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37678 (192.250.236.104:22) [session: 181]
+2018-03-22 23:54:04-0400 [HoneyPotTransport,181,54.39.23.200] connection lost
+2018-03-22 23:54:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38976 (192.250.236.104:22) [session: 182]
+2018-03-22 23:54:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:40274 (192.250.236.104:22) [session: 183]
+2018-03-22 23:54:09-0400 [HoneyPotTransport,182,54.39.23.200] connection lost
+2018-03-22 23:54:14-0400 [HoneyPotTransport,183,54.39.23.200] connection lost
+2018-03-22 23:54:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41568 (192.250.236.104:22) [session: 184]
+2018-03-22 23:54:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42868 (192.250.236.104:22) [session: 185]
+2018-03-22 23:54:19-0400 [HoneyPotTransport,184,54.39.23.200] connection lost
+2018-03-22 23:54:24-0400 [HoneyPotTransport,185,54.39.23.200] connection lost
+2018-03-22 23:54:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44166 (192.250.236.104:22) [session: 186]
+2018-03-22 23:54:29-0400 [HoneyPotTransport,186,54.39.23.200] connection lost
+2018-03-22 23:54:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45464 (192.250.236.104:22) [session: 187]
+2018-03-22 23:54:34-0400 [HoneyPotTransport,187,54.39.23.200] connection lost
+2018-03-22 23:54:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46762 (192.250.236.104:22) [session: 188]
+2018-03-22 23:54:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48060 (192.250.236.104:22) [session: 189]
+2018-03-22 23:54:39-0400 [HoneyPotTransport,188,54.39.23.200] connection lost
+2018-03-22 23:54:44-0400 [HoneyPotTransport,189,54.39.23.200] connection lost
+2018-03-22 23:54:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:49358 (192.250.236.104:22) [session: 190]
+2018-03-22 23:54:49-0400 [HoneyPotTransport,190,54.39.23.200] connection lost
+2018-03-22 23:54:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50656 (192.250.236.104:22) [session: 191]
+2018-03-22 23:54:54-0400 [HoneyPotTransport,191,54.39.23.200] connection lost
+2018-03-22 23:54:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51954 (192.250.236.104:22) [session: 192]
+2018-03-22 23:54:59-0400 [HoneyPotTransport,192,54.39.23.200] connection lost
+2018-03-22 23:55:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53252 (192.250.236.104:22) [session: 193]
+2018-03-22 23:55:05-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:54550 (192.250.236.104:22) [session: 194]
+2018-03-22 23:55:05-0400 [HoneyPotTransport,193,54.39.23.200] connection lost
+2018-03-22 23:55:10-0400 [HoneyPotTransport,194,54.39.23.200] connection lost
+2018-03-22 23:55:10-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55848 (192.250.236.104:22) [session: 195]
+2018-03-22 23:55:15-0400 [HoneyPotTransport,195,54.39.23.200] connection lost
+2018-03-22 23:55:15-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57146 (192.250.236.104:22) [session: 196]
+2018-03-22 23:55:20-0400 [HoneyPotTransport,196,54.39.23.200] connection lost
+2018-03-22 23:55:20-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:58444 (192.250.236.104:22) [session: 197]
+2018-03-22 23:55:25-0400 [HoneyPotTransport,197,54.39.23.200] connection lost
+2018-03-22 23:55:25-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59742 (192.250.236.104:22) [session: 198]
+2018-03-22 23:55:30-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:32808 (192.250.236.104:22) [session: 199]
+2018-03-22 23:55:30-0400 [HoneyPotTransport,198,54.39.23.200] connection lost
+2018-03-22 23:55:35-0400 [HoneyPotTransport,199,54.39.23.200] connection lost
+2018-03-22 23:55:35-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34106 (192.250.236.104:22) [session: 200]
+2018-03-22 23:55:40-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:35404 (192.250.236.104:22) [session: 201]
+2018-03-22 23:55:40-0400 [HoneyPotTransport,200,54.39.23.200] connection lost
+2018-03-22 23:55:45-0400 [HoneyPotTransport,201,54.39.23.200] connection lost
+2018-03-22 23:55:45-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36702 (192.250.236.104:22) [session: 202]
+2018-03-22 23:55:50-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37998 (192.250.236.104:22) [session: 203]
+2018-03-22 23:55:50-0400 [HoneyPotTransport,202,54.39.23.200] connection lost
+2018-03-22 23:55:55-0400 [HoneyPotTransport,203,54.39.23.200] connection lost
+2018-03-22 23:55:55-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39296 (192.250.236.104:22) [session: 204]
+2018-03-22 23:56:00-0400 [HoneyPotTransport,204,54.39.23.200] connection lost
+2018-03-22 23:56:00-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:40594 (192.250.236.104:22) [session: 205]
+2018-03-22 23:56:02-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:37612 (192.250.236.104:22) [session: 206]
+2018-03-22 23:56:02-0400 [HoneyPotTransport,206,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:56:02-0400 [HoneyPotTransport,206,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:56:02-0400 [HoneyPotTransport,206,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:56:02-0400 [HoneyPotTransport,206,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:56:04-0400 [HoneyPotTransport,206,221.194.47.236] NEW KEYS
+2018-03-22 23:56:04-0400 [HoneyPotTransport,206,221.194.47.236] starting service ssh-userauth
+2018-03-22 23:56:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41892 (192.250.236.104:22) [session: 207]
+2018-03-22 23:56:04-0400 [HoneyPotTransport,206,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 23:56:04-0400 [HoneyPotTransport,206,221.194.47.236] connection lost
+2018-03-22 23:56:05-0400 [HoneyPotTransport,205,54.39.23.200] connection lost
+2018-03-22 23:56:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43190 (192.250.236.104:22) [session: 208]
+2018-03-22 23:56:09-0400 [HoneyPotTransport,207,54.39.23.200] connection lost
+2018-03-22 23:56:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44488 (192.250.236.104:22) [session: 209]
+2018-03-22 23:56:14-0400 [HoneyPotTransport,208,54.39.23.200] connection lost
+2018-03-22 23:56:19-0400 [HoneyPotTransport,209,54.39.23.200] connection lost
+2018-03-22 23:56:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45786 (192.250.236.104:22) [session: 210]
+2018-03-22 23:56:24-0400 [HoneyPotTransport,210,54.39.23.200] connection lost
+2018-03-22 23:56:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47084 (192.250.236.104:22) [session: 211]
+2018-03-22 23:56:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48382 (192.250.236.104:22) [session: 212]
+2018-03-22 23:56:29-0400 [HoneyPotTransport,211,54.39.23.200] connection lost
+2018-03-22 23:56:34-0400 [HoneyPotTransport,212,54.39.23.200] connection lost
+2018-03-22 23:56:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:49680 (192.250.236.104:22) [session: 213]
+2018-03-22 23:56:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50978 (192.250.236.104:22) [session: 214]
+2018-03-22 23:56:39-0400 [HoneyPotTransport,213,54.39.23.200] connection lost
+2018-03-22 23:56:44-0400 [HoneyPotTransport,214,54.39.23.200] connection lost
+2018-03-22 23:56:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52276 (192.250.236.104:22) [session: 215]
+2018-03-22 23:56:49-0400 [HoneyPotTransport,215,54.39.23.200] connection lost
+2018-03-22 23:56:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53574 (192.250.236.104:22) [session: 216]
+2018-03-22 23:56:54-0400 [HoneyPotTransport,216,54.39.23.200] connection lost
+2018-03-22 23:56:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:54872 (192.250.236.104:22) [session: 217]
+2018-03-22 23:56:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56170 (192.250.236.104:22) [session: 218]
+2018-03-22 23:56:59-0400 [HoneyPotTransport,217,54.39.23.200] connection lost
+2018-03-22 23:57:04-0400 [HoneyPotTransport,218,54.39.23.200] connection lost
+2018-03-22 23:57:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57468 (192.250.236.104:22) [session: 219]
+2018-03-22 23:57:09-0400 [HoneyPotTransport,219,54.39.23.200] connection lost
+2018-03-22 23:57:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:58766 (192.250.236.104:22) [session: 220]
+2018-03-22 23:57:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60064 (192.250.236.104:22) [session: 221]
+2018-03-22 23:57:14-0400 [HoneyPotTransport,220,54.39.23.200] connection lost
+2018-03-22 23:57:19-0400 [HoneyPotTransport,221,54.39.23.200] connection lost
+2018-03-22 23:57:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33128 (192.250.236.104:22) [session: 222]
+2018-03-22 23:57:24-0400 [HoneyPotTransport,222,54.39.23.200] connection lost
+2018-03-22 23:57:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34426 (192.250.236.104:22) [session: 223]
+2018-03-22 23:57:29-0400 [HoneyPotTransport,223,54.39.23.200] connection lost
+2018-03-22 23:57:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:35724 (192.250.236.104:22) [session: 224]
+2018-03-22 23:57:31-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 115.238.245.2:36718 (192.250.236.104:22) [session: 225]
+2018-03-22 23:57:31-0400 [HoneyPotTransport,225,115.238.245.2] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:57:31-0400 [HoneyPotTransport,225,115.238.245.2] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:57:31-0400 [HoneyPotTransport,225,115.238.245.2] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:57:31-0400 [HoneyPotTransport,225,115.238.245.2] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:57:32-0400 [HoneyPotTransport,225,115.238.245.2] NEW KEYS
+2018-03-22 23:57:32-0400 [HoneyPotTransport,225,115.238.245.2] starting service ssh-userauth
+2018-03-22 23:57:33-0400 [HoneyPotTransport,225,115.238.245.2] Got remote error, code 11
+	reason: 
+2018-03-22 23:57:33-0400 [HoneyPotTransport,225,115.238.245.2] connection lost
+2018-03-22 23:57:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37020 (192.250.236.104:22) [session: 226]
+2018-03-22 23:57:34-0400 [HoneyPotTransport,224,54.39.23.200] connection lost
+2018-03-22 23:57:39-0400 [HoneyPotTransport,226,54.39.23.200] connection lost
+2018-03-22 23:57:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38320 (192.250.236.104:22) [session: 227]
+2018-03-22 23:57:44-0400 [HoneyPotTransport,227,54.39.23.200] connection lost
+2018-03-22 23:57:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39618 (192.250.236.104:22) [session: 228]
+2018-03-22 23:57:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:40916 (192.250.236.104:22) [session: 229]
+2018-03-22 23:57:49-0400 [HoneyPotTransport,228,54.39.23.200] connection lost
+2018-03-22 23:57:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42214 (192.250.236.104:22) [session: 230]
+2018-03-22 23:57:54-0400 [HoneyPotTransport,229,54.39.23.200] connection lost
+2018-03-22 23:57:59-0400 [HoneyPotTransport,230,54.39.23.200] connection lost
+2018-03-22 23:57:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43512 (192.250.236.104:22) [session: 231]
+2018-03-22 23:58:04-0400 [HoneyPotTransport,231,54.39.23.200] connection lost
+2018-03-22 23:58:04-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:44810 (192.250.236.104:22) [session: 232]
+2018-03-22 23:58:09-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46108 (192.250.236.104:22) [session: 233]
+2018-03-22 23:58:09-0400 [HoneyPotTransport,232,54.39.23.200] connection lost
+2018-03-22 23:58:14-0400 [HoneyPotTransport,233,54.39.23.200] connection lost
+2018-03-22 23:58:14-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:47406 (192.250.236.104:22) [session: 234]
+2018-03-22 23:58:19-0400 [HoneyPotTransport,234,54.39.23.200] connection lost
+2018-03-22 23:58:19-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:48704 (192.250.236.104:22) [session: 235]
+2018-03-22 23:58:24-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:50004 (192.250.236.104:22) [session: 236]
+2018-03-22 23:58:24-0400 [HoneyPotTransport,235,54.39.23.200] connection lost
+2018-03-22 23:58:29-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:51298 (192.250.236.104:22) [session: 237]
+2018-03-22 23:58:29-0400 [HoneyPotTransport,236,54.39.23.200] connection lost
+2018-03-22 23:58:34-0400 [HoneyPotTransport,237,54.39.23.200] connection lost
+2018-03-22 23:58:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:52598 (192.250.236.104:22) [session: 238]
+2018-03-22 23:58:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:53896 (192.250.236.104:22) [session: 239]
+2018-03-22 23:58:39-0400 [HoneyPotTransport,238,54.39.23.200] connection lost
+2018-03-22 23:58:44-0400 [HoneyPotTransport,239,54.39.23.200] connection lost
+2018-03-22 23:58:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:55194 (192.250.236.104:22) [session: 240]
+2018-03-22 23:58:48-0400 [HoneyPotTransport,240,54.39.23.200] connection lost
+2018-03-22 23:58:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:56492 (192.250.236.104:22) [session: 241]
+2018-03-22 23:58:53-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:57788 (192.250.236.104:22) [session: 242]
+2018-03-22 23:58:54-0400 [HoneyPotTransport,241,54.39.23.200] connection lost
+2018-03-22 23:58:58-0400 [HoneyPotTransport,242,54.39.23.200] connection lost
+2018-03-22 23:58:58-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:59086 (192.250.236.104:22) [session: 243]
+2018-03-22 23:59:03-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:60384 (192.250.236.104:22) [session: 244]
+2018-03-22 23:59:03-0400 [HoneyPotTransport,243,54.39.23.200] connection lost
+2018-03-22 23:59:08-0400 [HoneyPotTransport,244,54.39.23.200] connection lost
+2018-03-22 23:59:08-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:33450 (192.250.236.104:22) [session: 245]
+2018-03-22 23:59:13-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:34748 (192.250.236.104:22) [session: 246]
+2018-03-22 23:59:13-0400 [HoneyPotTransport,245,54.39.23.200] connection lost
+2018-03-22 23:59:18-0400 [HoneyPotTransport,246,54.39.23.200] connection lost
+2018-03-22 23:59:18-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:36046 (192.250.236.104:22) [session: 247]
+2018-03-22 23:59:23-0400 [HoneyPotTransport,247,54.39.23.200] connection lost
+2018-03-22 23:59:23-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:37342 (192.250.236.104:22) [session: 248]
+2018-03-22 23:59:28-0400 [HoneyPotTransport,248,54.39.23.200] connection lost
+2018-03-22 23:59:28-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:38642 (192.250.236.104:22) [session: 249]
+2018-03-22 23:59:33-0400 [HoneyPotTransport,249,54.39.23.200] connection lost
+2018-03-22 23:59:34-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:39940 (192.250.236.104:22) [session: 250]
+2018-03-22 23:59:38-0400 [HoneyPotTransport,250,54.39.23.200] connection lost
+2018-03-22 23:59:39-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:41238 (192.250.236.104:22) [session: 251]
+2018-03-22 23:59:44-0400 [HoneyPotTransport,251,54.39.23.200] connection lost
+2018-03-22 23:59:44-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:42536 (192.250.236.104:22) [session: 252]
+2018-03-22 23:59:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 221.194.47.236:39991 (192.250.236.104:22) [session: 253]
+2018-03-22 23:59:49-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:43834 (192.250.236.104:22) [session: 254]
+2018-03-22 23:59:49-0400 [HoneyPotTransport,252,54.39.23.200] connection lost
+2018-03-22 23:59:49-0400 [HoneyPotTransport,253,221.194.47.236] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:59:49-0400 [HoneyPotTransport,253,221.194.47.236] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:59:49-0400 [HoneyPotTransport,253,221.194.47.236] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:59:49-0400 [HoneyPotTransport,253,221.194.47.236] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:59:50-0400 [HoneyPotTransport,253,221.194.47.236] NEW KEYS
+2018-03-22 23:59:50-0400 [HoneyPotTransport,253,221.194.47.236] starting service ssh-userauth
+2018-03-22 23:59:50-0400 [HoneyPotTransport,253,221.194.47.236] Got remote error, code 11
+	reason: 
+2018-03-22 23:59:50-0400 [HoneyPotTransport,253,221.194.47.236] connection lost
+2018-03-22 23:59:54-0400 [HoneyPotTransport,254,54.39.23.200] connection lost
+2018-03-22 23:59:54-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:45132 (192.250.236.104:22) [session: 255]
+2018-03-22 23:59:56-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 121.18.238.115:51502 (192.250.236.104:22) [session: 256]
+2018-03-22 23:59:56-0400 [HoneyPotTransport,256,121.18.238.115] Remote SSH version: SSH-2.0-PUTTY
+2018-03-22 23:59:56-0400 [HoneyPotTransport,256,121.18.238.115] kex alg, key alg: diffie-hellman-group-exchange-sha1 ssh-rsa
+2018-03-22 23:59:56-0400 [HoneyPotTransport,256,121.18.238.115] outgoing: aes128-ctr hmac-sha1 none
+2018-03-22 23:59:56-0400 [HoneyPotTransport,256,121.18.238.115] incoming: aes128-ctr hmac-sha1 none
+2018-03-22 23:59:57-0400 [HoneyPotTransport,256,121.18.238.115] NEW KEYS
+2018-03-22 23:59:57-0400 [HoneyPotTransport,256,121.18.238.115] starting service ssh-userauth
+2018-03-22 23:59:57-0400 [HoneyPotTransport,256,121.18.238.115] Got remote error, code 11
+	reason: 
+2018-03-22 23:59:57-0400 [HoneyPotTransport,256,121.18.238.115] connection lost
+2018-03-22 23:59:59-0400 [HoneyPotTransport,255,54.39.23.200] connection lost
+2018-03-22 23:59:59-0400 [kippo.core.ssh.HoneyPotSSHFactory] New connection: 54.39.23.200:46430 (192.250.236.104:22) [session: 257]
