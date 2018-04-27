@@ -16,6 +16,9 @@ aDailyHitsFile = "adailyhits.csv"
 aPortCounts = "apc.csv"
 aPortFrequency = "aports.csv"
 allLog = "amun_all.csv"
+shellActivity = "ashell.csv"
+requestActivity = "arequest.csv"
+vulnActivity = "avuln.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 shellCodeActivity = []
@@ -32,10 +35,6 @@ def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 		    writer.writerow(row)
 		os.chdir('../../')
 
-def write_parsed_info_to_csvs():
-	os.chdir('am/csv')
-	infoList = shellCodeActivity + requestHandlerActivity
-	write_list_of_dicts_to_csv("amun_all.csv",infoList)
 			
 def getAllLogs():
 	os.chdir('am/logs')
@@ -101,8 +100,44 @@ def parseAllLogs():
 	for file in logs:
 		myFile = logPath + file
 		parseLog(myFile)
-	allList = shellCodeActivity + requestHandlerActivity
+	allList = shellCodeActivity + requestHandlerActivity +vulnLogInfo
 	write_list_of_dicts_to_csv(allLog, allList)
+	write_list_of_dicts_to_csv(shellActivity, shellCodeActivity)
+	write_list_of_dicts_to_csv(requestActivity, requestHandlerActivity)
+	write_list_of_dicts_to_csv(vulnActivity, vulnLogInfo)
+
+def parseTodaysLog():
+	global shellCodeActivity
+	global requestHandlerActivity
+	global vulnLogInfo
+	shellLog = logPath + "shellcode_manager.log." + str(datetime.date.today())
+	requestLog = logPath + "amun_request_handler.log." + str(datetime.date.today())
+	vulnLog = logPath + "vulnerabilities.log." + str(datetime.date.today())
+	logs = [shellLog, requestLog, vulnLog]
+	for log in logs:
+		parseLog(log)
+	
+	fullShellActivity = []
+	fullRequestActivity = []
+	fullVulnActivity = []
+	with open(csvPath+shellActivity,'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+				fullShellActivity.append(row)
+	with open(csvPath+requestActivity,'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+				fullRequestActivity.append(row)
+	with open(csvPath+vulnActivity,'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+				fullVulnActivity.append(row)
+	combShell = fullShellActivity + [x for x in shellCodeActivity if x not in fullShellActivity]
+	shellCodeActivity = combShell
+	combReq = fullRequestActivity + [x for x in requestHandlerActivity if x not in fullRequestActivity]
+	requestHandlerActivity = combReq
+	combVuln = fullShellActivity + [x for x in vulnLogInfo if x not in fullVulnActivity]
+	vulnLogInfo = combVuln
 	
 def countryFrequency():
 	
