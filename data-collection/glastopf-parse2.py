@@ -81,7 +81,7 @@ def parseTodaysLog():
 	log = logPath + "glastopf.log." + str(datetime.date.today())
 	parseLog(log)
 	fullActivityList = []
-	with open('gl/csv/all.csv', 'r') as file:
+	with open('gl/csv/glastopf_all.csv', 'r') as file:
 		reader = csv.DictReader(file)
 		for row in reader:
 				fullActivityList.append(row)
