@@ -124,7 +124,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
 				.append("circle")
 				.attr("r", function(d) { return radius(d.Frequency); })
 				.attr("transform", function(d) { 
-						return "translate(" + projection([d.Coords[1],d.Coords[0]]) + ")";
+						return "translate(" + projection([d.Coords[1]-1,d.Coords[0]]) + ")";
 					})
 				.attr("fill", "red")
 				.style("opacity",0.9)
@@ -150,7 +150,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
 						return "translate(" + projection([d.Coords[1]+2,d.Coords[0]]) + ")";
 					})
 				.attr("fill", "purple")
-				.style("opacity",0.9)
+				.style("opacity",0.8)
 				.on("mouseover", function(d) {		
 					div.transition()		
 							.duration(200)		
