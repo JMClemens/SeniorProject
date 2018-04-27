@@ -7,6 +7,7 @@ import os
 import re
 import datetime
 import time
+import sys
 
 logPath = "am/logs/"
 csvPath = "am/csv/"
@@ -14,6 +15,7 @@ aCountryFrequencyFile = "acf.csv"
 aDailyHitsFile = "adailyhits.csv"
 aPortCounts = "apc.csv"
 aPortFrequency = "aports.csv"
+allLog = "amun_all.csv"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 
 shellCodeActivity = []
@@ -30,49 +32,32 @@ def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 		    writer.writerow(row)
 		os.chdir('../../')
 
-def write_dict_to_csv(fileName,fieldNames, myDict):
+def write_parsed_info_to_csvs():
 	os.chdir('am/csv')
-	with open(fileName,"wb") as out_file:
-		fieldnames = fieldNames
-		writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
-		writer.writer.writerow
-		for key, value in myDict.items():
-			writer.writerow([key, value])
-
+	infoList = shellCodeActivity + requestHandlerActivity
+	write_list_of_dicts_to_csv("amun_all.csv",infoList)
+			
 def getAllLogs():
 	os.chdir('am/logs')
 	logs = os.listdir('.')
 	os.chdir('../../')
 	return logs
 
-def getLogDate(fileName):
-	if fileName != 'glastopf.log':
-		match = re.findall(r'\d{4}-\d{2}-\d{2}', fileName)
-		if match:
-			mymatch = match[0]
-			date = datetime.datetime.strptime(mymatch, '%Y-%m-%d').date()
-		else:
-			date = datetime.date.today()
-	else:
-		date = datetime.date.today()
-		date = datetime.datetime(*(date.timetuple()[:3]))
-		date = date.strftime('%Y-%m-%d')
-
-	return date
-
 def parseLog(fileName):
 	with open(fileName, "r") as file:
 		if "shellcode" in fileName:
 			print "Shellcode manager parsing..."
 			for line in file:
+				print type(line)
 				contents = line.split()
 				print contents
 				date = contents[0]
 				secondGroup = contents[1].split(",")
 				timeStamp = secondGroup[0]
 				statusCode = secondGroup[1]
-				ipAddr = contents[4]
-				ipAddr = ''.join(c for c in ipAddr if c not in '()')
+				ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', line)
+				ipAddr = ip[0]
+				#ipAddr = ''.join(c for c in ipAddr if c not in '()')
 				countryName = gip.country_name_by_addr(ipAddr)
 				entry = {'Date':date, "Timestamp":timeStamp, "StatusCode":statusCode, "IP":ipAddr, "Country":countryName, "Port":"443"}
 				shellCodeActivity.append(entry)
@@ -116,28 +101,56 @@ def parseAllLogs():
 	for file in logs:
 		myFile = logPath + file
 		parseLog(myFile)
-	write_list_of_dicts_to_csv(allLog, activityList)
+	allList = shellCodeActivity + requestHandlerActivity
+	write_list_of_dicts_to_csv(allLog, allList)
 	
 def countryFrequency():
+	
+	# Build our list of countries to check
 	shellCountryList = []
 	requestCountryList = []
 	for item in shellCodeActivity:
 		shellCountryList.append(item["Country"])
 	for item in requestHandlerActivity:
 		requestCountryList.append(item["Country"])
+	
+	# check frequencies of our countries in all logs
+	#	and turns to dict with combined info
 	requestCountryFrequency = Counter(requestCountryList)
 	countryFrequency = Counter(shellCountryList)
 	countryFrequency = dict(countryFrequency+requestCountryFrequency)
+	
+	# Load coordinate list
+	coordList = []
+	with open('google-coordinates.csv', 'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+			coordList.append(row)
+	
+	# Build CSV file with coordinate and frequency info
 	newCountryList = []
 	for key, value in countryFrequency.items():
-		coords = g.get_boundingbox_country(country=key, output_as='center')
+		coords = getCountryCoordinates(key, coordList)
 		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(aCountryFrequencyFile,newCountryList)	
+
+def getCountryCoordinates(country,coordList):
+	if country == "Europe":
+		coords = [float(60),float(60)]
+		return coords
+	elif country == "Unknown":
+		coords = [float(30),float(-40)]
+		return coords
+	else:
+		for item in coordList:
+			if item["name"] == country:
+				coords = [float(item["latitude"]),float(item["longitude"])]
+				return coords
 	
 def timeOfDay():
 	timeList = []
-	for item in activityList:
+	for item in shellCodeActivity:
 		timeList.append(item["Timestamp"])
 	removeSecs = []
 	for item in timeList:	
@@ -187,15 +200,23 @@ def portTotals():
 		entry = {"Port":key,"Count":value}
 		newPortList.append(entry)
 	write_list_of_dicts_to_csv(aPortCounts,newPortList)	
-	
-	
-parseLog(logPath+"shellcode_manager.log")
-parseLog(logPath+"shellcode_manager.log.2018-03-28")
-parseLog(logPath+"amun_request_handler.log")
-parseLog(logPath+"amun_request_handler.log.2018-03-28")
-countryFrequency()
-dailyActivityTotals()
-portTotals()
 
+def selectAction(x):
+		if x == "-all":
+			parseAllLogs()
+			countryFrequency()
+			dailyActivityTotals()
+			portTotals()
+			print "Amun Logs Parsed"
+		elif x == "-today":
+			parseTodaysLog()
+			countryFrequency()
+			dailyActivityTotals()
+			portTotals()
+			print "Current Glastopf Log Parsed"
+		else:
+			pass
 
+if __name__ == '__main__':
+	selectAction(*sys.argv[1:])
 

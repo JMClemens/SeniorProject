@@ -12,7 +12,7 @@ import sys
 
 fileName = "glastopf.log"
 outFile = "glastopf.csv"
-allLog = "all.csv"
+allLog = "glastopf_all.csv"
 gCfreqFile = "gcf.csv"
 gRfreqFile = "grf.csv"
 gResourceFile = "gresrcf.csv"
@@ -37,35 +37,11 @@ def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 		    writer.writerow(row)
 		os.chdir('../../')
 
-def write_dict_to_csv(fileName,fieldNames, myDict):
-	os.chdir('gl/csv')
-	with open(fileName,"wb") as out_file:
-		fieldnames = fieldNames
-		writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
-		writer.writer.writerow
-		for key, value in myDict.items():
-			writer.writerow([key, value])
-
 def getAllLogs():
 	os.chdir('gl/logs')
 	logs = os.listdir('.')
 	os.chdir('../../')
 	return logs
-
-def getLogDate(fileName):
-	if fileName != 'glastopf.log':
-		match = re.findall(r'\d{4}-\d{2}-\d{2}', fileName)
-		if match:
-			mymatch = match[0]
-			date = datetime.datetime.strptime(mymatch, '%Y-%m-%d').date()
-		else:
-			date = datetime.date.today()
-	else:
-		date = datetime.date.today()
-		date = datetime.datetime(*(date.timetuple()[:3]))
-		date = date.strftime('%Y-%m-%d')
-
-	return date
 
 def parseLog(fileName):
 	with open(fileName, "r") as file:
@@ -132,7 +108,6 @@ def countryFrequency():
 	newCountryList = []
 	for key, value in countryFrequency.items():
 		coords = getCountryCoordinates(key, coordList)
-		#coords = g.get_boundingbox_country(country=key, output_as='center')
 		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
 	write_list_of_dicts_to_csv(gCfreqFile,newCountryList)	
