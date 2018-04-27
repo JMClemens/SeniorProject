@@ -2,6 +2,7 @@
 Log retrieval script for gathering logs from:
 Glastopf Honeypot
 Amun Honeypot
+Kippo Honeypot
 
 Run using:
 sudo python log-ret.py [-option]
