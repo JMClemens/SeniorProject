@@ -2,22 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Honeypot Visualization for Hood College Computer Science Senior Project - Spring 2018">
+    <meta name="author" content="Joshua Clemens & Cory Watson">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Honeypot Visualization - Home</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
-    <link href="assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+    <link href="../assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
     
     <!-- User Defined CSS -->
     <link href="../assets/css/main.css" rel="stylesheet" />
     
+    <!-- D3.js CDN-->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- Topojson CDN for world map -->
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -26,57 +30,57 @@
 
 <body>
     <div class="wrapper">
-        <div class="sidebar" data-color="purple" data-image="assets/img/night-lights.jpg">
+        <div class="sidebar" data-color="purple" data-image="../assets/img/night-lights.jpg">
         <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
         Tip 2: you can also add an image using data-image tag
         -->
             <div class="logo">
-                <a href="index.html" class="simple-text">
+                <a href="#" class="simple-text">
                     Honeypot Visualization
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="active">
-                        <a href="#">
-                            <i class="material-icons">home</i>
-                            <p>Home</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="overview/index.html">
+									 <li>
+                        <a href="#" class="active">
                             <i class="material-icons">assessment</i>
                             <p>Service Overview</p>
                         </a>
                     </li>
                     <li>
-                        <a href="ssh-activity/index.html">
+                        <a href="/ssh-activity/">
                             <i class="material-icons">code</i>
                             <p>SSH Activity</p>
                         </a>
                     </li>
                     <li>
-                        <a href="http-activity/index.html">
+                        <a href="/http-activity/">
                             <i class="material-icons">compare_arrows</i>
                             <p>HTTP Activity</p>
                         </a>
                     </li>
                     <li>
-                        <a href="windows-activity/index.html">
+                        <a href="/windows-activity/">
                             <i class="material-icons">timeline</i>
                             <p>Windows Activity</p>
                         </a>
                     </li>
+										<li>
+                        <a href="/about/">
+                            <i class="material-icons">layers</i>
+                            <p>About</p>
+                        </a>
+                    </li>
                     <li>
-                        <a href="documents/index.html">
+                        <a href="/documents/">
                             <i class="material-icons">description</i>
                             <p>Documents</p>
                         </a>
                     </li>
                     <li>
-                        <a href="contact/index.html">
+                        <a href="/contact/">
                             <i class="material-icons">email</i>
                             <p>Contact Us</p>
                         </a>
@@ -88,85 +92,146 @@
             <nav class="navbar navbar-transparent navbar-absolute">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#"> Home </a>
+                        <a class="navbar-brand" href="#"> Activity Overview </a>
                     </div>
                 </div>
             </nav>
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                      <div class="col-md-1"></div>
-                       <div class="col-md-6">
-                              <div class="card">
-                                <div class="card-header" data-background-color="purple">
-                                    <h3 class="title">About</h3>
+                      <div class="col-lg-1 col-md-0 col-sm-0"></div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header" data-background-color="green">
+                                    <i class="material-icons">code</i>
                                 </div>
-																<h4>&nbsp;&nbsp;Motivation</h4>
-                                <p class="home-card-content">
-																	&nbsp;&nbsp;&nbsp;&nbsp;As the senior project for our undergraduate studies, at Hood College, we had been tasked to come up with a project related to our field of expertise and a reason for its execution. With the aid of our supervisor, we decided on doing a project about people who were doing malicious things on the internet. Furthermore, we wanted to visualize this activity. After creating this dashboard to collect and analyze data, we will write a comprehensive research paper outlining our discoveries.<br />
-                                </p>
-																<p class="home-card-content">
-																	&nbsp;&nbsp;&nbsp;&nbsp;To accomplish this, in talks with our: Supervisor, Advisor, and Reader, we decided that using honeypots would be a great approach. The open source nature of some honeypots would give us great latitude for creating the project we were envisioning.  As we spent most of time connected to the internet we wanted to find out what those people who have malicious intentions out there do exactly once they’ve gotten access to a comprised system.<br />
-																</p>
-																<h4>&nbsp;&nbsp;Process</h4>
-																<p class="home-card-content">
-																		&nbsp;&nbsp;&nbsp;&nbsp;We proceded by using three different honeypots, each with their own specific vulnerabilities. The kippo honeypot is an ssh honeypot that listens to traffic on port 22, the standard ssh port, for those attempting to establish a conncetion. It mimics a debian command line operating system that logs every executed line the attacker does, whether it is valid or not. Glastopf, which is an HTTP honeypot, listens for traffic on port 80, the standard HTTP port, and logs activity with its python based logging system. The third honeypot we used is Amun. It emulates a Windows operating system by emulating specific vulnerabilities.<br />
-																</p>
-
-																<p class="home-card-content">
-																		&nbsp;&nbsp;&nbsp;&nbsp;All three honeypots were deployed and tested locally in Virtual Machines to expedite the configuration process on our server. After accumulating data from the logs of our three deployed honeypots, we began to work on making sense of the information. We were able to do so by utilizing Python to create processing scripts to parse our log information and return different pieces of information as CSV files. These CSV files are then transfered to the "data" directory of this website where they are read using JavaScript to update the information in our graphs.
-																</p>
+                                <div class="card-content">
+                                    <p class="category">SSH Hits</p>
+                                    <h3 class="title">(num)
+                                        <small>total</small>
+                                    </h3>
+                                    <h3 class="title">(num)%
+                                        <small>of total</small>
+                                    </h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">access_time</i>
+                                        updated (num) minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                 <div class="card-header" data-background-color="orange">
+                                    <i class="material-icons">compare_arrows</i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category" id="glastopf-total-attacks">HTTP Hits</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">access_time</i>
+                                        updated (num) minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                 <div class="card-header" data-background-color="red">
+                                    <i class="material-icons">timeline</i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category" id="windows-total-attacks">Windows Hits</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">access_time</i>
+                                        updated (num) minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-0 col-sm-0"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                              <div class="card">
+                                  <div class="card-header card-chart" data-background-color="green">
+                                      <div id="barchart"></div>
+                                  </div>
+                                  <div class="card-content">
+                                      <h4 class="title">SSH Daily Activity</h4>
+                                      <p class="category">
+																			
+																			</p>
+                                  </div>
+                                  <div class="card-footer">
+                                      <div class="stats">
+                                          <i class="material-icons">access_time</i> updated (num) minutes ago
+                                      </div>
+                                  </div>
                               </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="card">
-                            <div class="card-header" data-background-color="purple">
-                                <h4 class="title">Tools</h4>
-                                <p class="category">This table contains all of the tools we've used to piece this project together.</p>
-                            </div>
-                            <div class="card-content table-responsive">
-                                <table class="table">
-                                    <thead class="text-primary">
-                                        <th>Name</th>
-                                        <th>Usage</th>
-                                        <th>Link (clickable)</th>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                          <td>Glastopf</td>
-                                          <td>HTTP Honeypot</td>
-                                          <td><a href="https://github.com/mushorg/glastopf" target="_blank">Link</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td>Kippo</td>
-                                          <td>SSH Honeypot</td>
-                                          <td><a href="https://github.com/desaster/kippo" target="_blank">Link</a></td>
-                                      </tr>
-																			<tr>
-                                          <td>Amun</td>
-                                          <td>Windows Honeypot</td>
-                                          <td><a href="https://github.com/zeroq/amun" target="_blank">Link</a></td>
-                                      </tr>
-																			<tr>
-																					<td>D3 JS</td>
-																					<td>JavaScript Visualization Library</td>
-																					<td><a href="https://d3js.org/" target="_blank">Link</a></td>
-																			</tr>
-																			<tr>
-																					<td>GitHub</td>
-																					<td>Code Collaboration Platform</td>
-																					<td><a href="https://github.com/" target="_blank">Link</a></td>
-																			</tr>
-																			<tr>
-																					<td>Creative Tim</td>
-																					<td>Material Dashboard Bootstrap Theme</td>
-																					<td><a href="https://www.creative-tim.com/product/material-dashboard" target="_blank">Link</a></td>
-																			</tr>
-                                    </tbody>
-                                </table>
-                            </div>
                           </div>
-                        </div>
+                      <div class="col-md-4">
+                              <div class="card">
+                                  <div class="card-header card-chart" data-background-color="orange">
+                                      <div id="g-daily-activity"></div>
+                                      <script src="../assets/js/graphs/glastopf-activity-daily.js"></script>
+                                  </div>
+                                  <div class="card-content">
+                                      <h4 class="title">HTTP Daily Activity</h4>
+                                      <p class="category">
+																			Activity trends shown over the time that our HTTP honeypot has been running.
+																			</p>
+                                  </div>
+                                  <div class="card-footer">
+                                      <div class="stats">
+                                          <i class="material-icons">access_time</i> updated (num) minutes ago
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                      <div class="col-md-4">
+                              <div class="card">
+                                  <div class="card-header card-chart" data-background-color="red">
+                                      <div id="w-daily-activity"></div>
+                                      <script src="../assets/js/graphs/amun-activity-daily.js"></script>
+                                  </div>
+                                  <div class="card-content">
+                                      <h4 class="title">Windows Daily Activity</h4>
+                                      <p class="category">
+																				Activity trends shown over the time that our Windows honeypot has been running.
+																			</p>
+                                  </div>
+                                  <div class="card-footer">
+                                      <div class="stats">
+                                          <i class="material-icons">access_time</i> updated (num) minutes ago
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+										<div class="row">
+											<div class="col-md-4"></div>
+											<div class="col-md-4">
+												<div class="card">
+													<div class="card-header" data-background-color="purple">
+														<h2 class="title">World Map</h2>
+													</div>
+													<div class="card-content">
+														<p>The map shown below plots where the traffic from our different honeypots is originating from. The size of the circle is proportional to the number of hits. <br /> Red circle = HTTP Honeypot Activity <br /> Purple circle = Windows Honeypot Activity</p>
+													</div>
+												</div>
+											</div>
+										</div>
+                    <div class="row">
+                      <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2">&nbsp;</div>
+                      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8" id="worldmap"></div>
+                        <script src="../assets/js/graphs/map.js"></script>
+                      <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2">&nbsp;</div> 
                     </div>
                 </div>
             </div>
@@ -175,32 +240,32 @@
                     <nav class="pull-left">
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="../index.html">
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="overview/index.html">
+                                <a href="#">
                                     Overview
                                 </a>
                             </li>
                             <li>
-                                <a href="ssh-activity/index.html">
+                                <a href="../ssh-activity/index.html">
                                     SSH
                                 </a>
                             </li>
                             <li>
-                                <a href="http-activity/index.html">
+                                <a href="../http-activity/index.html">
                                     HTTP
                                 </a>
                             </li>
                             <li>
-                                <a href="windows-activity/index.html">
+                                <a href="../windows-activity/index.html">
                                     Windows
                                 </a>
                             </li>
                             <li>
-                                <a href="contact/index.html">
+                                <a href="../contact/index.html">
                                     Contact Us
                                 </a>
                             </li>
@@ -224,23 +289,18 @@
     </div>
 </body>
 <!--   Core JS Files   -->
-<script src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/material.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../assets/js/material.min.js" type="text/javascript"></script>
 <!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
+<script src="../assets/js/chartist.min.js"></script>
 <!--  Dynamic Elements plugin -->
-<script src="assets/js/arrive.min.js"></script>
+<script src="../assets/js/arrive.min.js"></script>
 <!--  PerfectScrollbar Library -->
-<script src="assets/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="../assets/js/perfect-scrollbar.jquery.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
+<script src="../assets/js/bootstrap-notify.js"></script>
 <!-- Material Dashboard javascript methods -->
-<script src="assets/js/material-dashboard.js?v=1.2.0"></script>
-<!-- D3.js CDN-->
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<!-- Topojson CDN for world map -->
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-
+<script src="../assets/js/material-dashboard.js?v=1.2.0"></script>
 
 </html>
