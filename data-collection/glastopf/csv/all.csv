@@ -2425,7 +2425,7 @@ United States,2018-04-09,66.249.83.78,GET,/favicon.ico,663,10:02:45
 United States,2018-04-09,76.100.27.231,GET,index.html,099,14:34:46
 United States,2018-04-09,76.100.27.231,GET,/style.css,608,14:34:46
 United States,2018-04-09,76.100.27.231,GET,/favicon.ico,986,14:34:46
-,2018-04-09,185.248.100.89,GET,/engine/log.txt,163,15:25:59
+Unknown,2018-04-09,185.248.100.89,GET,/engine/log.txt,163,15:25:59
 United States,2018-04-09,66.249.83.76,GET,/favicon.ico,484,16:33:07
 United States,2018-04-09,76.100.27.231,GET,index.html,165,17:37:36
 United States,2018-04-09,76.100.27.231,GET,/style.css,328,17:37:36
@@ -3488,3 +3488,9 @@ United States,2018-04-14,66.111.41.249,POST,/Hello.World,087,11:02:55
 United States,2018-04-14,206.152.27.94,POST,/wls-wsat/CoordinatorPortType,515,13:26:01
 China,2018-04-14,222.74.34.14,POST,/wls-wsat/CoordinatorPortType,040,16:44:32
 Japan,2018-04-14,172.104.108.109,GET,index.html,403,21:07:19
+Poland,2018-04-26,185.234.216.49,HEAD,/robots.txt,285,04:22:29
+United States,2018-04-26,34.207.90.160,GET,index.html,644,07:49:26
+United States,2018-04-26,66.102.6.178,GET,index.html,429,09:10:04
+United States,2018-04-26,66.102.6.178,GET,/favicon.ico,024,09:10:06
+Russian Federation,2018-04-26,31.184.193.154,GET,index.html,751,09:11:22
+Mexico,2018-04-26,132.248.103.61,GET,/w00tw00t.at.blackhats.romanian.anti-sec:),317,10:08:05
