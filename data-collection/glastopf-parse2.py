@@ -1,5 +1,4 @@
 import pygeoip
-import getCenterCords as g
 import csv
 from collections import Counter
 from collections import OrderedDict

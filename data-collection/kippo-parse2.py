@@ -1,14 +1,18 @@
 import re
 import csv
 import pygeoip
-import getCenterCords as g
 from collections import Counter
+from collections import OrderedDict
+from collections import namedtuple
 import os
+import sys
 
-logPath = "kp/logs/"
+gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
+logPath = "kp/logs/dated/"
 csvPath = "kp/csv/"
 kCfreqFile = "kcf.csv"
 allActivity = "kippo_all.csv"
+kDailyHitsFile = "kdailyhits.csv"
 
 sessionList = []
 
@@ -18,13 +22,13 @@ def get_sec(time_str):
     return int(h) * 3600 + int(m) * 60 + int(s)
 
 def getAllLogs():
-	os.chdir("kp/logs")
+	os.chdir(logPath)
 	logs = os.listdir('.')
-	os.chdir('../../')
+	os.chdir('../../../')
 	return logs
 
 def write_list_of_dicts_to_csv(fileName, list_of_dicts):
-	os.chdir('kippo/csv')
+	os.chdir(csvPath)
 	with open(fileName,"wb") as out_file:
 		fieldnames = sorted(list(set(k for d in list_of_dicts for k in d)))
 		writer = csv.DictWriter(out_file, fieldnames=fieldnames, dialect='excel')
@@ -39,12 +43,16 @@ def parseLog(logFile):
 	conn_list = re.split("(New connection:.*)",log)
 
 	for session in conn_list:
-				ip =  re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', session)
+		ip =  re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', session)
 		if ip:
 			ip = ip.pop(0)
 		else:
 			ip = 'none'
 	
+		# Extract the date from our session
+		dates = re.findall(r'\d{4}-\d{2}-\d{2}',logFile)
+		date = dates.pop(0)
+		
 		la = re.findall("login attempt.*", session)
 		times = re.findall(r'[0-60]{2}\:[0-9][0-9]\:[0-9][0-9]\:*', session)
 		if len(times) > 1:
@@ -63,20 +71,36 @@ def parseLog(logFile):
 			countryName = gip.country_name_by_addr(ip)
 			if countryName =="Hong Kong": countryName = "China"
 		else:
-			country = 'none'
+			countryName = 'none'
 			
-		entry = {"IP":ip, "Duration":duration, "Log":la, "Country":countryName}
+		entry = {"IP":ip, "Duration":duration, "LoginAttempts":la, "Country":countryName, "Timestamp":startTime, "Date":date}
 		sessionList.append(entry)
 		
 def parseAllLogs():
 	logs = getAllLogs()
 	for file in logs:
-		parseLog(logPath+file)
-	write_list_of_dicts_to_csv(sessionList, allActivity)
+		myfile = logPath + file
+		parseLog(myfile)
+	write_list_of_dicts_to_csv(allActivity, sessionList)
+
+def dailyActivityTotals():
+	dailyHitsTotal = []
+	for item in sessionList:
+		dailyHitsTotal.append(item["Date"])
+	hits = sorted(dailyHitsTotal, key=lambda d: map(int, d.split('-')))
+	hitCounter = Counter(hits)
+	hitCounter = dict(hitCounter)
+	newHitCounter = OrderedDict(sorted(hitCounter.items(), key=lambda t: t[0]))
+	newHitList = []
+	for key, value in newHitCounter.items():
+		entry = {"DateStamp":key,"NumHits":value}
+		newHitList.append(entry)
+	write_list_of_dicts_to_csv(kDailyHitsFile,newHitList)	
 	
 def selectAction(x):
 		if x == "-all":
 			parseAllLogs()
+			dailyActivityTotals()
 			print "Kippo Logs Parsed"
 		elif x == "-today":
 			parseTodaysLog()
