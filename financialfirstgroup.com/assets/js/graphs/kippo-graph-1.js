@@ -1,7 +1,7 @@
 // Define the height/width of our svg and its margins
-var margin = { top: 20, right: 10, bottom: 100, left: 40},
-    width = 500 - margin.right - margin.left,
-    height = 350 - margin.top - margin.bottom;
+var margin = { top: 20, right: 10, bottom: 120, left: 40},
+    width = 900 - margin.right - margin.left,
+    height = 500 - margin.top - margin.bottom;
 
 // Define svg    
 var svg = d3.select("#k-country-frequency")
@@ -15,7 +15,7 @@ var svg = d3.select("#k-country-frequency")
 
 // Define x and y scales
 var xScale = d3.scale.ordinal()
-    .rangeRoundBands([0,width], 0.2, 0.2);
+    .rangeBands([0,width], 0.2, 0.2);
 
 var yScale = d3.scale.linear()
     .rangeRound([height,0]);

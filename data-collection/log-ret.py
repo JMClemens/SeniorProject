@@ -124,7 +124,6 @@ def getAllKippoLogs():
 	for log in logs:
 		subprocess.Popen(["scp", kippoLogPath+log, kippoLogDestinationPath]).wait()
 		
-	print "Dating Kippo Logs"
 	# Get log dates and write to new files based on their dates
 	for log in logs:
 		datePattern = re.compile(r'\d{4}-\d{2}-\d{2}')
@@ -172,8 +171,18 @@ def selectLogs(x):
 	elif x == "-kc":
 		getCurrentKippoLog()
 		print "Current Kippo Log Retrieved"
+	elif x == "-all":
+		getAllGlastopfLogs()
+		getAllAmunLogs()
+		getAllKippoLogs()
+		print "All Logs Retrieved"
+	elif x == "-allc":
+		getCurrentGlastopfLog()
+		getCurrentAmunLogs()
+		getCurrentKippoLog()
+		print "All Current Logs Retrieved"
 	else:
-		pass
+		print "Unknown option called. Please try again."
 
 # Main function - Calls the selectLogs function with the command line argument
 # Use -g to collect all glastopf logs

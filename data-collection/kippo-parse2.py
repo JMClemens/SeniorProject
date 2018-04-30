@@ -10,7 +10,7 @@ import sys
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
 logPath = "kp/logs/dated/"
 csvPath = "kp/csv/"
-kCfreqFile = "kcf.csv"
+kCountryFreqFile = "kcf.csv"
 allActivity = "kippo_all.csv"
 kDailyHitsFile = "kdailyhits.csv"
 
@@ -71,7 +71,7 @@ def parseLog(logFile):
 			countryName = gip.country_name_by_addr(ip)
 			if countryName =="Hong Kong": countryName = "China"
 		else:
-			countryName = 'none'
+			countryName = 'Unknown'
 			
 		entry = {"IP":ip, "Duration":duration, "LoginAttempts":la, "Country":countryName, "Timestamp":startTime, "Date":date}
 		sessionList.append(entry)
@@ -82,7 +82,43 @@ def parseAllLogs():
 		myfile = logPath + file
 		parseLog(myfile)
 	write_list_of_dicts_to_csv(allActivity, sessionList)
+def countryFrequency():
 
+	# Build our list of countries to check
+	countryList = []
+	for item in sessionList:
+		countryList.append(item["Country"])
+	countryFrequency = Counter(countryList)
+	countryFrequency = dict(countryFrequency)
+	
+	# Load coordinate list
+	coordList = []
+	with open('google-coordinates.csv', 'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+			coordList.append(row)
+	
+	# Build CSV file with coordinate and frequency info
+	newCountryList = []
+	for key, value in countryFrequency.items():
+		coords = getCountryCoordinates(key, coordList)
+		entry = {"Country":key,"Frequency":value,"Coords":coords}
+		newCountryList.append(entry)
+	write_list_of_dicts_to_csv(kCountryFreqFile,newCountryList)	
+	
+def getCountryCoordinates(country,coordList):
+	if country == "Europe":
+		coords = [float(60),float(60)]
+		return coords
+	elif country == "Unknown":
+		coords = [float(30),float(-40)]
+		return coords
+	else:
+		for item in coordList:
+			if item["name"] == country:
+				coords = [float(item["latitude"]),float(item["longitude"])]
+				return coords
+				
 def dailyActivityTotals():
 	dailyHitsTotal = []
 	for item in sessionList:
@@ -101,6 +137,7 @@ def selectAction(x):
 		if x == "-all":
 			parseAllLogs()
 			dailyActivityTotals()
+			countryFrequency()
 			print "Kippo Logs Parsed"
 		elif x == "-today":
 			parseTodaysLog()

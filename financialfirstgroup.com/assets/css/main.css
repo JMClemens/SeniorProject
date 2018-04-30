@@ -15,8 +15,7 @@
   height: 420px;
 }
 #k-country-frequency {
-  width: 500px;
-  height: 350px;
+  width: 900px;
 }
 #g-daily-activity {
 	padding: 10px;
@@ -35,9 +34,6 @@ svg {
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
-.card-header{
-	overflow: hidden;
 }
 div.tooltip {	
     position: absolute;			
