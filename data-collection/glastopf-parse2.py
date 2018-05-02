@@ -159,7 +159,7 @@ def countryGraphAndTableFiles(countryList):
 			top10.append(item)
 		counter = counter + 1
 	fields = ["1-5","5-15","> 15"]
-	outsideTop = OrderedDict([("Over 15",fifteenAndUp),("5-15",fiveTo15Hits),("1-5",oneTo5Hits),])
+	outsideTop = OrderedDict([("Over 15",fifteenAndUp),("6-15",fiveTo15Hits),("1-5",oneTo5Hits),])
 	write_list_of_dicts_to_csv(gTop10CountriesFile,top10)
 	write_dict_to_csv(gOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)
 				

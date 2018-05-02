@@ -15,7 +15,9 @@
   height: 420px;
 }
 #k-country-frequency {
-  width: 900px;
+  width: 500px;
+	padding-top:10px;
+	padding-left: 10px;
 }
 #g-daily-activity {
 	padding: 10px;

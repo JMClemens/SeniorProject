@@ -12,6 +12,8 @@ logPath = "kp/logs/dated/"
 csvPath = "kp/csv/"
 kCountryFreqFile = "kcf.csv"
 allActivity = "kippo_all.csv"
+kTop10CountriesFile = "kTop10C.csv"
+kOtherCountriesFile = "kOtherC.csv"
 kDailyHitsFile = "kdailyhits.csv"
 
 sessionList = []
@@ -36,6 +38,15 @@ def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 		for row in list_of_dicts:
 		    writer.writerow(row)
 		os.chdir('../../')
+
+def write_dict_to_csv(fileName, fieldnames, myDict):
+	os.chdir('kp/csv')
+	with open(fileName, 'wb') as csv_file:
+		writer = csv.writer(csv_file)
+		writer.writerow([k for k in fieldnames])
+		for key, value in myDict.items():
+			 writer.writerow([key, value])
+	os.chdir('../../')
 	
 def parseLog(logFile):
 	log = open(logFile, "r").read()
@@ -105,6 +116,8 @@ def countryFrequency():
 		coords = getCountryCoordinates(key, coordList)
 		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
+	
+	countryGraphAndTableFiles(newCountryList)
 	write_list_of_dicts_to_csv(kCountryFreqFile,newCountryList)	
 	
 def getCountryCoordinates(country,coordList):
@@ -119,7 +132,43 @@ def getCountryCoordinates(country,coordList):
 			if item["name"] == country:
 				coords = [float(item["latitude"]),float(item["longitude"])]
 				return coords
-				
+
+def countryGraphAndTableFiles(countryList):
+	sortedCountryList = sorted(countryList,key=lambda x:x['Frequency'], reverse=True)
+	top10 = []
+	oneTo50 = []
+	fiftyTo100 = []
+	oneTo300 = []
+	threeTo500 = []
+	fiveTo1000 = []
+	oneTo2000 = []
+	over2000 = []
+	
+	counter = 0
+	for item in sortedCountryList:
+		if counter > 9:
+			if item['Frequency'] <= 50:
+				oneTo50.append(item['Country'])
+			elif item['Frequency'] <= 100:
+				fiftyTo100.append(item['Country'])
+			elif item['Frequency'] <= 300:
+				oneTo300.append(item['Country'])
+			elif item['Frequency'] <= 500:
+				threeTo500.append(item['Country'])
+			elif item['Frequency'] <= 1000:
+				fiveTo1000.append(item['Country'])
+			elif item['Frequency'] <= 2000:
+				oneTo2000.append(item['Country'])
+			else:
+				over2000.append(item['Country'])
+		else:
+			top10.append(item)
+		counter = counter + 1
+	fields = ["1-5","5-15","> 15"]
+	outsideTop = OrderedDict([("Over 2000",over2000),("1000-2000",oneTo2000),("500-1000",fiveTo1000),("300-500",threeTo500),("100-300",oneTo300),("50-100",fiftyTo100),("1-50",oneTo50)])
+	write_list_of_dicts_to_csv(kTop10CountriesFile,top10)
+	write_dict_to_csv(kOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)				
+
 def dailyActivityTotals():
 	dailyHitsTotal = []
 	for item in sessionList:
