@@ -1,5 +1,5 @@
 // Define the height/width of our svg and its margins
-var URImargin = { top: 20, right: 10, bottom: 170, left: 40},
+var URImargin = { top: 20, right: 10, bottom: 170, left: 60},
     uwidth = 500 - URImargin.right - URImargin.left,
     uheight = 450 - URImargin.top - URImargin.bottom;
 

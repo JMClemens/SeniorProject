@@ -142,7 +142,6 @@ def getCountryCoordinates(country,coordList):
 def countryGraphAndTableFiles(countryList):
 	sortedCountryList = sorted(countryList,key=lambda x:x['Frequency'], reverse=True)
 	top10 = []
-	outsideTop10 = []
 	oneTo5Hits = []
 	fiveTo15Hits = []
 	fifteenAndUp = []
@@ -150,7 +149,6 @@ def countryGraphAndTableFiles(countryList):
 	counter = 0
 	for item in sortedCountryList:
 		if counter > 9:
-			outsideTop10.append(item)
 			if item['Frequency'] <= 5:
 				oneTo5Hits.append(item['Country'])
 			elif item['Frequency'] <= 15:
@@ -161,7 +159,7 @@ def countryGraphAndTableFiles(countryList):
 			top10.append(item)
 		counter = counter + 1
 	fields = ["1-5","5-15","> 15"]
-	outsideTop = {"1-5":oneTo5Hits,"5-15":fiveTo15Hits,"> 15":fifteenAndUp}
+	outsideTop = OrderedDict([("Over 15",fifteenAndUp),("5-15",fiveTo15Hits),("1-5",oneTo5Hits),])
 	write_list_of_dicts_to_csv(gTop10CountriesFile,top10)
 	write_dict_to_csv(gOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)
 				
