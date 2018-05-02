@@ -139,14 +139,17 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
 					
 					var radius = d3.scale.sqrt()
 						.domain([0,freqMax])
-						.range([0,10]);
+						.range([0,12]);
 				
+					var kradius = d3.scale.sqrt()
+						.domain([0,freqMax])
+						.range([0,9]);
 
 					// add circles to svg
 				svg.selectAll("k-circle")
 					.data(kpData).enter()
 					.append("circle")
-					.attr("r", function(d) { return radius(d.Frequency); })
+					.attr("r", function(d) { return kradius(d.Frequency); })
 					.attr("transform", function(d) { 
 							return "translate(" + projection([d.Coords[1]-3,d.Coords[0]]) + ")";
 						})

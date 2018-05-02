@@ -19,6 +19,8 @@ gDailyHitsFile =  "gdailyhits.csv"
 gTopURIFile = "gURI.csv"
 gStatusCodesFile = "gStatus.csv"
 gTimeOfDayFile = "gTimeOfDay.csv"
+gTop10CountriesFile = "gTop10C.csv"
+gOtherCountriesFile = "gOtherC.csv"
 logPath = "gl/logs/"
 csvPath = "gl/csv/"
 gip = pygeoip.GeoIP("GeoIP.dat", pygeoip.MEMORY_CACHE)
@@ -36,6 +38,15 @@ def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 		    writer.writerow(row)
 		os.chdir('../../')
 
+def write_dict_to_csv(fileName, fieldnames, myDict):
+	os.chdir('gl/csv')
+	with open(fileName, 'wb') as csv_file:
+		writer = csv.writer(csv_file)
+		writer.writerow([k for k in fieldnames])
+		for key, value in myDict.items():
+			 writer.writerow([key, value])
+	os.chdir('../../')
+	
 def getAllLogs():
 	os.chdir('gl/logs')
 	logs = os.listdir('.')
@@ -103,12 +114,16 @@ def countryFrequency():
 		for row in reader:
 			coordList.append(row)
 	
-	# Build CSV file with coordinate and frequency info
+	# Build CSV file with all coordinate and frequency info
 	newCountryList = []
 	for key, value in countryFrequency.items():
 		coords = getCountryCoordinates(key, coordList)
 		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
+	
+	# Build CSV file with top 10 countries
+	countryGraphAndTableFiles(newCountryList)
+		
 	write_list_of_dicts_to_csv(gCfreqFile,newCountryList)	
 	
 def getCountryCoordinates(country,coordList):
@@ -124,6 +139,32 @@ def getCountryCoordinates(country,coordList):
 				coords = [float(item["latitude"]),float(item["longitude"])]
 				return coords
 
+def countryGraphAndTableFiles(countryList):
+	sortedCountryList = sorted(countryList,key=lambda x:x['Frequency'], reverse=True)
+	top10 = []
+	outsideTop10 = []
+	oneTo5Hits = []
+	fiveTo15Hits = []
+	fifteenAndUp = []
+	
+	counter = 0
+	for item in sortedCountryList:
+		if counter > 9:
+			outsideTop10.append(item)
+			if item['Frequency'] <= 5:
+				oneTo5Hits.append(item['Country'])
+			elif item['Frequency'] <= 15:
+				fiveTo15Hits.append(item['Country'])
+			else:
+				fifteenAndUp.append(item['Country'])
+		else:
+			top10.append(item)
+		counter = counter + 1
+	fields = ["1-5","5-15","> 15"]
+	outsideTop = {"1-5":oneTo5Hits,"5-15":fiveTo15Hits,"> 15":fifteenAndUp}
+	write_list_of_dicts_to_csv(gTop10CountriesFile,top10)
+	write_dict_to_csv(gOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)
+				
 def requestFrequency():
 	requestList = []
 	for item in activityList:

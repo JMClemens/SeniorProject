@@ -85,7 +85,10 @@ path {
 .axis--y line {
   stroke-opacity: 0.2;
 }
-
+.legend-circle {
+	width: 50px !important;
+	height: 50px !important;
+}
 .axis--y path {
   stroke: none;
 }

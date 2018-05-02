@@ -1,34 +1,18 @@
 // Define the height/width of our svg and its margins
-var margin = { top: 20, right: 10, bottom: 170, left: 40},
-    width = 500 - margin.right - margin.left,
-    height = 450 - margin.top - margin.bottom;
+var URImargin = { top: 20, right: 10, bottom: 170, left: 40},
+    uwidth = 500 - URImargin.right - URImargin.left,
+    uheight = 450 - URImargin.top - URImargin.bottom;
 
 // Define svg    
 var svg = d3.select("#g-URI")
     .append("svg")
       .attr ({
-        "width": width + margin.right + margin.left,
-        "height": height + margin.top + margin.bottom,
+        "width": uwidth + URImargin.right + URImargin.left,
+        "height": uheight + URImargin.top + URImargin.bottom,
       })
 		.style("padding","10px")
     .append("g")
-      .attr("transform","translate(" + margin.left + "," + margin.right + ")");
-
-// Define x and y scales
-var xScale = d3.scale.ordinal()
-    .rangeRoundBands([0,width], 0.2, 0.2);
-
-var yScale = d3.scale.linear()
-    .rangeRound([height,0]);
-
-// Define axis
-var xAxis = d3.svg.axis()
-    .scale(xScale)
-    .orient("bottom");
-    
-var yAxis = d3.svg.axis()
-    .scale(yScale)
-    .orient("left");
+      .attr("transform","translate(" + URImargin.left + "," + URImargin.right + ")");
 
 // Import Glastopf country frequency CSV file    
 d3.csv("../assets/data/gURI.csv", function(error, data) {
@@ -40,11 +24,28 @@ d3.csv("../assets/data/gURI.csv", function(error, data) {
       d.Frequency = +d.Frequency;
     });
     
+		// Define x and y scales
+		var xScale = d3.scale.ordinal()
+				.rangeRoundBands([0,uwidth], 0.2, 0.2);
+
+		var yScale = d3.scale.linear()
+				.rangeRound([uheight,0]);
+
+		// Define axis
+		var xAxis = d3.svg.axis()
+				.scale(xScale)
+				.orient("bottom");
+				
+		var yAxis = d3.svg.axis();
+		
     // specify domains of x and y scales
     xScale.domain(data.map(function(d) { return d.Resource }) );
     yScale.domain([0,d3.max(data, function(d) { return d.Frequency; } )] );
     var yDomain = yScale.domain(); 
-    yAxis.ticks( Math.min(10, (yDomain[1] - yDomain[0]) ) );
+		
+    yAxis.scale(yScale)
+				.orient("left")
+				.ticks( Math.min(10, (yDomain[1] - yDomain[0]) ) );
     
     // draw bars
     svg.selectAll('rect')
@@ -54,14 +55,14 @@ d3.csv("../assets/data/gURI.csv", function(error, data) {
       // next four lines are for cool loaded animation
       // start at zero, and make each rect go to their full height over 2s
       .attr("height", 0)
-      .attr("y",height)
+      .attr("y",uheight)
       .transition().duration(2000)
       .delay(function(d,i) { return i * 150;})
       .attr ({
         "x": function(d) { return xScale(d.Resource); },
         "y": function(d) { return yScale(d.Frequency); },
         "width": xScale.rangeBand(),
-        "height": function(d) {return height - yScale(d.Frequency);}
+        "height": function(d) {return uheight - yScale(d.Frequency);}
       })
       // Can use this notation below to fill a different color for each graph
       .style("fill", function(d,i) { return 'rgb(20, 20, ' + ((i * 30) + 100) + ')'});
@@ -80,7 +81,7 @@ d3.csv("../assets/data/gURI.csv", function(error, data) {
       // draw x axis
       svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(0," + uheight + ")")
         .call(xAxis)
         .selectAll('text')
         .attr("transform", "rotate(-60)")
