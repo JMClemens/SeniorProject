@@ -62,7 +62,6 @@ def parseLog(fileName):
 			print "Request handler parsing..."
 			pattern = '(?P<port>[0-9]*).*'
 			for line in file:
-				print line
 				match = re.search(r"Port:\s[0-9]+", line)
 				if match:
 						result = match.group(0)
@@ -85,7 +84,6 @@ def parseLog(fileName):
 				if countryName == '':
 					countryName = "Unknown"
 				entry = {"Port":port,"IP":ipAddr,"Date":dateStamp,"Timestamp":timeStamp,"Status Code":statusCode,"Country":countryName}
-				print entry
 				requestHandlerActivity.append(entry)
 		elif "vulnerabilities" in fileName:
 			# commands for parsing vulnerabilities logs

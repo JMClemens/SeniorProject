@@ -82,6 +82,7 @@ def parseAllLogs():
 		myfile = logPath + file
 		parseLog(myfile)
 	write_list_of_dicts_to_csv(allActivity, sessionList)
+
 def countryFrequency():
 
 	# Build our list of countries to check

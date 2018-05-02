@@ -59,16 +59,18 @@ def selectFiles(x):
 		print "Kippo Data Sent to Dashboard"
 	elif x == "-all":
 		copyAllFiles()
-		print "All Data Sent to Dasbhoard"
+		print "All Data Sent to Dashboard"
 	else:
-		pass
+		print "Command not regonized." + "\nUse -g to copy all Glastopf CSV data files to dashboard website"
+		+ "\nUse -a to copy all Amun CSV data files to dashboard website" 
+		+ "\nUse -k to copy all Kippo CSV data files to dashboard website"
+		+ "\nUse -all to copy all CSV data files to dashboard website"
 
 # Main function - Calls the selectLogs function with the command line argument
 # Use -g to copy all Glastopf CSV data files to dashboard website
 # Use -a to copy all Amun CSV data files to dashboard website
 # Use -k to copy all Kippo CSV data files to dashboard website
 # Use -all to copy all CSV data files to dashboard website
-
 
 if __name__ == '__main__':
 	selectFiles(*sys.argv[1:])
