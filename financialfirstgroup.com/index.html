@@ -177,18 +177,42 @@
                           </div>
                       </div>
 										<div class="row">
-											<div class="col-md-4"></div>
-											<div class="col-md-4">
+											<div class="col-md-3"></div>
+											<div class="col-md-5">
 												<div class="card">
 													<div class="card-header" data-background-color="purple">
 														<h2 class="title">World Map</h2>
 													</div>
 													<div class="card-content">
-														<p>The map shown below plots where the traffic from our different honeypots is originating from. The size of the circle is proportional to the number of hits. <br /> Yellow circles represent SSH activity. <br />Red circle represents HTTP activity.<br /> Purple circle represents Windows activity.</p>
-													</div>
+														<p>The map shown below plots where the traffic from our different honeypots is originating from. The size of the circle is proportional to the number of hits.</p>
+														<div class="row">
+															<div class="col-md-1 col-lg-2 col-sm-1">
+																<img src="assets/img/ycircle.svg" alt="Yellow Circles" / width="15px" height="15px">
+															</div>
+															<div class="col" style="margin-top:12.5px;">
+																<p>Represent SSH hits</p>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-1 col-lg-2 col-sm-1">
+																<img src="assets/img/rcircle.svg" alt="Red Circles" />
+															</div>
+															<div class="col" style="margin-top:12.5px;">
+																<p>Represent HTTP hits</p>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-1 col-lg-2 col-sm-1">
+																<img src="assets/img/pcircle.svg" alt="Purple Circles" />
+															</div>
+															<div class="col" style="margin-top:12.5px;">
+																<p>Represent Windows hits</p>
+															</div>
+														</div>
 												</div>
 											</div>
 										</div>
+									</div>
                     <div class="row">
                       <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2">&nbsp;</div>
                       <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8" id="worldmap"></div>
