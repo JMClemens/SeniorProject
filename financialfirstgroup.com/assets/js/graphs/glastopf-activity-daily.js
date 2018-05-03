@@ -20,7 +20,7 @@ var valueline = d3.svg.line()
     .y(function(d) { return y(d.NumHits); });
 
 // Adds the svg canvas
-var svg = d3.select("#g-daily-activity")
+var gactivitysvg = d3.select("#g-daily-activity")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -39,12 +39,12 @@ d3.csv("../assets/data/gdailyhits.csv", function(error, data) {
     y.domain([0, d3.max(data, function(d) { return d.NumHits; })]);
 
     // Add the valueline path.
-    svg.append("path")
+    gactivitysvg.append("path")
         .attr("class", "line")
         .attr("d", valueline(data));
         
   // add circles to svg
-  svg.selectAll("circle")
+  gactivitysvg.selectAll("circle")
   .data(data).enter()
   .append("circle")
   .attr("r", 2)
@@ -53,7 +53,7 @@ d3.csv("../assets/data/gdailyhits.csv", function(error, data) {
   .attr("fill", "black");
   
     // Add the X Axis
-    svg.append("g")
+    gactivitysvg.append("g")
         .attr("class", "x axis")
         
         // TO DO:
@@ -62,7 +62,7 @@ d3.csv("../assets/data/gdailyhits.csv", function(error, data) {
         .call(xAxis);
 
     // Add the Y Axis
-    svg.append("g")
+    gactivitysvg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
   });

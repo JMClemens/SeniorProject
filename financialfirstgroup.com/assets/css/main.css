@@ -88,8 +88,15 @@ path {
   stroke-opacity: 0.2;
 }
 .legend-circle {
-	width: 50px !important;
-	height: 50px !important;
+	max-width:30px;
+	max-height:30px;
+	margin-left: 10px;
+	margin-right: 10px;
+	float:left;
+}
+.legend-text {
+	float: left;
+	margin-top: 5px;
 }
 .axis--y path {
   stroke: none;

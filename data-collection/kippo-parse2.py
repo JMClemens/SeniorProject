@@ -94,6 +94,18 @@ def parseAllLogs():
 		parseLog(myfile)
 	write_list_of_dicts_to_csv(allActivity, sessionList)
 
+def parseTodaysLog():
+	global sessionList
+	log = logPath + "kippo.log." + str(datetime.date.today())
+	parseLog(log)
+	fullActivityList = []
+	with open('kp/csv/kippo_all.csv', 'r') as file:
+		reader = csv.DictReader(file)
+		for row in reader:
+				fullActivityList.append(row)
+	combList = fullActivityList + [x for x in sessionList if x not in fullActivityList]
+	sessionList = combList
+	
 def countryFrequency():
 
 	# Build our list of countries to check
@@ -191,6 +203,8 @@ def selectAction(x):
 			print "Kippo Logs Parsed"
 		elif x == "-today":
 			parseTodaysLog()
+			dailyActivityTotals()
+			countryFrequency()
 			print "Current Kippo Log Parsed"
 		else:
 			pass
