@@ -17,6 +17,7 @@ kTop10CountriesFile = "kTop10C.csv"
 kOtherCountriesFile = "kOtherC.csv"
 kDailyHitsFile = "kdailyhits.csv"
 kDurationFile = "kdur.csv"
+kDurationTableFile = "kdurbottom.csv"
 
 sessionList = []
 
@@ -195,9 +196,25 @@ def dailyActivityTotals():
 		newHitList.append(entry)
 	write_list_of_dicts_to_csv(kDailyHitsFile,newHitList)	
 
+def make_bins(x_in, n_bins):  
+    """
+    x_in is a list of numbers
+    n_bins is how many bins to separate x into
+    returns a list of length of n_bins, each element of which is a list
+    """
+    x_min = min(x_in)
+    x_max = max(x_in)
+    x = [[] for _ in range(n_bins)]
+    for a in x_in:
+        # compute the bin number for value a
+        n = int(float(a - x_min) / (x_max - x_min + 1.0) * n_bins)
+        x[n].append(a)
+    return x  # x is a binned list of elements from x_in
+	
+	
 def getDurationInfo():
 	durationList = []
-	# List to hold our different categories, first with 0 seconds and then 1-6 minutes,
+	# List to hold our different categories
 	# 6-12 minutes, ... in intervals of 6 mins
 	first = 0
 	second = 0
@@ -212,15 +229,14 @@ def getDurationInfo():
 	
 	for item in sessionList:
 		durationList.append(int(item["Duration"]))
-	durationList = [0 if x <= 0 else x for x in durationList]
+	
+	
+	# Get all items over 6 minutes
 	hitCounter = Counter(durationList)
 	hitCounter = dict(hitCounter)
-	
 	for key,value in hitCounter.items():
-		if key == 0:
+		if key <= 360:
 			pass
-		elif key <= 360:
-			first = first + value
 		elif key <= 720:
 			second = second + value
 		elif key <= 1080:
@@ -239,9 +255,26 @@ def getDurationInfo():
 			ninth = ninth + value
 		else:
 			tenth = tenth + value
-		
-	freqDict = OrderedDict([("1s-6m",first),("6m-12m",second),("12m-18m",third),("18m-24m",fourth),("24m-30m",fifth),("30m-36m",sixth),("36m-42m",seventh),("42m-48m",eigth),("48m-54m",ninth),("54-60m+",tenth)])
-	write_dict_to_csv(kDurationFile, ["Duration","Frequency"],freqDict)
+
+	freqDict = OrderedDict([("6m-12m",second),("12m-18m",third),("18m-24m",fourth),("24m-30m",fifth),("30m-36m",sixth),("36m-42m",seventh),("42m-48m",eigth),("48m-54m",ninth),("54-60m+",tenth)])
+
+	# Get all items under 6 minutes, 1 minutes through 6 minutes
+	sortedTimeByMin = sorted([0 if x < 0 else x / 60 for x in durationList])
+	timeCounts = Counter(sortedTimeByMin)
+	timeCounts = dict(timeCounts)
+	counter = 0
+	oneThrough6mins = []
+	for key,value in timeCounts.items():
+		if key == counter and counter <= 6:
+			oneThrough6mins.append({"Duration":key, "Sessions":value})
+		else:
+			pass
+		counter += 1			
+	
+	# Write to 2 separate CSV files
+	# One for the graph and one for the table
+	write_list_of_dicts_to_csv(kDurationTableFile, oneThrough6mins)
+	write_dict_to_csv(kDurationFile, ["Duration","Sessions"],freqDict)
 	
 	
 def selectAction(x):
