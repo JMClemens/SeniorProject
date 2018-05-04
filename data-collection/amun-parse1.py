@@ -12,6 +12,8 @@ import sys
 logPath = "am/logs/"
 csvPath = "am/csv/"
 aCountryFrequencyFile = "acf.csv"
+aTop10CountriesFile = "aTop10C.csv"
+aOtherCountriesFile = "aOtherC.csv"
 aDailyHitsFile = "adailyhits.csv"
 aPortCounts = "apc.csv"
 aPortFrequency = "aports.csv"
@@ -35,6 +37,14 @@ def write_list_of_dicts_to_csv(fileName, list_of_dicts):
 		    writer.writerow(row)
 		os.chdir('../../')
 
+def write_dict_to_csv(fileName, fieldnames, myDict):
+	os.chdir('am/csv')
+	with open(fileName, 'wb') as csv_file:
+		writer = csv.writer(csv_file)
+		writer.writerow([k for k in fieldnames])
+		for key, value in myDict.items():
+			 writer.writerow([key, value])
+	os.chdir('../../')
 			
 def getAllLogs():
 	os.chdir('am/logs')
@@ -166,6 +176,8 @@ def countryFrequency():
 		coords = getCountryCoordinates(key, coordList)
 		entry = {"Country":key,"Frequency":value,"Coords":coords}
 		newCountryList.append(entry)
+		
+	countryGraphAndTableFiles(newCountryList)
 	write_list_of_dicts_to_csv(aCountryFrequencyFile,newCountryList)	
 
 def getCountryCoordinates(country,coordList):
@@ -180,7 +192,36 @@ def getCountryCoordinates(country,coordList):
 			if item["name"] == country:
 				coords = [float(item["latitude"]),float(item["longitude"])]
 				return coords
+
+def countryGraphAndTableFiles(countryList):
+	sortedCountryList = sorted(countryList,key=lambda x:x['Frequency'], reverse=True)
+	top10 = []
+	oneTo10 = []
+	tenTo30 = []
+	thirty1To50 = []
+	fiftyTo100 = []
+	over100 = []
 	
+	counter = 0
+	for item in sortedCountryList:
+		if counter > 9:
+			if item['Frequency'] <= 10:
+				oneTo10.append(item['Country'])
+			elif item['Frequency'] <= 30:
+				tenTo30.append(item['Country'])
+			elif item['Frequency'] <= 50:
+				thirty1To50.append(item['Country'])
+			elif item['Frequency'] <= 100:
+				fiftyTo100.append(item['Country'])
+			else:
+				over100.append(item['Country'])
+		else:
+			top10.append(item)
+		counter = counter + 1
+	outsideTop = OrderedDict([("Over 100",over100),("51-100",fiftyTo100),("31-50",thirty1To50),("11-30",tenTo30),("1-10",oneTo10)])
+	write_list_of_dicts_to_csv(aTop10CountriesFile,top10)
+	write_dict_to_csv(aOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)	
+				
 def timeOfDay():
 	timeList = []
 	for item in shellCodeActivity:

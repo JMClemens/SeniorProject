@@ -31,7 +31,7 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 // Import Amun country frequency CSV file    
-d3.csv("../assets/data/acf.csv", function(error, data) {
+d3.csv("../assets/data/aTop10C.csv", function(error, data) {
     
     if(error) console.log("Error: data not loaded");
     
