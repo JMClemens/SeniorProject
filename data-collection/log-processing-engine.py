@@ -30,7 +30,7 @@ def runProcesses(sc):
 	getCurrentLogs()
 	glastopf()
 	amun()
-	#kippo()
+	kippo()
 	schedule.enter(120,1, runProcesses, (sc,))
 
 if __name__ == '__main__':
