@@ -5,6 +5,7 @@ from collections import Counter
 from collections import OrderedDict
 from collections import namedtuple
 from collections import defaultdict
+import datetime
 import os
 import sys
 
@@ -58,38 +59,43 @@ def parseLog(logFile):
 
 	
 	for session in conn_list:
-		ip =  re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', session)
-		if ip:
-			ip = ip.pop(0)
-		else:
-			ip = 'none'
-	
-		# Extract the date from our session
-		dates = re.findall(r'\d{4}-\d{2}-\d{2}',logFile)
-		date = dates.pop(0)
 		
-		la = re.findall("login attempt.*", session)
 		times = re.findall(r'[0-60]{2}\:[0-9][0-9]\:[0-9][0-9]\:*', session)
-		if len(times) == 1:
-			startTime = times.pop(0)
-			duration = 1
-		elif len(times) > 1:
-			startTime = times.pop(0)
-			endTime = times.pop(len(times)-1)
-			duration = get_sec(str(endTime)) - get_sec(str(startTime))
-		else:	
-			startTime = 0
-			endTime = 0
-			duration = 0
-
-		if ip != 'none':
-			countryName = gip.country_name_by_addr(ip)
-			if countryName =="Hong Kong": countryName = "China"
+		if not times:
+			pass
 		else:
-			countryName = 'Unknown'
+			ip =  re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', session)
+			if ip:
+				ip = ip.pop(0)
+			else:
+				ip = 'none'
+		
+			# Extract the date from our session
+			dates = re.findall(r'\d{4}-\d{2}-\d{2}',logFile)
+			date = dates.pop(0)
 			
-		entry = {"IP":ip, "Duration":duration, "LoginAttempts":la, "Country":countryName, "Timestamp":startTime, "Date":date}
-		sessionList.append(entry)
+			la = re.findall("login attempt.*", session)
+			times = re.findall(r'[0-60]{2}\:[0-9][0-9]\:[0-9][0-9]\:*', session)
+			if len(times) == 1:
+				startTime = times.pop(0)
+				duration = 1
+			elif len(times) > 1:
+				startTime = times.pop(0)
+				endTime = times.pop(len(times)-1)
+				duration = get_sec(str(endTime)) - get_sec(str(startTime))
+			else:	
+				startTime = 0
+				endTime = 0
+				duration = 0
+
+			if ip != 'none':
+				countryName = gip.country_name_by_addr(ip)
+				if countryName =="Hong Kong": countryName = "China"
+			else:
+				countryName = 'Unknown'
+				
+			entry = {"IP":ip, "Duration":duration, "LoginAttempts":la, "Country":countryName, "Timestamp":startTime, "Date":date}
+			sessionList.append(entry)
 		
 def parseAllLogs():
 	logs = getAllLogs()
@@ -288,6 +294,7 @@ def selectAction(x):
 			parseTodaysLog()
 			dailyActivityTotals()
 			countryFrequency()
+			getDurationInfo()
 			print "Current Kippo Log Parsed"
 		else:
 			pass
