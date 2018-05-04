@@ -4,6 +4,7 @@ import pygeoip
 from collections import Counter
 from collections import OrderedDict
 from collections import namedtuple
+from collections import defaultdict
 import os
 import sys
 
@@ -15,6 +16,7 @@ allActivity = "kippo_all.csv"
 kTop10CountriesFile = "kTop10C.csv"
 kOtherCountriesFile = "kOtherC.csv"
 kDailyHitsFile = "kdailyhits.csv"
+kDurationFile = "kdur.csv"
 
 sessionList = []
 
@@ -53,6 +55,7 @@ def parseLog(logFile):
 
 	conn_list = re.split("(New connection:.*)",log)
 
+	
 	for session in conn_list:
 		ip =  re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', session)
 		if ip:
@@ -66,13 +69,13 @@ def parseLog(logFile):
 		
 		la = re.findall("login attempt.*", session)
 		times = re.findall(r'[0-60]{2}\:[0-9][0-9]\:[0-9][0-9]\:*', session)
-		if len(times) > 1:
+		if len(times) == 1:
+			startTime = times.pop(0)
+			duration = 1
+		elif len(times) > 1:
 			startTime = times.pop(0)
 			endTime = times.pop(len(times)-1)
 			duration = get_sec(str(endTime)) - get_sec(str(startTime))
-			m, s = divmod(duration, 60)
-			h, m = divmod(m, 60)
-			duration = "%02d:%02d:%02d" % (h, m, s)
 		else:	
 			startTime = 0
 			endTime = 0
@@ -169,14 +172,12 @@ def countryGraphAndTableFiles(countryList):
 				threeTo500.append(item['Country'])
 			elif item['Frequency'] <= 1000:
 				fiveTo1000.append(item['Country'])
-			elif item['Frequency'] <= 2000:
-				oneTo2000.append(item['Country'])
 			else:
-				over2000.append(item['Country'])
+				oneTo2000.append(item['Country'])
 		else:
 			top10.append(item)
 		counter = counter + 1
-	outsideTop = OrderedDict([("Over 2000",over2000),("1000-2000",oneTo2000),("500-1000",fiveTo1000),("300-500",threeTo500),("100-300",oneTo300),("50-100",fiftyTo100),("1-50",oneTo50)])
+	outsideTop = OrderedDict([("Over 1000",oneTo2000),("500-1000",fiveTo1000),("300-500",threeTo500),("100-300",oneTo300),("50-100",fiftyTo100),("1-50",oneTo50)])
 	write_list_of_dicts_to_csv(kTop10CountriesFile,top10)
 	write_dict_to_csv(kOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)				
 
@@ -193,12 +194,62 @@ def dailyActivityTotals():
 		entry = {"DateStamp":key,"NumHits":value}
 		newHitList.append(entry)
 	write_list_of_dicts_to_csv(kDailyHitsFile,newHitList)	
+
+def getDurationInfo():
+	durationList = []
+	# List to hold our different categories, first with 0 seconds and then 1-6 minutes,
+	# 6-12 minutes, ... in intervals of 6 mins
+	first = 0
+	second = 0
+	third = 0
+	fourth = 0
+	fifth = 0
+	sixth = 0
+	seventh = 0
+	eigth = 0
+	ninth = 0
+	tenth = 0
+	
+	for item in sessionList:
+		durationList.append(int(item["Duration"]))
+	durationList = [0 if x <= 0 else x for x in durationList]
+	hitCounter = Counter(durationList)
+	hitCounter = dict(hitCounter)
+	
+	for key,value in hitCounter.items():
+		if key == 0:
+			pass
+		elif key <= 360:
+			first = first + value
+		elif key <= 720:
+			second = second + value
+		elif key <= 1080:
+			third = third + value
+		elif key <= 1440:
+			fourth = fourth + value
+		elif key <= 1800:
+			fifth = fifth + value
+		elif key <= 2160:
+			sixth = sixth + value
+		elif key <= 2520:
+			seventh = seventh + value
+		elif key <= 2880:
+			eigth = eigth + value
+		elif key <= 3240:
+			ninth = ninth + value
+		else:
+			tenth = tenth + value
+		
+	freqDict = OrderedDict([("1s-6m",first),("6m-12m",second),("12m-18m",third),("18m-24m",fourth),("24m-30m",fifth),("30m-36m",sixth),("36m-42m",seventh),("42m-48m",eigth),("48m-54m",ninth),("54-60m+",tenth)])
+	write_dict_to_csv(kDurationFile, ["Duration","Frequency"],freqDict)
+	
 	
 def selectAction(x):
 		if x == "-all":
 			parseAllLogs()
 			dailyActivityTotals()
 			countryFrequency()
+			getDurationInfo()
 			print "Kippo Logs Parsed"
 		elif x == "-today":
 			parseTodaysLog()
