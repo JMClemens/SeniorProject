@@ -104,3 +104,6 @@ path {
 .axis text {
   font: 10px sans-serif;
 }
+.forceBlackText {
+	color: black !important;
+}
