@@ -129,7 +129,7 @@
                       <div class="col-md-5">
                         <div class="card">
                           <div class="card-header card-chart" data-background-color="blue">
-                            <div id="k-duration-graph"></div>
+                            <div id="k-duration-graph" style="height:500px"></div>
                             <script src="../assets/js/graphs/kippo-duration-graph.js"></script>
                           </div>
 													<div class="card-content">
@@ -151,20 +151,28 @@
                       </div>
                     </div>
 										<div class="row">
-											<div class="col-md-3"></div>
+											<div class="col-md-1"></div>
 											<div class="col-md-5">
                         <div class="card">
                           <div class="card-header card-chart" data-background-color="blue">
-                            <div id="k-logins"></div>
+                            <div id="k-login-graph"></div>
+														<script src="../assets/js/graphs/kippo-login-graph.js"></script>
                           </div>
                           <div class="card-content">
-                            <h4 class="title">User Name vs. Password Logs</h4>
-                            <p>This graph shows a distrubiton of the amount of username and passwords combinations used to log into our ssh activity honeypot.</p>
+                            <h4 class="title">Top 10 Login Credentials</h4>
+                            <p>This graph shows the top 10 utilized login credentials.</p>
                           </div>
-                          <div class="card-footer">
-                            <div class="stats">
-                            <i class="material-icons">access_time</i> updated (num) minutes ago
-                            </div>
+                        </div>
+                      </div>
+											<div class="col-md-5">
+                        <div class="card">
+                          <div class="card-header card-chart" data-background-color="blue">
+                            <div id="k-login-chart" style="height:550px;"></div>
+														<script src="../assets/js/graphs/kippo-login-ratio.js"></script>
+                          </div>
+                          <div class="card-content">
+                            <h4 class="title">Login Success vs. Failure</h4>
+                            <p>This chart shows the total amount of login successes and failures, and their relative total proportions.</p>
                           </div>
                         </div>
                       </div>
