@@ -1,6 +1,7 @@
 import os
 import sched
 import time
+import sys
 
 schedule = sched.scheduler(time.time, time.sleep)
 
@@ -46,7 +47,7 @@ def runProcesses(sc):
 
 	
 def runOption(x):
-	if x == "-all"
+	if x == "-all":
 		runAll()
 		schedule.enter(1,1,runProcesses, (schedule,))
 		schedule.run()
