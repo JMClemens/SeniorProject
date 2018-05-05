@@ -330,15 +330,15 @@ def getLoginAttempts():
 			counter = counter + 1
 		
 		failedSuccess = OrderedDict([("Succeeded",numSucceded),("Failed",numFailed)])
-		write_dict_to_csv(loginRatioFile, ["Login Status","Number of Logins"], failedSuccess)
+		write_dict_to_csv(loginRatioFile, ["LoginStatus","NumLogins"], failedSuccess)
 		write_list_of_dicts_to_csv(top10LoginFile, top10UserPass)
 	
 def selectAction(x):
 		if x == "-all":
 			parseAllLogs()
-		#	dailyActivityTotals()
-		#	countryFrequency()
-		#	getDurationInfo()
+			dailyActivityTotals()
+			countryFrequency()
+			getDurationInfo()
 			getLoginAttempts()
 			print "Kippo Logs Parsed"
 		elif x == "-today":
@@ -346,6 +346,7 @@ def selectAction(x):
 			dailyActivityTotals()
 			countryFrequency()
 			getDurationInfo()
+			getLoginAttempts()
 			print "Current Kippo Log Parsed"
 		else:
 			pass
