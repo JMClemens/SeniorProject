@@ -184,7 +184,7 @@ def countryGraphAndTableFiles(countryList):
 		else:
 			top10.append(item)
 		counter = counter + 1
-	outsideTop = OrderedDict([("Over 1000",oneTo2000),("500-1000",fiveTo1000),("300-500",threeTo500),("100-300",oneTo300),("50-100",fiftyTo100),("1-50",oneTo50)])
+	outsideTop = OrderedDict([("Over 1000",oneTo2000),("501-1000",fiveTo1000),("301-500",threeTo500),("101-300",oneTo300),("51-100",fiftyTo100),("1-50",oneTo50)])
 	write_list_of_dicts_to_csv(kTop10CountriesFile,top10)
 	write_dict_to_csv(kOtherCountriesFile, ["Number of Hits","Countries"],outsideTop)				
 
@@ -261,7 +261,6 @@ def getDurationInfo():
 			ninth = ninth + value
 		else:
 			tenth = tenth + value
-
 	freqDict = OrderedDict([("6m-12m",second),("12m-18m",third),("18m-24m",fourth),("24m-30m",fifth),("30m-36m",sixth),("36m-42m",seventh),("42m-48m",eigth),("48m-54m",ninth),("54-60m+",tenth)])
 
 	# Get all items under 6 minutes, 1 minutes through 6 minutes
@@ -270,13 +269,15 @@ def getDurationInfo():
 	timeCounts = dict(timeCounts)
 	counter = 0
 	oneThrough6mins = []
+	totalThrough6 = 0
 	for key,value in timeCounts.items():
 		if key == counter and counter <= 6:
 			oneThrough6mins.append({"Session Duration (mins)":key, "Number of Sessions":value})
+			totalThrough6 += value
 		else:
 			pass
 		counter += 1			
-	
+	oneThrough6mins.append({"Session Duration (mins)":"Total", "Number of Sessions":totalThrough6})
 	# Write to 2 separate CSV files
 	# One for the graph and one for the table
 	write_list_of_dicts_to_csv(kDurationTableFile, oneThrough6mins)
