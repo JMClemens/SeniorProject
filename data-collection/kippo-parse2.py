@@ -19,6 +19,9 @@ kOtherCountriesFile = "kOtherC.csv"
 kDailyHitsFile = "kdailyhits.csv"
 kDurationFile = "kdur.csv"
 kDurationTableFile = "kdurbottom.csv"
+loginRatioFile = "kloginratio.csv"
+top10LoginFile = "kTop10Login.csv"
+
 
 sessionList = []
 
@@ -282,14 +285,61 @@ def getDurationInfo():
 	# One for the graph and one for the table
 	write_list_of_dicts_to_csv(kDurationTableFile, oneThrough6mins)
 	write_dict_to_csv(kDurationFile, ["Duration","Sessions"],freqDict)
-	
+
+
+def getLoginAttempts():
+		loginList = []
+		for item in sessionList:
+			loginList.append(item["LoginAttempts"])
+		
+		fixedList = []
+		for item in loginList:
+			if len(item) > 0:
+				for login in item:
+					fixedList.append(login)
+		
+		userPassList = []
+		numSucceded = 0
+		numFailed = 0
+		for item in fixedList:
+			mo = re.search(r'\[(.*)\]', item)
+			data = mo.group(1)
+			userPassList.append(data)
+			
+			if "succeeded" in item:
+				numSucceded = numSucceded + 1
+			elif "failed" in item:
+				numFailed = numFailed + 1
+			else:
+				"Unknown input - pass"
+				pass
+
+		loginFreq = Counter(userPassList) 
+		loginFreq = dict(loginFreq)
+		sortedLogins = OrderedDict(sorted(loginFreq.items(), key=lambda t: t[1], reverse=True))
+		
+		top10UserPass = []
+		counter = 0
+		
+		for key, value in sortedLogins.items():
+			if counter < 10:
+				entry = {"Login":key,"Frequency":value}
+				top10UserPass.append(entry)
+			else:
+				pass
+			counter = counter + 1
+		
+		failedSuccess = OrderedDict([("Succeeded",numSucceded),("Failed",numFailed)])
+		write_dict_to_csv(loginRatioFile, ["Login Status","Number of Logins"], failedSuccess)
+		write_list_of_dicts_to_csv(top10LoginFile, top10UserPass)
 	
 def selectAction(x):
 		if x == "-all":
 			parseAllLogs()
-			dailyActivityTotals()
-			countryFrequency()
-			getDurationInfo()
+		#	dailyActivityTotals()
+		#	countryFrequency()
+		#	getDurationInfo()
+			getLoginAttempts()
 			print "Kippo Logs Parsed"
 		elif x == "-today":
 			parseTodaysLog()
