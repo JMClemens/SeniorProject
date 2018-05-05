@@ -272,7 +272,7 @@ def getDurationInfo():
 	oneThrough6mins = []
 	for key,value in timeCounts.items():
 		if key == counter and counter <= 6:
-			oneThrough6mins.append({"Duration":key, "Sessions":value})
+			oneThrough6mins.append({"Session Duration (mins)":key, "Number of Sessions":value})
 		else:
 			pass
 		counter += 1			

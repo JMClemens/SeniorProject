@@ -1,4 +1,4 @@
-d3.text("../assets/data/kdur.csv", function(data) {
+d3.text("../assets/data/kdurbottom.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
                 var container = d3.select("#k-duration-table")
