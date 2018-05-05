@@ -143,7 +143,7 @@ d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error1, topo
 				
 					var kradius = d3.scale.sqrt()
 						.domain([0,freqMax])
-						.range([0,9]);
+						.range([0,11.5]);
 
 					// add circles to svg
 				svg.selectAll("k-circle")
