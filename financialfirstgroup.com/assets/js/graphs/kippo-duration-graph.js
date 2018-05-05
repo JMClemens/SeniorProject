@@ -1,13 +1,13 @@
 // Define the height/width of our svg and its margins
-var kdmargin = { top: 30, right: 10, bottom: 20, left: 40},
-    kcwidth = 500 - kdmargin.right - kdmargin.left,
+var kdmargin = { top: 30, right: 10, bottom: 40, left: 40},
+    kdwidth = 500 - kdmargin.right - kdmargin.left,
     kdheight = 400 - kdmargin.top - kdmargin.bottom;
 
 // Define svg    
 var durationGraph = d3.select("#k-duration-graph")
     .append("svg")
       .attr ({
-        "width": kcwidth + kdmargin.right + kdmargin.left,
+        "width": kdwidth + kdmargin.right + kdmargin.left,
         "height": kdheight + kdmargin.top + kdmargin.bottom
       })
     .append("g")
@@ -15,7 +15,7 @@ var durationGraph = d3.select("#k-duration-graph")
 
 // Define x and y scales
 var xDScale = d3.scale.ordinal()
-    .rangeBands([0,kcwidth], 0.2, 0.2);
+    .rangeBands([0,kdwidth], 0.2, 0.2);
 
 var yDScale = d3.scale.linear()
     .rangeRound([kdheight,0]);
@@ -31,7 +31,13 @@ var yDAxis = d3.svg.axis();
 d3.csv("../assets/data/kdur.csv", function(error, data) {
     
     if(error) console.log("Error: data not loaded");
-            
+    
+    data.forEach(function(d) {      
+      // + symbol convert from string representation of a number to an actual number
+      d.Sessions = +d.Sessions;
+      d.Duration = d.Duration;
+    });
+        
     // specify domains of x and y scales
     xDScale.domain(data.map(function(d) { return d.Duration }) );
     yDScale.domain([0,d3.max(data, function(d) { return d.Sessions; } )] );
