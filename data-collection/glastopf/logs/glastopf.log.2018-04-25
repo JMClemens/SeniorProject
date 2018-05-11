@@ -1,0 +1,28 @@
+2018-04-25 06:50:11,252 (glastopf.glastopf) 107.170.224.166 requested GET / on financialfirstgroup.com:80
+2018-04-25 07:00:19,919 (glastopf.glastopf) 209.126.136.4 requested GET / on financialfirstgroup.com:80
+2018-04-25 07:38:01,289 (glastopf.glastopf) 107.170.195.156 requested GET / on financialfirstgroup.com:80
+2018-04-25 08:05:21,137 (glastopf.glastopf) 31.184.193.154 requested GET / on financialfirstgroup.com:80
+2018-04-25 08:53:57,215 (glastopf.glastopf) 5.101.47.214 requested GET /w00tw00t.at.blackhats.romanian.anti-sec:) on financialfirstgroup.com:80
+2018-04-25 08:53:58,301 (glastopf.glastopf) 5.101.47.214 requested GET /phpMyAdmin/scripts/setup.php on financialfirstgroup.com:80
+2018-04-25 10:50:19,879 (glastopf.glastopf) 125.212.217.215 requested GET / on financialfirstgroup.com:80
+2018-04-25 11:30:50,695 (glastopf.glastopf) 66.249.83.77 requested GET / on financialfirstgroup.com:80
+2018-04-25 11:30:51,357 (glastopf.glastopf) 66.249.83.76 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-04-25 14:15:51,310 (glastopf.glastopf) 180.97.106.163 requested HEAD http://180.163.113.82/check_proxy on financialfirstgroup.com:80
+2018-04-25 15:00:18,989 (glastopf.glastopf) 217.115.86.6 requested POST /wls-wsat/CoordinatorPortType on financialfirstgroup.com:80
+2018-04-25 16:54:04,962 (glastopf.glastopf) Initializing Glastopf 3.1.3-dev using "/home/jmc/glastopf/financialfirstgroup" as work directory.
+2018-04-25 16:54:06,922 (glastopf.glastopf) Connecting to main database with: sqlite:///db/glastopf.db
+2018-04-25 16:54:08,334 (glastopf.glastopf) Glastopf started and privileges dropped.
+2018-04-25 17:20:06,372 (glastopf.glastopf) 76.100.27.231 requested GET / on financialfirstgroup.com:80
+2018-04-25 17:20:09,156 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-04-25 17:20:11,681 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-04-25 17:30:42,140 (glastopf.glastopf) 76.100.27.231 requested GET / on financialfirstgroup.com:80
+2018-04-25 17:30:43,591 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-04-25 17:30:45,580 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-04-25 17:30:47,376 (glastopf.glastopf) 76.100.27.231 requested POST /index on financialfirstgroup.com:80
+2018-04-25 17:30:48,628 (glastopf.glastopf) 76.100.27.231 requested GET /style.css on financialfirstgroup.com:80
+2018-04-25 17:30:52,280 (glastopf.glastopf) 31.184.193.154 requested GET / on financialfirstgroup.com:80
+2018-04-25 17:30:52,288 (glastopf.glastopf) 76.100.27.231 requested GET /favicon.ico on financialfirstgroup.com:80
+2018-04-25 17:39:47,340 (glastopf.glastopf) 150.109.48.144 requested GET /CHANGELOG.txt on financialfirstgroup.com:80
+2018-04-25 20:15:16,311 (glastopf.glastopf) 189.59.85.250 requested GET / on financialfirstgroup.com:80
+2018-04-25 20:15:19,224 (glastopf.glastopf) 189.59.85.250 requested GET /HNAP1/ on financialfirstgroup.com:80
+2018-04-25 23:51:16,508 (glastopf.glastopf) 164.52.24.140 requested GET / on financialfirstgroup.com:80

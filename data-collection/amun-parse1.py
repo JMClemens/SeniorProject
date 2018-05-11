@@ -64,9 +64,13 @@ def parseLog(fileName):
 				timeStamp = secondGroup[0]
 				statusCode = secondGroup[1]
 				ip = re.findall( r'[0-9]+(?:\.[0-9]+){3}', line)
-				ipAddr = ip[0]
-				#ipAddr = ''.join(c for c in ipAddr if c not in '()')
-				countryName = gip.country_name_by_addr(ipAddr)
+				if ip:
+					ipAddr = ip.pop(0)
+					ipAddr = ''.join(c for c in ipAddr if c not in '()')
+					countryName = gip.country_name_by_addr(ipAddr)
+				else:
+					ipAddr = 'none'
+					countryName = "Unknown"
 				
 				if "EternalBlue" in line:
 					activity = "EternalBlue SMB Vulnerability"

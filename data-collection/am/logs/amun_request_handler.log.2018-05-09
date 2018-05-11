@@ -1,0 +1,1 @@
+2018-05-08 19:20:26,713 INFO [amun_request_handler] unknown vuln (Attacker: 77.72.83.153 Port: 33369, Mess: ['\x03\x00\x00/*\xe0\x00\x00\x00\x00\x00Cookie: mstshash=Administr\r\n\x01\x00\x08\x00\x03\x00\x00\x00'] (47) Stages: [])

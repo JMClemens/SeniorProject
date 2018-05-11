@@ -1,0 +1,10 @@
+2018-04-22 04:25:59,863 INFO [vuln_ftpd] Attacker: 80.82.77.139 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE1
+2018-04-22 04:25:59,995 INFO [vuln_ftpd] Attacker: 80.82.77.139 Message: ['PASS anonymous@\r\n'] Bytes: 17 Stage: FTPD_STAGE1
+2018-04-22 04:26:00,133 INFO [vuln_ftpd] Attacker: 80.82.77.139 Message: ['HELP\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-22 04:26:00,259 INFO [vuln_ftpd] Attacker: 80.82.77.139 Message: ['FEAT\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-22 07:33:41,405 INFO [vuln_ftpd] Attacker: 112.10.23.25 Message: ['USER Admin\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-04-22 07:33:41,947 INFO [vuln_ftpd] Attacker: 112.10.23.25 Message: ['PASS 111111\r\n'] Bytes: 13 Stage: FTPD_STAGE1
+2018-04-22 07:33:42,445 INFO [vuln_ftpd] Attacker: 112.10.23.25 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
+2018-04-22 14:25:01,933 INFO [vuln_ftpd] Attacker: 94.49.140.1 Message: ['USER admin\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-04-22 14:25:02,295 INFO [vuln_ftpd] Attacker: 94.49.140.1 Message: ['PASS Admin\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-04-22 14:25:02,660 INFO [vuln_ftpd] Attacker: 94.49.140.1 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2

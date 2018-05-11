@@ -1,0 +1,4 @@
+2018-04-09 14:47:14,043 INFO [vuln_ftpd] Attacker: 196.52.43.54 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-04-09 23:59:34,937 INFO [vuln_ftpd] Attacker: 175.101.26.93 Message: ['USER admin\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-04-09 23:59:35,184 INFO [vuln_ftpd] Attacker: 175.101.26.93 Message: ['PASS devry\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-04-09 23:59:35,432 INFO [vuln_ftpd] Attacker: 175.101.26.93 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2

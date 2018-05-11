@@ -1,0 +1,17 @@
+2018-04-18 03:53:04,529 INFO [vuln_ftpd] Attacker: 111.230.107.87 Message: ['USER ftp\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-04-18 03:53:04,779 INFO [vuln_ftpd] Attacker: 111.230.107.87 Message: ['PASS 123qwe\r\n'] Bytes: 13 Stage: FTPD_STAGE1
+2018-04-18 03:53:04,982 INFO [vuln_ftpd] Attacker: 111.230.107.87 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
+2018-04-18 08:18:53,649 INFO [vuln_ftpd] Attacker: 80.82.77.33 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE1
+2018-04-18 08:18:54,010 INFO [vuln_ftpd] Attacker: 80.82.77.33 Message: ['PASS anonymous@\r\n'] Bytes: 17 Stage: FTPD_STAGE1
+2018-04-18 08:18:54,267 INFO [vuln_ftpd] Attacker: 80.82.77.33 Message: ['HELP\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-18 08:18:54,632 INFO [vuln_ftpd] Attacker: 80.82.77.33 Message: ['FEAT\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-18 09:14:20,454 INFO [vuln_ftpd] Attacker: 103.24.127.98 Message: ['USER root\r\n'] Bytes: 11 Stage: FTPD_STAGE1
+2018-04-18 09:14:20,735 INFO [vuln_ftpd] Attacker: 103.24.127.98 Message: ['PASS 999999\r\n'] Bytes: 13 Stage: FTPD_STAGE1
+2018-04-18 09:14:21,030 INFO [vuln_ftpd] Attacker: 103.24.127.98 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
+2018-04-18 15:08:34,187 INFO [vuln_ftpd] Attacker: 196.52.43.126 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-04-18 15:59:09,168 INFO [vuln_ftpd] Attacker: 94.23.13.194 Message: ['feat\r\n'] Bytes: 6 Stage: FTPD_STAGE1
+2018-04-18 15:59:09,283 INFO [vuln_ftpd] Attacker: 94.23.13.194 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE2
+2018-04-18 18:16:19,963 INFO [vuln_ftpd] Attacker: 71.6.146.185 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE1
+2018-04-18 18:16:20,004 INFO [vuln_ftpd] Attacker: 71.6.146.185 Message: ['PASS anonymous@\r\n'] Bytes: 17 Stage: FTPD_STAGE1
+2018-04-18 18:16:20,044 INFO [vuln_ftpd] Attacker: 71.6.146.185 Message: ['HELP\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-18 18:16:20,141 INFO [vuln_ftpd] Attacker: 71.6.146.185 Message: ['FEAT\r\n'] Bytes: 6 Stage: FTPD_STAGE2

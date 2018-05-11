@@ -1,0 +1,2 @@
+2018-04-12 08:46:26,510 INFO [vuln_ftpd] Attacker: 80.82.70.118 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-04-12 15:25:14,336 INFO [vuln_ftpd] Attacker: 196.52.43.109 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1

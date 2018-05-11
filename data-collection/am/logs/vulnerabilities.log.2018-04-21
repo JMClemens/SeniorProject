@@ -1,0 +1,8 @@
+2018-04-21 10:54:35,501 INFO [vuln_ftpd] Attacker: 222.186.58.108 Message: ['FEAT\r\n'] Bytes: 6 Stage: FTPD_STAGE1
+2018-04-21 10:54:35,758 INFO [vuln_ftpd] Attacker: 222.186.58.108 Message: ['USER ftpuser\r\n'] Bytes: 14 Stage: FTPD_STAGE2
+2018-04-21 10:54:36,026 INFO [vuln_ftpd] Attacker: 222.186.58.108 Message: ['QUIT\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-21 12:02:57,392 INFO [vuln_ftpd] Attacker: 222.186.58.108 Message: ['FEAT\r\n'] Bytes: 6 Stage: FTPD_STAGE1
+2018-04-21 12:02:57,647 INFO [vuln_ftpd] Attacker: 222.186.58.108 Message: ['USER ftpuser\r\n'] Bytes: 14 Stage: FTPD_STAGE2
+2018-04-21 12:02:57,902 INFO [vuln_ftpd] Attacker: 222.186.58.108 Message: ['QUIT\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-04-21 14:01:37,161 INFO [vuln_ftpd] Attacker: 196.52.43.117 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-04-21 18:24:04,948 INFO [vuln_check] CHECK (178.73.215.171) Incoming: ÿýÿûÿûÿû ÿû!ÿû"ÿû'ÿýÿû# (Bytes: 27)

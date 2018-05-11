@@ -1,0 +1,4 @@
+2018-04-11 16:06:01,083 INFO [vuln_ftpd] Attacker: 157.49.163.135 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE1
+2018-04-11 16:06:01,863 INFO [vuln_ftpd] Attacker: 157.49.163.135 Message: ['PASS qwerty\r\n'] Bytes: 13 Stage: FTPD_STAGE1
+2018-04-11 16:06:02,184 INFO [vuln_ftpd] Attacker: 157.49.163.135 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
+2018-04-11 19:57:16,615 INFO [vuln_ftpd] Attacker: 196.52.43.96 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1

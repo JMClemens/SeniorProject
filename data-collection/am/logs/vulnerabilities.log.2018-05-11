@@ -1,0 +1,6 @@
+2018-05-11 00:21:52,688 INFO [vuln_ftpd] Attacker: 49.174.38.47 Message: ['USER Admin\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-05-11 00:21:52,866 INFO [vuln_ftpd] Attacker: 49.174.38.47 Message: ['PASS 12345\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-05-11 00:21:53,044 INFO [vuln_ftpd] Attacker: 49.174.38.47 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
+2018-05-11 02:02:02,593 INFO [vuln_ftpd] Attacker: 37.212.72.44 Message: ['USER ftp\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-05-11 02:02:02,762 INFO [vuln_ftpd] Attacker: 37.212.72.44 Message: ['PASS 4SweetCandy1\r\n'] Bytes: 19 Stage: FTPD_STAGE1
+2018-05-11 02:02:02,929 INFO [vuln_ftpd] Attacker: 37.212.72.44 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2

@@ -208,6 +208,21 @@ def resourceFrequency():
 	resourceList = []
 	for item in activityList:
 		resourceList.append(item["Resource"])
+		
+	xssList = []
+	fileInclusionList = []
+		
+	for item in resourceList:
+		if 'index.html' in item  or 'favicon.ico' in item  or 'style.css' in item  or 'index.php' in item:
+			pass
+		elif "SELECT" in item or "UNION" in item or "WHERE" in item or "ALL" in item or "BOOLEAN" in item or "NULL" in item:
+			xssList.append(item)
+		elif ".php" or ".html" not in item:
+			fileInclusionList.append(item)
+
+	print "XSS" + str(len(xssList))
+	print "FI" + str(len(fileInclusionList))
+	
 	resourceFrequency = Counter(resourceList)
 	resourceFrequency = dict(resourceFrequency)
 	newResourceList = []

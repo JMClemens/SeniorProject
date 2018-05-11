@@ -1,0 +1,10 @@
+2018-05-04 02:44:18,689 INFO [vuln_ftpd] Attacker: 93.174.95.106 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE1
+2018-05-04 02:44:18,854 INFO [vuln_ftpd] Attacker: 93.174.95.106 Message: ['PASS anonymous@\r\n'] Bytes: 17 Stage: FTPD_STAGE1
+2018-05-04 02:44:19,154 INFO [vuln_ftpd] Attacker: 93.174.95.106 Message: ['HELP\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-05-04 02:44:19,378 INFO [vuln_ftpd] Attacker: 93.174.95.106 Message: ['FEAT\r\n'] Bytes: 6 Stage: FTPD_STAGE2
+2018-05-04 10:56:07,916 INFO [vuln_ftpd] Attacker: 31.173.242.211 Message: ['USER anonymous\r\n'] Bytes: 16 Stage: FTPD_STAGE1
+2018-05-04 10:56:08,303 INFO [vuln_ftpd] Attacker: 31.173.242.211 Message: ['PASS test\r\n'] Bytes: 11 Stage: FTPD_STAGE1
+2018-05-04 10:56:08,723 INFO [vuln_ftpd] Attacker: 31.173.242.211 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
+2018-05-04 14:35:57,034 INFO [vuln_ftpd] Attacker: 196.52.43.118 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-05-04 17:56:49,960 INFO [vuln_ftpd] Attacker: 196.52.43.96 Message: ['AUTH TLS\r\n'] Bytes: 10 Stage: FTPD_STAGE1
+2018-05-04 17:56:50,095 INFO [vuln_ftpd] Attacker: 196.52.43.96 Message: ['AUTH SSL\r\n'] Bytes: 10 Stage: FTPD_STAGE2

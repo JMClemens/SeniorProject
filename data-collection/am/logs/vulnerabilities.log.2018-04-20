@@ -1,0 +1,3 @@
+2018-04-20 23:50:52,568 INFO [vuln_ftpd] Attacker: 178.170.180.249 Message: ['USER www-data\r\n'] Bytes: 15 Stage: FTPD_STAGE1
+2018-04-20 23:50:55,131 INFO [vuln_ftpd] Attacker: 178.170.180.249 Message: ['PASS \r\n'] Bytes: 7 Stage: FTPD_STAGE1
+2018-04-20 23:50:56,780 INFO [vuln_ftpd] Attacker: 178.170.180.249 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2

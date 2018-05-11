@@ -1,0 +1,3 @@
+2018-04-30 02:04:11,776 INFO [vuln_ftpd] Attacker: 59.95.243.70 Message: ['USER admin\r\n'] Bytes: 12 Stage: FTPD_STAGE1
+2018-04-30 02:04:12,173 INFO [vuln_ftpd] Attacker: 59.95.243.70 Message: ['PASS abcd1234\r\n'] Bytes: 15 Stage: FTPD_STAGE1
+2018-04-30 02:04:12,652 INFO [vuln_ftpd] Attacker: 59.95.243.70 Message: ['TYPE A\r\n'] Bytes: 8 Stage: FTPD_STAGE2
