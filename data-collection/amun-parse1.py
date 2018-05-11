@@ -3,6 +3,8 @@ import getCenterCords as g
 import csv
 from collections import Counter
 from collections import OrderedDict
+from collections import defaultdict
+from itertools import groupby
 import os
 import re
 import datetime
@@ -55,7 +57,6 @@ def getAllLogs():
 def parseLog(fileName):
 	with open(fileName, "r") as file:
 		if "shellcode" in fileName:
-			print "Shellcode manager parsing..."
 			for line in file:
 				contents = line.split()
 				date = contents[0]
@@ -66,10 +67,21 @@ def parseLog(fileName):
 				ipAddr = ip[0]
 				#ipAddr = ''.join(c for c in ipAddr if c not in '()')
 				countryName = gip.country_name_by_addr(ipAddr)
-				entry = {'Date':date, "Timestamp":timeStamp, "StatusCode":statusCode, "IP":ipAddr, "Country":countryName, "Port":"443"}
+				
+				if "EternalBlue" in line:
+					activity = "EternalBlue SMB Vulnerability"
+				elif "IIS Vulnerability" in line:
+					activity = "Microsoft IIS Vulnerability"
+				elif "Unknown" in line:
+					activity = "Unknown"
+				elif "PortScan" in line:
+					activity = "PortScan"
+				else:
+					activity = "unclassified"
+				
+				entry = {'Date':date, "Timestamp":timeStamp, "StatusCode":statusCode, "IP":ipAddr, "Country":countryName, "Port":"443","Activity":activity}
 				shellCodeActivity.append(entry)
 		elif "request" in fileName:
-			print "Request handler parsing..."
 			pattern = '(?P<port>[0-9]*).*'
 			for line in file:
 				match = re.search(r"Port:\s[0-9]+", line)
@@ -93,11 +105,24 @@ def parseLog(fileName):
 				countryName = gip.country_name_by_addr(ipAddr)
 				if countryName == '':
 					countryName = "Unknown"
-				entry = {"Port":port,"IP":ipAddr,"Date":dateStamp,"Timestamp":timeStamp,"Status Code":statusCode,"Country":countryName}
+				
+				checkStages= re.search(r'Stages: \[(.*)\]', line)
+				if checkStages:
+					str = checkStages.group(0)
+					activity = re.findall(r'\[(.*)\]', str)[0]
+					activity = activity.replace("\'", "")
+					activity = activity.strip("\"")
+				elif "PortScan" in line:
+					activity = "PortScan"
+				else:
+					activity = "unclassified"
+				
+				
+				entry = {"Port":port,"IP":ipAddr,"Date":dateStamp,"Timestamp":timeStamp,"Status Code":statusCode,"Country":countryName,"Activity":activity}
 				requestHandlerActivity.append(entry)
 		elif "vulnerabilities" in fileName:
 			# commands for parsing vulnerabilities logs
-			print "Vulnerabilities log parsing..."
+			pass
 		else:
 			print "Unable to process log " + fileName
 			pass
@@ -275,12 +300,38 @@ def portTotals():
 		newPortList.append(entry)
 	write_list_of_dicts_to_csv(aPortCounts,newPortList)	
 
+def canonicalize_dict(x):
+    "Return a (key, value) list sorted by the hash of the key"
+    return sorted(x.items(), key=lambda x: hash(x[0]))
+
+def unique_and_count(lst):
+    "Return a list of unique dicts with a 'count' key added"
+    grouper = groupby(sorted(map(canonicalize_dict, lst)))
+    return [dict(k + [("count", len(list(g)))]) for k, g in grouper]	
+	
+def portActivities():
+	activityList = []
+	for item in shellCodeActivity:
+		activityList.append({"Port":item["Port"],"Activity":item["Activity"]})
+	for item in requestHandlerActivity:
+		activityList.append({"Port":item["Port"],"Activity":item["Activity"]})
+	activities = unique_and_count(activityList)
+	for item in activities:
+		print item
+	
+	act = defaultdict(list)
+	for d in activities:
+		for key, value in d.iteritems():
+			act[key].append(value)
+			
+	
 def selectAction(x):
 		if x == "-all":
 			parseAllLogs()
 			countryFrequency()
 			dailyActivityTotals()
 			portTotals()
+			portActivities()
 			print "Amun Logs Parsed"
 		elif x == "-today":
 			parseTodaysLog()

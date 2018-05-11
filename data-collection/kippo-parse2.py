@@ -292,11 +292,17 @@ def getLoginAttempts():
 		for item in sessionList:
 			loginList.append(item["LoginAttempts"])
 		
+		print "Login List"
+		print loginList
+		
 		fixedList = []
 		for item in loginList:
 			if len(item) > 0:
 				for login in item:
 					fixedList.append(login)
+		
+		print 'Fixed list'
+		print fixedList
 		
 		userPassList = []
 		numSucceded = 0
@@ -346,7 +352,7 @@ def selectAction(x):
 			dailyActivityTotals()
 			countryFrequency()
 			getDurationInfo()
-			getLoginAttempts()
+			#getLoginAttempts()
 			print "Current Kippo Log Parsed"
 		else:
 			pass
